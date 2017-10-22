@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 80ef69cd52bc4cc4d883c5d9425d3314
 timeCreated: 1508643000
 licenseType: Free
@@ -7,6 +8,13 @@ TextureImporter:
     21300000: Crates_0
     21300002: Crates_1
     21300004: Crates_2
+=======
+guid: fb02ea34096a74256a84bfb8adda71de
+timeCreated: 1508643100
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName: {}
+>>>>>>> c855fd622b30ab3b25703ef8750cdad2ec108024
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -43,7 +51,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 2
+=======
+  spriteMode: 1
+>>>>>>> c855fd622b30ab3b25703ef8750cdad2ec108024
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -68,6 +80,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD
   - buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -149,6 +162,11 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+=======
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+>>>>>>> c855fd622b30ab3b25703ef8750cdad2ec108024
     outline: []
     physicsShape: []
   spritePackingTag: 

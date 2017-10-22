@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 5c2b1d2325cfda64090762d93f2e460f
 timeCreated: 1508641752
 licenseType: Free
@@ -11,12 +12,17 @@ TextureImporter:
     21300006: Platforms_3
     21300008: Platforms_4
 =======
+=======
+>>>>>>> c855fd622b30ab3b25703ef8750cdad2ec108024
 guid: 5824dbee744a04c1194d6f8126e00e1a
 timeCreated: 1508641704
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
+<<<<<<< HEAD
 >>>>>>> d0a5982a104957ea36d507ad35ccfaef53ba79be
+=======
+>>>>>>> c855fd622b30ab3b25703ef8750cdad2ec108024
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -54,10 +60,14 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
 <<<<<<< HEAD
+<<<<<<< HEAD
   spriteMode: 2
 =======
   spriteMode: 1
 >>>>>>> d0a5982a104957ea36d507ad35ccfaef53ba79be
+=======
+  spriteMode: 1
+>>>>>>> c855fd622b30ab3b25703ef8750cdad2ec108024
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -82,6 +92,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
   - buildTarget: Standalone
     maxTextureSize: 2048
@@ -197,6 +208,11 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
 >>>>>>> d0a5982a104957ea36d507ad35ccfaef53ba79be
+=======
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+>>>>>>> c855fd622b30ab3b25703ef8750cdad2ec108024
     outline: []
     physicsShape: []
   spritePackingTag: 

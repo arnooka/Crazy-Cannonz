@@ -1,7 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 5c2b1d2325cfda64090762d93f2e460f
-timeCreated: 1508641752
+guid: ce0f18159ce9c484eb79f61d128552f5
+timeCreated: 1508643960
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,13 +9,6 @@ TextureImporter:
     21300004: Platforms_2
     21300006: Platforms_3
     21300008: Platforms_4
-=======
-guid: 5824dbee744a04c1194d6f8126e00e1a
-timeCreated: 1508641704
-licenseType: Free
-TextureImporter:
-  fileIDToRecycleName: {}
->>>>>>> d0a5982a104957ea36d507ad35ccfaef53ba79be
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -53,11 +45,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
   spriteMode: 2
-=======
-  spriteMode: 1
->>>>>>> d0a5982a104957ea36d507ad35ccfaef53ba79be
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -82,7 +70,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-<<<<<<< HEAD
   - buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -93,15 +80,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: tvOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -192,11 +170,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
-=======
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
->>>>>>> d0a5982a104957ea36d507ad35ccfaef53ba79be
     outline: []
     physicsShape: []
   spritePackingTag: 

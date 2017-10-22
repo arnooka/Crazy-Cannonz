@@ -1,14 +1,14 @@
 fileFormatVersion: 2
 guid: ce0f18159ce9c484eb79f61d128552f5
-timeCreated: 1508643960
+timeCreated: 1508646237
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Platforms_0
-    21300002: Platforms_1
-    21300004: Platforms_2
-    21300006: Platforms_3
-    21300008: Platforms_4
+    21300000: 500
+    21300002: 400
+    21300004: 200
+    21300006: 250
+    21300008: 150
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -101,7 +101,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Platforms_0
+      name: 500
       rect:
         serializedVersion: 2
         x: 8
@@ -109,13 +109,13 @@ TextureImporter:
         width: 500
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Platforms_1
+      name: 400
       rect:
         serializedVersion: 2
         x: 7
@@ -123,13 +123,13 @@ TextureImporter:
         width: 400
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Platforms_2
+      name: 200
       rect:
         serializedVersion: 2
         x: 463
@@ -137,13 +137,13 @@ TextureImporter:
         width: 200
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Platforms_3
+      name: 250
       rect:
         serializedVersion: 2
         x: 7
@@ -151,13 +151,13 @@ TextureImporter:
         width: 250
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Platforms_4
+      name: 150
       rect:
         serializedVersion: 2
         x: 354
@@ -165,7 +165,7 @@ TextureImporter:
         width: 150
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

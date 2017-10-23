@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: bc1e237ccffa3ab449b960651cc82051
-timeCreated: 1508699893
+timeCreated: 1508725336
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,8 @@ TextureImporter:
     21300014: Blue Cannon Walk 4
     21300016: Blue Cannon Crouched
     21300018: Blue Cannon Aim Up
+    21300020: Blue Cannon Crouch
+    21300022: Blue Cannon Jump
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -227,7 +229,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Blue Cannon Crouched
+      name: Blue Cannon Crouch
       rect:
         serializedVersion: 2
         x: 4
@@ -244,9 +246,23 @@ TextureImporter:
       name: Blue Cannon Aim Up
       rect:
         serializedVersion: 2
-        x: 45
+        x: 44
         y: 10
         width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blue Cannon Jump
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 10
+        width: 28
         height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

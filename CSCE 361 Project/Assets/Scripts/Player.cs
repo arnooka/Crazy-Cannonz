@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
     private bool HasProjectile;
 
     private bool Grounded;
+    private bool Crouch;
     private bool Jump;
 
     // Use this for initialization
@@ -47,7 +48,11 @@ public class Player : MonoBehaviour {
     private void Movement (float Horizontal) {
         // Set player x velocity
         player.velocity = new Vector2(MovementSpeed * Horizontal, player.velocity.y);
-        
+
+        if (Grounded && Crouch) {
+            player.velocity = Vector2.zero;
+        }
+
         // Set player y velocity (jumping)
         if (Grounded && Jump) {
             Grounded = false;
@@ -63,6 +68,14 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0")) {
             Jump = true;
             animator.SetBool("Jump", true);
+        }
+
+        // Crouch Input (S Key, Down Arrow Key, or Left Joystick Down)
+        Crouch = Input.GetAxis("Vertical") < 0;
+        if (Crouch) {
+            animator.SetBool("Crouch", true);
+        } else {
+            animator.SetBool("Crouch", false);
         }
 
         // Fire Input (Left Shift or X Button on Xbox Controllers)
@@ -98,9 +111,9 @@ public class Player : MonoBehaviour {
     private bool IsGrounded () {
         if (player.velocity.y <= 0) {
             foreach (Transform Point in GroundPoints) {
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(Point.position, GroundRadius, WhatIsGround);
-                for (int i = 0; i < colliders.Length; i++) {
-                    if (colliders[i].gameObject != gameObject) {
+                Collider2D[] Colliders = Physics2D.OverlapCircleAll(Point.position, GroundRadius, WhatIsGround);
+                for (int i = 0; i < Colliders.Length; i++) {
+                    if (Colliders[i].gameObject != gameObject) {
                         animator.SetBool("Jump", false);
                         return true;
                     }

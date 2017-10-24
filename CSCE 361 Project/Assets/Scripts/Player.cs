@@ -10,13 +10,16 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	private float MovementSpeed;
 	[SerializeField]
+	private float JumpForce;
+	[SerializeField]
 	private Transform[] GroundPoints;
 	[SerializeField]
 	private float GroundRadius;
 	[SerializeField]
-	private float JumpForce;
-	[SerializeField]
 	private LayerMask WhatIsGround;
+	[SerializeField]
+	private PolygonCollider2D[] colliders;
+	private int currentColliderIndex = 0;
 	
 	private bool FacingRight;
 	private bool HasProjectile;
@@ -24,8 +27,7 @@ public class Player : MonoBehaviour {
 	private bool Grounded;
 	private bool Crouch;
 	private bool Jump;
-
-	public Vector2 temp;
+	private bool JoystickDown;
 	
 	// Use this for initialization
 	void Start () {
@@ -36,12 +38,13 @@ public class Player : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		float Horizontal = Input.GetAxis("Horizontal");
+		float Horizontal = Input.GetAxisRaw("Horizontal");
 		
 		Grounded = IsGrounded();
 		PlayerInput();
 		Movement(Horizontal);
 		Flip(Horizontal);
+		
 		
 		//ResetValues();
 	}
@@ -76,17 +79,17 @@ public class Player : MonoBehaviour {
 			Jump = true;
 			CannonAnimator.SetBool("Jump", true);
 		}
-		
+
 		// Crouch Input (S Key, Down Arrow Key, or Left Joystick Down)
-		Crouch = Input.GetAxis("Vertical") < 0;
+		Crouch = Input.GetAxisRaw("Vertical") < -0.5;
 		if (Crouch) {
 			CannonAnimator.SetBool("Crouch", true);
 		} else {
 			CannonAnimator.SetBool("Crouch", false);
 		}
 		
-		// Fire Input (Left Shift or X Button on Xbox Controllers)
-		if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown("joystick button 2")) {
+		// Fire Input (F Key or X Button on Xbox Controllers)
+		if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown("joystick button 2")) {
 			if (HasProjectile) {
 				/* TODO: 
 				 *		- Instantiate projectile from prefabs
@@ -129,6 +132,12 @@ public class Player : MonoBehaviour {
 			}
 		}
 		return false;
+	}
+
+	public void SetSpriteCollider (int colliderNumber) {
+		colliders[currentColliderIndex].enabled = false;
+		currentColliderIndex = colliderNumber;
+		colliders[currentColliderIndex].enabled = true;
 	}
 	
 	private void ResetValues () {

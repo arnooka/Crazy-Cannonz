@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour {
 	public AudioSource musicSource;
 	public float lowPitchVariation = .9f;
 	public float highPitchVariation = 1.1f;
+	public AudioClip[] gamePlayClips;
 
 
 	// Use this for initialization

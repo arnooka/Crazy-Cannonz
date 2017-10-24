@@ -92,7 +92,7 @@ public class PlayerScript : MonoBehaviour {
 		
 		// Fire Input (F Key or X Button on Xbox Controllers)
 		if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown("joystick button 2")) {
-			if (HasProjectile) {
+			if (HasProjectile && projectile != null) {
 				/* TODO: 
 				 *		- Instantiate projectile from prefabs
 				 *		- Fire projectile in forward direction

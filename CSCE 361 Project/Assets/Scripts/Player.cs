@@ -87,8 +87,14 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown("joystick button 2")) {
 			if (HasProjectile) {
 				/* TODO: 
+				 *		- Instantiate projectile from prefabs
 				 *		- Fire projectile in forward direction
 				 */
+				if (CrazyCannon.transform.localScale.x < 0) {
+					// Instantiate projectile to the left
+				} else {
+					// Instantiate projectile to the right
+				}
 				HasProjectile = false;
 			}
 			Debug.Log("Projectile Fired!");

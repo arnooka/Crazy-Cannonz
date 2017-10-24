@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+  - Cannon
+  - Crate_0
+  - Crate_1
+  - Crate_2
   layers:
   - Default
   - TransparentFX

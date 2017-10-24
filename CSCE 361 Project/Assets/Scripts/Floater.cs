@@ -22,8 +22,18 @@ public class Floater : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D col) {
-		if (col.gameObject.tag == "Player") {
-			Destroy(this.gameObject);
+		if (col.gameObject.tag == "Player"){
+			if (!col.gameObject.GetComponent<PlayerScript>().HasProjectile) {
+				if (this.gameObject.tag == "Crate_0") {
+
+				} else if (this.gameObject.tag == "Crate_1") {
+
+				} else if (this.gameObject.tag == "Crate_2") {
+
+				}
+				col.gameObject.GetComponent<PlayerScript>().HasProjectile = true;
+				Destroy (this.gameObject);
+			}
 		}
 	}
 }

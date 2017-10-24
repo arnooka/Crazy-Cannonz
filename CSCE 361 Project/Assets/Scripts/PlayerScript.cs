@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
-	
+public class PlayerScript : MonoBehaviour {
+
+	public GameObject projectile;
+
 	private Rigidbody2D CrazyCannon;
 	private Animator CannonAnimator;
 	
@@ -22,7 +24,7 @@ public class Player : MonoBehaviour {
 	private int currentColliderIndex = 0;
 	
 	private bool FacingRight;
-	private bool HasProjectile;
+	public bool HasProjectile;
 	
 	private bool Grounded;
 	private bool Crouch;
@@ -142,6 +144,5 @@ public class Player : MonoBehaviour {
 	
 	private void ResetValues () {
 		Jump = false;
-	}
-		
+	}		
 }

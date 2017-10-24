@@ -134,4 +134,9 @@ public class Player : MonoBehaviour {
 	private void ResetValues () {
 		Jump = false;
 	}
+
+	private void OnTriggerEnter(Collider collision)
+	{
+		Destroy (collision.gameObject);
+	}
 }

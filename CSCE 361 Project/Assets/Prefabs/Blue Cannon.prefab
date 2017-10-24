@@ -159,7 +159,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1824831961335766}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 84dd9891448bb47e3bb873919760efd8, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -228,6 +228,7 @@ MonoBehaviour:
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
+  temp: {x: 0, y: 0}
 --- !u!212 &212565155277411988
 SpriteRenderer:
   m_ObjectHideFlags: 1

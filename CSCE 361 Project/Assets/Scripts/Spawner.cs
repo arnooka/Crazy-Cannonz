@@ -8,18 +8,25 @@ public class Spawner : MonoBehaviour
 	public GameObject[] whatToSpawnPrefab;
 	public GameObject[] whatToSpawnClone;
 
+	public int currentLocation;
+
+	public int maxTime = 8;
+	public int minTime = 2;
+	public int spawnTime;
+
+
 	void Start()
 	{
-		spawnCrate ();
+		Invoke("SpawnCrate", 3);
+	}
+		
+	void SpawnCrate()
+	{
+		CancelInvoke ();
+		currentLocation = Random.Range (0, spawnLocations.Length);
+		whatToSpawnClone [currentLocation] = Instantiate (whatToSpawnPrefab [currentLocation], spawnLocations [currentLocation].transform.position, Quaternion.Euler (0, 0, 0));
+		Invoke ("SpawnCrate", Random.Range (minTime, maxTime));
 	}
 		
 
-	void spawnCrate() 
-	{
-		whatToSpawnClone [0] = Instantiate (whatToSpawnPrefab [0], spawnLocations [0].transform.position, Quaternion.Euler (0, 0, 0));
-		whatToSpawnClone [1] = Instantiate (whatToSpawnPrefab [1], spawnLocations [1].transform.position, Quaternion.Euler (0, 0, 0));
-		whatToSpawnClone [2] = Instantiate (whatToSpawnPrefab [2], spawnLocations [2].transform.position, Quaternion.Euler (0, 0, 0));
-
-
-}
 }

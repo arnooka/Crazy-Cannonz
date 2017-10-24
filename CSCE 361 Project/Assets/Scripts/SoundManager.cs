@@ -9,7 +9,8 @@ public class SoundManager : MonoBehaviour {
 	public AudioSource musicSource;
 	public float lowPitchVariation = .9f;
 	public float highPitchVariation = 1.1f;
-	public AudioClip[] gamePlayClips;
+	public AudioClip[] musicClips;
+	public static bool isMusic;
 
 
 	// Use this for initialization
@@ -35,4 +36,15 @@ public class SoundManager : MonoBehaviour {
 
 		EFXSource.Play ();
 	}
+
+	public void Update() {
+		if (!musicSource.isPlaying) {
+			AudioClip clip = musicSource.clip;
+			while (musicSource.clip == clip) {
+				musicSource.clip = musicClips[Random.Range(0, musicClips.Length)];
+			}
+			musicSource.Play ();
+		}
+	}
+
 }

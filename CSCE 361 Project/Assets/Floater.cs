@@ -20,4 +20,10 @@ public class Floater : MonoBehaviour {
 
 		transform.position = tempPos;
 	}
+
+	void OnCollisionEnter2D (Collision2D col) {
+		if (col.gameObject.tag == "Player") {
+			Destroy(this.gameObject);
+		}
+	}
 }

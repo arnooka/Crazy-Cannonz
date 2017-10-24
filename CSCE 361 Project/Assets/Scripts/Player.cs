@@ -105,7 +105,7 @@ public class Player : MonoBehaviour {
 	
 	// Flips player orientation along horizontal axis
 	private void Flip (float Horizontal) {
-		if (Horizontal > 0 && !FacingRight || Horizontal < 0 && FacingRight) {
+		if ((Horizontal > 0 && !FacingRight) || (Horizontal < 0 && FacingRight)) {
 			FacingRight = !FacingRight;
 			
 			Vector2 scale = transform.localScale;

@@ -24,6 +24,8 @@ public class Player : MonoBehaviour {
 	private bool Grounded;
 	private bool Crouch;
 	private bool Jump;
+
+	public Vector2 temp;
 	
 	// Use this for initialization
 	void Start () {

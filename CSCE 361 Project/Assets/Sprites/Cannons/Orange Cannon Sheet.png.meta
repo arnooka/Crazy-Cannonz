@@ -1,21 +1,20 @@
 fileFormatVersion: 2
-guid: bc1e237ccffa3ab449b960651cc82051
-timeCreated: 1508725336
+guid: 7c53c26bed956b641a5613ab6494b932
+timeCreated: 1508909564
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Blue Cannon Idle 1
-    21300002: Blue Cannon Idle 2
-    21300004: Blue Cannon Idle 3
-    21300006: Blue Cannon Idle 4
-    21300008: Blue Cannon Walk 1
-    21300010: Blue Cannon Walk 2
-    21300012: Blue Cannon Walk 3
-    21300014: Blue Cannon Walk 4
-    21300016: Blue Cannon Crouched
-    21300018: Blue Cannon Aim Up
-    21300020: Blue Cannon Crouch
-    21300022: Blue Cannon Jump
+    21300000: Orange Cannon Idle 1
+    21300002: Orange Cannon Idle 2
+    21300004: Orange Cannon Idle 3
+    21300006: Orange Cannon Idle 4
+    21300008: Orange Cannon Walk 1
+    21300010: Orange Cannon Walk 2
+    21300012: Orange Cannon Walk 3
+    21300014: Orange Cannon Walk 4
+    21300016: Orange Cannon Crouch
+    21300018: Orange Cannon Aim Up
+    21300020: Orange Cannon Jump
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -34,7 +33,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 1
+  isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -72,7 +71,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -81,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -90,7 +89,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -99,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +107,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Blue Cannon Idle 1
+      name: Orange Cannon Idle 1
       rect:
         serializedVersion: 2
         x: 4
@@ -125,13 +124,13 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Blue Cannon Idle 2
+      name: Orange Cannon Idle 2
       rect:
         serializedVersion: 2
         x: 42
@@ -139,13 +138,13 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Blue Cannon Idle 3
+      name: Orange Cannon Idle 3
       rect:
         serializedVersion: 2
         x: 80
@@ -153,13 +152,13 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Blue Cannon Idle 4
+      name: Orange Cannon Idle 4
       rect:
         serializedVersion: 2
         x: 118
@@ -167,13 +166,13 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Blue Cannon Walk 1
+      name: Orange Cannon Walk 1
       rect:
         serializedVersion: 2
         x: 4
@@ -181,13 +180,13 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Blue Cannon Walk 2
+      name: Orange Cannon Walk 2
       rect:
         serializedVersion: 2
         x: 42
@@ -195,13 +194,13 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Blue Cannon Walk 3
+      name: Orange Cannon Walk 3
       rect:
         serializedVersion: 2
         x: 80
@@ -209,13 +208,13 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Blue Cannon Walk 4
+      name: Orange Cannon Walk 4
       rect:
         serializedVersion: 2
         x: 118
@@ -223,13 +222,13 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Blue Cannon Crouch
+      name: Orange Cannon Crouch
       rect:
         serializedVersion: 2
         x: 4
@@ -237,27 +236,27 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Blue Cannon Aim Up
+      name: Orange Cannon Aim Up
       rect:
         serializedVersion: 2
-        x: 44
+        x: 45
         y: 10
         width: 25
         height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Blue Cannon Jump
+      name: Orange Cannon Jump
       rect:
         serializedVersion: 2
         x: 80
@@ -265,7 +264,7 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

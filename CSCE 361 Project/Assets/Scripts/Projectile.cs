@@ -22,8 +22,12 @@ public class Projectile : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col) {
 		if (col.gameObject.tag == "Player") {
 			// instantiate particle effect
+		}
+
+		if (!col.gameObject.tag.Contains("Crate") &&  col.gameObject != whoFired) {
 			Destroy(this.gameObject);
 		}
+
 	}
 
 	public GameObject GetWhoFired() {

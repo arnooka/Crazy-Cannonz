@@ -24,7 +24,7 @@ public class Crate : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D col) {
-		if (col.gameObject.tag == "Player"){
+		if (col.gameObject.tag.Contains("Player")){
 			playerScript = col.gameObject.GetComponent<PlayerScript>();
 
 			if (!playerScript.GetProjectileBool()) {

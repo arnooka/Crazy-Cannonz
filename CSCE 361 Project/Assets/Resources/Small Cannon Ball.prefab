@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114328075433802878}
   m_Layer: 0
   m_Name: Small Cannon Ball
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e644d9e05a68e1b439d8640690eea7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
 --- !u!212 &212607372433410738
 SpriteRenderer:
   m_ObjectHideFlags: 1

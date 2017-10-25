@@ -26,25 +26,24 @@ public class Crate : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D col) {
 		if (col.gameObject.tag.Contains("Player")){
 			playerScript = col.gameObject.GetComponent<PlayerScript>();
-<<<<<<< HEAD
 			if (!playerScript.HasProjectile) {
 				Debug.Log ("hoozah!");
-=======
 
+	
 			if (!playerScript.GetProjectileBool()) {
->>>>>>> dd2f06afe6798135b9c6bf551cc18740ad5b34bc
 				if (this.gameObject.tag == "Crate_0") {
-					GameObject projectile = Resources.Load ("Large Cannon Ball") as GameObject;
+					//GameObject projectile = Resources.Load ("Large Cannon Ball") as GameObject;
 					playerScript.SetProjectile (projectile);
 				} else if (this.gameObject.tag == "Crate_1") {
-					GameObject projectile = Resources.Load ("Mid Cannon Ball") as GameObject;
+					//GameObject projectile = Resources.Load ("Mid Cannon Ball") as GameObject;
 					playerScript.SetProjectile (projectile);
 				} else if (this.gameObject.tag == "Crate_2") {
-					GameObject projectile = Resources.Load ("Small Cannon Ball") as GameObject;
+					//GameObject projectile = Resources.Load ("Small Cannon Ball") as GameObject;
 					playerScript.SetProjectile(projectile);
 				}
 				Destroy(this.gameObject);
 			}
 		}
 	}
+}
 }

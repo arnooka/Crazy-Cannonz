@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
-	public GameObject projectile;
 
-	private Rigidbody2D CrazyCannon;
-	private Animator CannonAnimator;
-	
+	private Rigidbody2D crazyCannon;
+	private Animator cannonAnimator;
+	private GameObject projectile;
+
+	[SerializeField]
+	private GameObject forward;
 	[SerializeField]
 	private float MovementSpeed;
 	[SerializeField]
@@ -22,96 +24,88 @@ public class PlayerScript : MonoBehaviour {
 	[SerializeField]
 	private PolygonCollider2D[] colliders;
 	private int currentColliderIndex = 0;
-	
-	private bool FacingRight;
-	public bool HasProjectile;
-	
-	private bool Grounded;
-	private bool Crouch;
-	private bool Jump;
-	private bool JoystickDown;
+
+	private bool hasProjectile;
+	private bool facingRight;
+	private bool grounded;
+	private bool crouch;
+	private bool jump;
 	
 	// Use this for initialization
 	void Start () {
-		FacingRight = true;
-		HasProjectile = false;
-		CrazyCannon = GetComponent<Rigidbody2D>();
-		CannonAnimator = GetComponent<Animator>();
+		facingRight = true;
+		hasProjectile = false;
+		projectile = null;
+		crazyCannon = GetComponent<Rigidbody2D>();
+		cannonAnimator = GetComponent<Animator>();
 	}
 	
 	void FixedUpdate () {
 		float Horizontal = Input.GetAxisRaw("Horizontal");
-		
-		Grounded = IsGrounded();
+
+		grounded = IsGrounded();
 		PlayerInput();
 		Movement(Horizontal);
 		Flip(Horizontal);
-		
-		
-		//ResetValues();
 	}
 	
 	/* TODO:
-	 *		- Make movement appear sharp
-	 *		- Make jump less "floaty"
 	 *		- Figure out falling transition
 	 */
 	private void Movement (float Horizontal) {
 		// Set player x velocity
-		CrazyCannon.velocity = new Vector2(MovementSpeed * Horizontal, CrazyCannon.velocity.y);
+		crazyCannon.velocity = new Vector2(MovementSpeed * Horizontal, crazyCannon.velocity.y);
 		
 		// Set player velocity to zero if crouched
-		if (Grounded && Crouch) {
-			CrazyCannon.velocity = Vector2.zero;
+		if (grounded && crouch) {
+			crazyCannon.velocity = Vector2.zero;
 		}
 		
 		// Set player y velocity (jumping)
-		if (Grounded && Jump) {
-			Grounded = false;
-			CrazyCannon.AddForce(new Vector2(0, JumpForce));
+		if (grounded && jump) {
+			grounded = false;
+			crazyCannon.AddForce(new Vector2(0, JumpForce));
 		}
 
 		// Set animator float to begin walk animation
-		CannonAnimator.SetFloat("Speed", Mathf.Abs(Horizontal));
+		cannonAnimator.SetFloat("Speed", Mathf.Abs(Horizontal));
 	}
 	
 	private void PlayerInput () {
 		// Jump Input (Spacebar or A Button on Xbox Controllers)
 		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0")) {
-			Jump = true;
-			CannonAnimator.SetBool("Jump", true);
+			jump = true;
+			cannonAnimator.SetBool("Jump", true);
 		}
 
 		// Crouch Input (S Key, Down Arrow Key, or Left Joystick Down)
-		Crouch = Input.GetAxisRaw("Vertical") < -0.5;
-		if (Crouch) {
-			CannonAnimator.SetBool("Crouch", true);
+		crouch = Input.GetAxisRaw("Vertical") < -0.5;
+		if (crouch) {
+			cannonAnimator.SetBool("Crouch", true);
 		} else {
-			CannonAnimator.SetBool("Crouch", false);
+			cannonAnimator.SetBool("Crouch", false);
 		}
 		
 		// Fire Input (F Key or X Button on Xbox Controllers)
 		if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown("joystick button 2")) {
-			if (HasProjectile && projectile != null) {
-				/* TODO: 
-				 *		- Instantiate projectile from prefabs
-				 *		- Fire projectile in forward direction
-				 */
-				if (CrazyCannon.transform.localScale.x < 0) {
+			if (hasProjectile) {
+				if (crazyCannon.transform.localScale.x < 0) {
 					// Instantiate projectile to the left
+					Instantiate(projectile, forward.transform.position, transform.rotation);
 				} else {
 					// Instantiate projectile to the right
+					Instantiate(projectile, forward.transform.position, transform.rotation);
 				}
-				HasProjectile = false;
+				hasProjectile = false;
+				Debug.Log("Projectile Fired!");
 			}
-			Debug.Log("Projectile Fired!");
 		}
 	}
 	
 	// Flips player orientation along horizontal axis
 	private void Flip (float Horizontal) {
-		if (Horizontal > 0 && !FacingRight || Horizontal < 0 && FacingRight) {
-			FacingRight = !FacingRight;
+		if (Horizontal > 0 && !facingRight || Horizontal < 0 && facingRight) {
+			facingRight = !facingRight;
 			
 			Vector2 scale = transform.localScale;
 			
@@ -121,13 +115,13 @@ public class PlayerScript : MonoBehaviour {
 	}
 	
 	private bool IsGrounded () {
-		if (CrazyCannon.velocity.y <= 0) {
+		if (crazyCannon.velocity.y <= 0) {
 			foreach (Transform Point in GroundPoints) {
 				Collider2D[] Colliders = Physics2D.OverlapCircleAll(Point.position, GroundRadius, WhatIsGround);
 				for (int i = 0; i < Colliders.Length; i++) {
 					if (Colliders[i].gameObject != gameObject) {
-						Jump = false;
-						CannonAnimator.SetBool("Jump", false);
+						jump = false;
+						cannonAnimator.SetBool("Jump", false);
 						return true;
 					}
 				}
@@ -141,8 +135,13 @@ public class PlayerScript : MonoBehaviour {
 		currentColliderIndex = colliderNumber;
 		colliders[currentColliderIndex].enabled = true;
 	}
-	
-	private void ResetValues () {
-		Jump = false;
-	}		
+
+	public void SetProjectile (GameObject prefab) {
+		hasProjectile = true;
+		projectile = prefab;
+	}
+
+	public bool GetProjectileBool (){
+		return hasProjectile;
+	}
 }

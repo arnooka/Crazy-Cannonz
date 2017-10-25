@@ -27,6 +27,7 @@ public class Crate : MonoBehaviour {
 		if (col.gameObject.tag == "Player"){
 			playerScript = col.gameObject.GetComponent<PlayerScript>();
 			if (!playerScript.HasProjectile) {
+				Debug.Log ("hoozah!");
 				if (this.gameObject.tag == "Crate_0") {
 					Object pPrefab = Resources.Load ("Assets/Projectiles/Large Cannon Ball");
 					playerScript.projectile = (GameObject)pPrefab;

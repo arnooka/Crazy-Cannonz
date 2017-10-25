@@ -92,15 +92,15 @@ public class PlayerScript : MonoBehaviour {
 		
 		// Fire Input (F Key or X Button on Xbox Controllers)
 		if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown("joystick button 2")) {
-			if (HasProjectile && projectile != null) {
-				/* TODO: 
-				 *		- Instantiate projectile from prefabs
-				 *		- Fire projectile in forward direction
-				 */
+			if (HasProjectile) {
 				if (CrazyCannon.transform.localScale.x < 0) {
 					// Instantiate projectile to the left
+					Vector2 projectilePosition = Vector2.zero;
+					Instantiate (projectile, projectilePosition, Quaternion.identity);
 				} else {
 					// Instantiate projectile to the right
+					Vector2 projectilePosition = new Vector2(1, 1);
+					Instantiate (projectile, projectilePosition, Quaternion.identity);
 				}
 				HasProjectile = false;
 			}

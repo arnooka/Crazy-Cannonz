@@ -30,12 +30,17 @@ public class Crate : MonoBehaviour {
 			if (!playerScript.GetProjectileBool()) {
 				if (this.gameObject.tag == "Crate_0") {
 					GameObject projectile = Resources.Load ("Large Cannon Ball") as GameObject;
+					projectile.GetComponent<Projectile>().SetWhoFired(col.gameObject);
 					playerScript.SetProjectile (projectile);
+
 				} else if (this.gameObject.tag == "Crate_1") {
 					GameObject projectile = Resources.Load ("Mid Cannon Ball") as GameObject;
+					projectile.GetComponent<Projectile>().SetWhoFired(col.gameObject);
 					playerScript.SetProjectile (projectile);
+
 				} else if (this.gameObject.tag == "Crate_2") {
 					GameObject projectile = Resources.Load ("Small Cannon Ball") as GameObject;
+					projectile.GetComponent<Projectile>().SetWhoFired(col.gameObject);
 					playerScript.SetProjectile(projectile);
 				}
 				Destroy(this.gameObject);

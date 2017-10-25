@@ -91,9 +91,11 @@ public class PlayerScript : MonoBehaviour {
 			if (hasProjectile) {
 				if (crazyCannon.transform.localScale.x < 0) {
 					// Instantiate projectile to the left
+					projectile.GetComponent<Projectile>().SetWhoFired(this.gameObject);
 					Instantiate(projectile, forward.transform.position, transform.rotation);
 				} else {
 					// Instantiate projectile to the right
+					projectile.GetComponent<Projectile>().SetWhoFired(this.gameObject);
 					Instantiate(projectile, forward.transform.position, transform.rotation);
 				}
 				hasProjectile = false;

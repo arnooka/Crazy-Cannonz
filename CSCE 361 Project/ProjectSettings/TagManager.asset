@@ -9,6 +9,7 @@ TagManager:
   - Crate_0
   - Crate_1
   - Crate_2
+  - Projectile
   layers:
   - Default
   - TransparentFX

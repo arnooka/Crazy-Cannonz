@@ -24,8 +24,10 @@ public class MatchManager : MonoBehaviour {
 	void Update () {
 
 		matchTime -= Time.deltaTime;
-		//timer.text = matchTime.ToString();
+
+		timer.text = matchTime.ToString();
 		print(matchTime);
+
 
 		//First check to see if the player wants to pause.
 		if (Input.GetKey (KeyCode.P)) {

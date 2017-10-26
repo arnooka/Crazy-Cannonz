@@ -88,27 +88,15 @@ public class PlayerScript : MonoBehaviour {
 		
 		// Fire Input (F Key or X Button on Xbox Controllers)
 		if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown("joystick button 2")) {
-<<<<<<< HEAD
-			if (HasProjectile) {
-				if (CrazyCannon.transform.localScale.x < 0) {
-					// Instantiate projectile to the left
-					Vector2 projectilePosition = Vector2.zero;
-					Instantiate (projectile, projectilePosition, Quaternion.identity);
-				} else {
-					// Instantiate projectile to the right
-					Vector2 projectilePosition = new Vector2(1, 1);
-					Instantiate (projectile, projectilePosition, Quaternion.identity);
-=======
 			if (hasProjectile) {
 				if (crazyCannon.transform.localScale.x < 0) {
 					// Instantiate projectile to the left
-					projectile.GetComponent<Projectile>().SetWhoFired(this.gameObject);
-					Instantiate(projectile, forward.transform.position, transform.rotation);
+					Vector2 projectilePosition = Vector2.zero;
+					Instantiate(projectile, projectilePosition, Quaternion.identity);
 				} else {
 					// Instantiate projectile to the right
-					projectile.GetComponent<Projectile>().SetWhoFired(this.gameObject);
-					Instantiate(projectile, forward.transform.position, transform.rotation);
->>>>>>> dd2f06afe6798135b9c6bf551cc18740ad5b34bc
+					Vector2 projectilePosition = new Vector2(1, 1);
+					Instantiate(projectile, projectilePosition, Quaternion.identity);
 				}
 				hasProjectile = false;
 				Debug.Log("Projectile Fired!");

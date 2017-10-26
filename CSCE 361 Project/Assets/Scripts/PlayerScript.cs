@@ -30,7 +30,7 @@ public class PlayerScript : MonoBehaviour {
 	private bool grounded;
 	private bool crouch;
 	private bool jump;
-	
+
 	// Use this for initialization
 	void Start () {
 		facingRight = true;
@@ -39,7 +39,7 @@ public class PlayerScript : MonoBehaviour {
 		crazyCannon = GetComponent<Rigidbody2D>();
 		cannonAnimator = GetComponent<Animator>();
 	}
-	
+
 	void FixedUpdate () {
 		float Horizontal = Input.GetAxisRaw("Horizontal");
 
@@ -48,19 +48,19 @@ public class PlayerScript : MonoBehaviour {
 		Movement(Horizontal);
 		Flip(Horizontal);
 	}
-	
+
 	/* TODO:
 	 *		- Figure out falling transition
 	 */
 	private void Movement (float Horizontal) {
 		// Set player x velocity
 		crazyCannon.velocity = new Vector2(MovementSpeed * Horizontal, crazyCannon.velocity.y);
-		
+
 		// Set player velocity to zero if crouched
 		if (grounded && crouch) {
 			crazyCannon.velocity = Vector2.zero;
 		}
-		
+
 		// Set player y velocity (jumping)
 		if (grounded && jump) {
 			grounded = false;
@@ -70,7 +70,7 @@ public class PlayerScript : MonoBehaviour {
 		// Set animator float to begin walk animation
 		cannonAnimator.SetFloat("Speed", Mathf.Abs(Horizontal));
 	}
-	
+
 	private void PlayerInput () {
 		// Jump Input (Spacebar or A Button on Xbox Controllers)
 		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0")) {
@@ -85,7 +85,7 @@ public class PlayerScript : MonoBehaviour {
 		} else {
 			cannonAnimator.SetBool("Crouch", false);
 		}
-		
+
 		// Fire Input (F Key or X Button on Xbox Controllers)
 		if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown("joystick button 2")) {
 			if (hasProjectile) {
@@ -103,19 +103,19 @@ public class PlayerScript : MonoBehaviour {
 			}
 		}
 	}
-	
+
 	// Flips player orientation along horizontal axis
 	private void Flip (float Horizontal) {
 		if (Horizontal > 0 && !facingRight || Horizontal < 0 && facingRight) {
 			facingRight = !facingRight;
-			
+
 			Vector2 scale = transform.localScale;
-			
+
 			scale.x *= -1;
 			transform.localScale = scale;
 		}
 	}
-	
+
 	private bool IsGrounded () {
 		if (crazyCannon.velocity.y <= 0) {
 			foreach (Transform Point in GroundPoints) {

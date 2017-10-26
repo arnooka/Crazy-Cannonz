@@ -26,44 +26,25 @@ public class Crate : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D col) {
 		if (col.gameObject.tag.Contains("Player")){
 			playerScript = col.gameObject.GetComponent<PlayerScript>();
-<<<<<<< HEAD
-			if (!playerScript.HasProjectile) {
-				Debug.Log ("hoozah!");
-=======
->>>>>>> 2d2cd96c21256479a364d13560e852c99ce72657
 
-	
 			if (!playerScript.GetProjectileBool()) {
 				if (this.gameObject.tag == "Crate_0") {
-<<<<<<< HEAD
-					//GameObject projectile = Resources.Load ("Large Cannon Ball") as GameObject;
-=======
 					GameObject projectile = Resources.Load ("Large Cannon Ball") as GameObject;
 					projectile.GetComponent<Projectile>().SetWhoFired(col.gameObject);
->>>>>>> 2d2cd96c21256479a364d13560e852c99ce72657
 					playerScript.SetProjectile (projectile);
 
 				} else if (this.gameObject.tag == "Crate_1") {
-<<<<<<< HEAD
-					//GameObject projectile = Resources.Load ("Mid Cannon Ball") as GameObject;
-=======
 					GameObject projectile = Resources.Load ("Mid Cannon Ball") as GameObject;
 					projectile.GetComponent<Projectile>().SetWhoFired(col.gameObject);
->>>>>>> 2d2cd96c21256479a364d13560e852c99ce72657
 					playerScript.SetProjectile (projectile);
 
 				} else if (this.gameObject.tag == "Crate_2") {
-<<<<<<< HEAD
-					//GameObject projectile = Resources.Load ("Small Cannon Ball") as GameObject;
-=======
 					GameObject projectile = Resources.Load ("Small Cannon Ball") as GameObject;
 					projectile.GetComponent<Projectile>().SetWhoFired(col.gameObject);
->>>>>>> 2d2cd96c21256479a364d13560e852c99ce72657
 					playerScript.SetProjectile(projectile);
 				}
 				Destroy(this.gameObject);
 			}
 		}
 	}
-}
 }

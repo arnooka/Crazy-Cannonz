@@ -21,9 +21,6 @@ public class PlayerScript : MonoBehaviour {
 	private float GroundRadius;
 	[SerializeField]
 	private LayerMask WhatIsGround;
-	[SerializeField]
-	private PolygonCollider2D[] colliders;
-	private int currentColliderIndex = 0;
 
 	private bool hasProjectile;
 	private bool facingRight;
@@ -49,16 +46,19 @@ public class PlayerScript : MonoBehaviour {
 		Flip(Horizontal);
 	}
 
-	/* TODO:
-	 *		- Figure out falling transition
-	 */
+	private void OnCollisionEnter2D(Collision2D col) {
+		if (col.gameObject.tag.Contains("Player")) {
+			Physics2D.IgnoreCollision(col.collider, this.gameObject.GetComponent<Collider2D>());
+		}
+	}
+
 	private void Movement (float Horizontal) {
 		// Set player x velocity
 		crazyCannon.velocity = new Vector2(MovementSpeed * Horizontal, crazyCannon.velocity.y);
 		crazyCannon.velocity.Normalize();
 		// Set player velocity to zero if crouched
 		if (grounded && crouch) {
-			crazyCannon.velocity = Vector2.zero;
+			crazyCannon.velocity = new Vector2(0, crazyCannon.velocity.y);
 		}
 
 		// Set player y velocity (jumping)
@@ -92,7 +92,7 @@ public class PlayerScript : MonoBehaviour {
 				projectile = Instantiate(projectile, forward.transform.position, Quaternion.identity);
 				projectile.GetComponent<Projectile>().SetWhoFired(this.gameObject);
 				hasProjectile = false;
-				Debug.Log("Projectile Fired!");
+				//Debug.Log("Projectile Fired!");
 			}
 		}
 	}
@@ -112,9 +112,9 @@ public class PlayerScript : MonoBehaviour {
 	private bool IsGrounded () {
 		if (crazyCannon.velocity.y <= 0) {
 			foreach (Transform Point in GroundPoints) {
-				Collider2D[] Colliders = Physics2D.OverlapCircleAll(Point.position, GroundRadius, WhatIsGround);
-				for (int i = 0; i < Colliders.Length; i++) {
-					if (Colliders[i].gameObject != gameObject) {
+				Collider2D[] col = Physics2D.OverlapCircleAll(Point.position, GroundRadius, WhatIsGround);
+				for (int i = 0; i < col.Length; i++) {
+					if (col[i].gameObject != gameObject) {
 						jump = false;
 						cannonAnimator.SetBool("Jump", false);
 						return true;
@@ -123,12 +123,6 @@ public class PlayerScript : MonoBehaviour {
 			}
 		}
 		return false;
-	}
-
-	public void SetSpriteCollider (int colliderNumber) {
-		colliders[currentColliderIndex].enabled = false;
-		currentColliderIndex = colliderNumber;
-		colliders[currentColliderIndex].enabled = true;
 	}
 
 	public void SetProjectile (GameObject prefab) {
@@ -143,4 +137,5 @@ public class PlayerScript : MonoBehaviour {
 	public bool GetDirection () {
 		return facingRight;
 	}
+
 }

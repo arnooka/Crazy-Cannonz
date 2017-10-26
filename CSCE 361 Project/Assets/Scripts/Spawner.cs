@@ -2,29 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour 
-{
-	public Transform[] spawnLocations;
-	public GameObject[] whatToSpawnPrefab;
-	public GameObject[] whatToSpawnClone;
+public class Spawner : MonoBehaviour {
 
-	public int currentLocation;
+	[SerializeField]
+	private Transform[] spawnLocations;
+	[SerializeField]
+	private GameObject[] whatToSpawn;
 
-	public int maxTime = 8;
-	public int minTime = 2;
-	public int spawnTime;
+	private GameObject crate;
+
+	private int currentLocation;
+	private int crateType;
+
+	[SerializeField]
+	private int maxTime;
+	[SerializeField]
+	private int minTime;
 
 
-	void Start()
-	{
+	void Start() {
 		Invoke("SpawnCrate", 3);
 	}
 		
-	void SpawnCrate()
-	{
+	void SpawnCrate() {
 		CancelInvoke ();
 		currentLocation = Random.Range (0, spawnLocations.Length);
-		whatToSpawnClone [currentLocation] = Instantiate (whatToSpawnPrefab [currentLocation], spawnLocations [currentLocation].transform.position, Quaternion.Euler (0, 0, 0));
+		crateType = Random.Range(0, whatToSpawn.Length);
+		SpawnLocation location = spawnLocations[currentLocation].GetComponent<SpawnLocation>();
+
+		if (!location.GetBool()) {
+			crate = Instantiate(whatToSpawn[crateType], spawnLocations[currentLocation].transform.position, Quaternion.Euler(0, 0, 0));
+			crate.GetComponent<Crate>().SetLocation(location);
+			location.SetBool(true);
+		}
 		Invoke ("SpawnCrate", Random.Range (minTime, maxTime));
 	}
 		

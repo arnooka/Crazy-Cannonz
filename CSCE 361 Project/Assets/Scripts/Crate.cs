@@ -10,6 +10,7 @@ public class Crate : MonoBehaviour {
 	Vector2 tempPos = new Vector2 ();
 
 	private PlayerScript playerScript;
+	private SpawnLocation location;
 
 	void Start () {
 		posOffset = transform.position;
@@ -22,29 +23,31 @@ public class Crate : MonoBehaviour {
 
 		transform.position = tempPos;
 	}
-
-	void OnCollisionEnter2D (Collision2D col) {
-		if (col.gameObject.tag.Contains("Player")){
+	
+	private void OnTriggerEnter2D(Collider2D col) {
+		if (col.gameObject.tag.Contains("Player")) {
 			playerScript = col.gameObject.GetComponent<PlayerScript>();
 
 			if (!playerScript.GetProjectileBool()) {
 				if (this.gameObject.tag == "Crate_0") {
-					GameObject projectile = Resources.Load ("Large Cannon Ball") as GameObject;
-					projectile.GetComponent<Projectile>().SetWhoFired(col.gameObject);
-					playerScript.SetProjectile (projectile);
+					GameObject projectile = Resources.Load("Large Cannon Ball") as GameObject;
+					playerScript.SetProjectile(projectile);
 
 				} else if (this.gameObject.tag == "Crate_1") {
-					GameObject projectile = Resources.Load ("Mid Cannon Ball") as GameObject;
-					projectile.GetComponent<Projectile>().SetWhoFired(col.gameObject);
-					playerScript.SetProjectile (projectile);
+					GameObject projectile = Resources.Load("Mid Cannon Ball") as GameObject;
+					playerScript.SetProjectile(projectile);
 
 				} else if (this.gameObject.tag == "Crate_2") {
-					GameObject projectile = Resources.Load ("Small Cannon Ball") as GameObject;
-					projectile.GetComponent<Projectile>().SetWhoFired(col.gameObject);
+					GameObject projectile = Resources.Load("Small Cannon Ball") as GameObject;
 					playerScript.SetProjectile(projectile);
 				}
+				location.SetBool(false);
 				Destroy(this.gameObject);
 			}
 		}
+	}
+
+	public void SetLocation(SpawnLocation position) {
+		location = position;
 	}
 }

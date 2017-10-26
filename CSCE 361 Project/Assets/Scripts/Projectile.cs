@@ -42,20 +42,21 @@ public class Projectile : MonoBehaviour {
 	private void adjustEffectScale() {
 		Vector2 scale = explosionEffect.transform.localScale;
 		float time = 1;
-		Debug.Log(explosionEffect.transform.name);
-		if (explosionEffect.transform.name.Contains("BigExplosionEffect")) {
+
+		if (explosionEffect.transform.name.Contains("BigExplosion")) {
 			scale.x = scale.x / 50;
 			scale.y = scale.y / 50;
 			time = 3;
-		} else if (explosionEffect.transform.name.Contains("SmallExplosionEffect")) {
-			scale.x = scale.x / 20;
-			scale.y = scale.y / 20;
+		} else if (explosionEffect.transform.name.Contains("SmallExplosion")) {
+			scale.x = scale.x / 10;
+			scale.y = scale.y / 10;
 			time = 3;
-		} else if (explosionEffect.transform.name.Contains("BulletImpactMetalEffect")) {
+		} else if (explosionEffect.transform.name.Contains("BulletImpactMetal")) {
 			scale.x = scale.x / 20;
 			scale.y = scale.y / 20;
 			time = 1;
 		}
+
 		explosionEffect.transform.localScale = scale;
 		Destroy(explosionEffect, time);
 	}

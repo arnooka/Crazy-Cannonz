@@ -44,9 +44,6 @@ public class Crate : MonoBehaviour {
 					playerScript.SetProjectile(projectile);
 				}
 				Destroy(this.gameObject);
-			} else if(playerScript.GetProjectileBool() && !col.gameObject.tag.Contains("Crate")) {
-
-				Physics2D.IgnoreCollision(col.collider, this.gameObject.GetComponent<Collider2D>());
 			}
 		}
 	}

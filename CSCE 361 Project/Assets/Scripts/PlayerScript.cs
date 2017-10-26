@@ -92,6 +92,7 @@ public class PlayerScript : MonoBehaviour {
 				projectile = Instantiate(projectile, forward.transform.position, Quaternion.identity);
 				projectile.GetComponent<Projectile>().SetWhoFired(this.gameObject);
 				hasProjectile = false;
+				Debug.Log("Projectile Fired!");
 			}
 		}
 	}

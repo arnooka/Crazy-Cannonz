@@ -89,15 +89,9 @@ public class PlayerScript : MonoBehaviour {
 		// Fire Input (F Key or X Button on Xbox Controllers)
 		if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown("joystick button 2")) {
 			if (hasProjectile) {
-				if (crazyCannon.transform.localScale.x < 0) {
-					// Instantiate projectile to the left
-					Instantiate(projectile, forward.transform.position, Quaternion.identity);
-				} else {
-					// Instantiate projectile to the right
-					Instantiate(projectile, forward.transform.position, Quaternion.identity);
-				}
+				projectile = Instantiate(projectile, forward.transform.position, Quaternion.identity);
+				projectile.GetComponent<Projectile>().SetWhoFired(this.gameObject);
 				hasProjectile = false;
-				Debug.Log("Projectile Fired!");
 			}
 		}
 	}
@@ -143,5 +137,9 @@ public class PlayerScript : MonoBehaviour {
 
 	public bool GetProjectileBool (){
 		return hasProjectile;
+	}
+
+	public bool GetDirection () {
+		return facingRight;
 	}
 }

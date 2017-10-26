@@ -9,7 +9,9 @@ public class MenuScript : MonoBehaviour {
 	public Slider matchTimerSlider;
 	public Text matchTimerText;
 	public Button optionsBtn, matchBtn, matchBackBtn, optionsBackBtn, matchStartBtn;
+	public Slider musicSlider, soundFXSlider;
 	public GameObject mainMenu, optionsMenu, matchMenu;
+	public AudioSource menuMusic;
 
 	// Use this for initialization
 	void Start () {
@@ -35,17 +37,26 @@ public class MenuScript : MonoBehaviour {
 		});
 
 		matchStartBtn.onClick.AddListener (() => {
+			MatchSettings.matchTime = (double) matchTimerSlider.value;
+			matchMenu.SetActive(false);
+
+			//This is only because menuMusic.Pause() and menuMusic.Stop() both seem to crash Unity for some reason...
+			menuMusic.volume = 0;
 			SceneManager.LoadScene ("Arena Mid");
 		});
 
+		musicSlider.onValueChanged.AddListener (delegate {
+			menuMusic.volume = musicSlider.value;
+			MatchSettings.musicVolume = (float) musicSlider.value;
+		});
 
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-		string x = matchTimerSlider.value.ToString();
-		matchTimerText.text = x;
+		matchTimerText.text = matchTimerSlider.value.ToString();
 
 	}
+		
 }

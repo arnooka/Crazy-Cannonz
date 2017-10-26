@@ -6,8 +6,8 @@ public class Crate : MonoBehaviour {
 	public float amplitude = 0.5f;
 	public float frequency = 1f;
 
-	Vector3 posOffset = new Vector3 ();
-	Vector3 tempPos = new Vector3 ();
+	Vector2 posOffset = new Vector2 ();
+	Vector2 tempPos = new Vector2 ();
 
 	private PlayerScript playerScript;
 

@@ -6,6 +6,8 @@ public class Projectile : MonoBehaviour {
 
 	[SerializeField]
 	private float speed;
+	[SerializeField]
+	private GameObject explosionEffect;
 
 	private Rigidbody2D projectile;
 	private GameObject whoFired;
@@ -32,8 +34,31 @@ public class Projectile : MonoBehaviour {
 			Physics2D.IgnoreCollision(col.collider, this.GetComponent<Collider2D>());
 		} else {
 			// instantiate particle effect
+			explosionEffect = Instantiate(explosionEffect, transform.position, transform.rotation);
+			adjustEffectScale();
 			Destroy(this.gameObject);
 		}
+	}
+
+	private void adjustEffectScale() {
+		Vector2 scale = explosionEffect.transform.localScale;
+		float time = 1;
+		Debug.Log(explosionEffect.transform.name);
+		if (explosionEffect.transform.name.Contains("BigExplosionEffect")) {
+			scale.x = scale.x / 50;
+			scale.y = scale.y / 50;
+			time = 3;
+		} else if (explosionEffect.transform.name.Contains("SmallExplosionEffect")) {
+			scale.x = scale.x / 20;
+			scale.y = scale.y / 20;
+			time = 3;
+		} else if (explosionEffect.transform.name.Contains("BulletImpactMetalEffect")) {
+			scale.x = scale.x / 20;
+			scale.y = scale.y / 20;
+			time = 1;
+		}
+		explosionEffect.transform.localScale = scale;
+		Destroy(explosionEffect, time);
 	}
 
 	public GameObject GetWhoFired() {
@@ -43,4 +68,5 @@ public class Projectile : MonoBehaviour {
 	public void SetWhoFired(GameObject player) {
 		whoFired = player;
 	}
+
 }

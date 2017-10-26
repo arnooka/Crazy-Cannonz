@@ -55,7 +55,7 @@ public class PlayerScript : MonoBehaviour {
 	private void Movement (float Horizontal) {
 		// Set player x velocity
 		crazyCannon.velocity = new Vector2(MovementSpeed * Horizontal, crazyCannon.velocity.y);
-
+		crazyCannon.velocity.Normalize();
 		// Set player velocity to zero if crouched
 		if (grounded && crouch) {
 			crazyCannon.velocity = Vector2.zero;

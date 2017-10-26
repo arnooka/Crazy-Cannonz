@@ -504,7 +504,19 @@ MonoBehaviour:
   - {fileID: 4553085525206332}
   whatToSpawnPrefab:
   - {fileID: 1446475003855596, guid: f45654da574ca6340955ec4569afa4ed, type: 2}
+  - {fileID: 1446475003855596, guid: f45654da574ca6340955ec4569afa4ed, type: 2}
+  - {fileID: 1446475003855596, guid: f45654da574ca6340955ec4569afa4ed, type: 2}
+  - {fileID: 1446475003855596, guid: f45654da574ca6340955ec4569afa4ed, type: 2}
+  - {fileID: 1446475003855596, guid: f45654da574ca6340955ec4569afa4ed, type: 2}
   - {fileID: 1316082452863796, guid: 76d6c64550b61a04f9eef875e1056105, type: 2}
+  - {fileID: 1316082452863796, guid: 76d6c64550b61a04f9eef875e1056105, type: 2}
+  - {fileID: 1316082452863796, guid: 76d6c64550b61a04f9eef875e1056105, type: 2}
+  - {fileID: 1316082452863796, guid: 76d6c64550b61a04f9eef875e1056105, type: 2}
+  - {fileID: 1316082452863796, guid: 76d6c64550b61a04f9eef875e1056105, type: 2}
+  - {fileID: 1360172937958970, guid: 182f1582d2ccfb148ac0914a8913e1ee, type: 2}
+  - {fileID: 1360172937958970, guid: 182f1582d2ccfb148ac0914a8913e1ee, type: 2}
+  - {fileID: 1360172937958970, guid: 182f1582d2ccfb148ac0914a8913e1ee, type: 2}
+  - {fileID: 1360172937958970, guid: 182f1582d2ccfb148ac0914a8913e1ee, type: 2}
   - {fileID: 1360172937958970, guid: 182f1582d2ccfb148ac0914a8913e1ee, type: 2}
   whatToSpawnClone:
   - {fileID: 1446475003855596, guid: f45654da574ca6340955ec4569afa4ed, type: 2}
@@ -522,6 +534,7 @@ MonoBehaviour:
   - {fileID: 1360172937958970, guid: 182f1582d2ccfb148ac0914a8913e1ee, type: 2}
   - {fileID: 1360172937958970, guid: 182f1582d2ccfb148ac0914a8913e1ee, type: 2}
   - {fileID: 1360172937958970, guid: 182f1582d2ccfb148ac0914a8913e1ee, type: 2}
+  currentLocation: 0
   maxTime: 5
   minTime: 2
   spawnTime: 0

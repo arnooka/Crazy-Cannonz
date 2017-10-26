@@ -41,10 +41,6 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-
-		//First check to see if the player wants to pause.
-		if(Input.GetKey(KeyCode.P)) print("P has been pressed");
-
 		float Horizontal = Input.GetAxisRaw("Horizontal");
 
 		grounded = IsGrounded();

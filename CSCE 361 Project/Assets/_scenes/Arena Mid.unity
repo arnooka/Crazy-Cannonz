@@ -469,6 +469,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114289675211438354, guid: 867017d084e2b47288232351ad6747ae,
+        type: 2}
+      propertyPath: cannonFire
+      value: 
+      objectReference: {fileID: 8300000, guid: 51441d4982a24409b8732c39435d0f6d, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 867017d084e2b47288232351ad6747ae, type: 2}
   m_IsPrefabParent: 0

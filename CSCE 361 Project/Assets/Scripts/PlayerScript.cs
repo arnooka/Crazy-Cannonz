@@ -91,12 +91,10 @@ public class PlayerScript : MonoBehaviour {
 			if (hasProjectile) {
 				if (crazyCannon.transform.localScale.x < 0) {
 					// Instantiate projectile to the left
-					Vector2 projectilePosition = Vector2.zero;
-					Instantiate(projectile, projectilePosition, Quaternion.identity);
+					Instantiate(projectile, forward.transform.position, Quaternion.identity);
 				} else {
 					// Instantiate projectile to the right
-					Vector2 projectilePosition = new Vector2(1, 1);
-					Instantiate(projectile, projectilePosition, Quaternion.identity);
+					Instantiate(projectile, forward.transform.position, Quaternion.identity);
 				}
 				hasProjectile = false;
 				Debug.Log("Projectile Fired!");

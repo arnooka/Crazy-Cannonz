@@ -61,7 +61,7 @@ public class MatchManager : MonoBehaviour {
 		
 	}
 
-	public bool getIsActive() {
+	public static bool getIsActive() {
 		return isActive;
 	}
 }

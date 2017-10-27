@@ -90,6 +90,13 @@ public class PlayerScript : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown("joystick button 2")) {
 			if (hasProjectile) {
 				projectile = Instantiate(projectile, forward.transform.position, Quaternion.identity);
+
+				Vector2 shift = forward.transform.position;
+				if (projectile.gameObject.name.Contains("Large Cannon Ball")) {
+					shift.y += 0.05f;
+					projectile.transform.position = shift;
+				}
+
 				projectile.GetComponent<Projectile>().SetWhoFired(this.gameObject);
 				hasProjectile = false;
 				//Debug.Log("Projectile Fired!");

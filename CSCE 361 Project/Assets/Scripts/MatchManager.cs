@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MatchManager : MonoBehaviour {
 
@@ -19,7 +20,12 @@ public class MatchManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		timeRemaining = matchTime - Time.timeSinceLevelLoad; 
+		timeRemaining = matchTime - Time.timeSinceLevelLoad;
+
+		if (timeRemaining <= 0.0) {
+			//SceneManager.LoadScene ("blah");
+		}
+
 		min = (int) timeRemaining / 60;
 		sec = (int) timeRemaining % 60;
 

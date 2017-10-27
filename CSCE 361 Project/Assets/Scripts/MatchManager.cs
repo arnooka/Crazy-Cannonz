@@ -9,7 +9,7 @@ public class MatchManager : MonoBehaviour {
 	public AudioSource theMatchMusic;
 	public GameObject panel;
 	public Text text;
-	public static double matchTime = 600.0, soundFXVolume = 1.0, timeRemaining = 0.0;
+	public static double matchTime = 10.0, soundFXVolume = 1.0, timeRemaining = 0.0;
 
 	public static int min = 0, sec = 0;
 

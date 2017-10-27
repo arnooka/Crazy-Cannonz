@@ -1,27 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MatchManager : MonoBehaviour {
-
-	public static double matchTime = 600.0, soundFXVolume = 1.0;
-	public static float musicVolume = 1.0f;
-
-	public Text timer;
-	public GameObject panel;
 
 	public AudioSource theMatchMusic;
 
 	// Use this for initialization
 	void Start () {
 
-		theMatchMusic.volume = musicVolume;
+		theMatchMusic.volume = (float) MatchSettings.musicVolume;
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+<<<<<<< HEAD
 
 		matchTime -= Time.deltaTime;
 		//timer.text = matchTime.ToString();
@@ -32,6 +26,8 @@ public class MatchManager : MonoBehaviour {
 			panel.SetActive (false);
 			print ("p button pressed");
 		}
+=======
+>>>>>>> parent of e8cfc38... Merge branch 'master' of https://github.com/nookavish/CSCE-361
 		
 	}
 }

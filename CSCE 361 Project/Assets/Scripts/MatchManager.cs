@@ -27,7 +27,7 @@ public class MatchManager : MonoBehaviour {
 		timeRemaining = matchTime - Time.timeSinceLevelLoad;
 
 		if (timeRemaining <= 0.0) {
-			//SceneManager.LoadScene ("blah");
+			SceneManager.LoadScene ("PostMatch");
 		}
 
 		min = (int) timeRemaining / 60;

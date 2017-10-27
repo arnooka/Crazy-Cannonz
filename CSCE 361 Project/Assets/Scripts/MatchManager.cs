@@ -46,8 +46,9 @@ public class MatchManager : MonoBehaviour {
 				secStr = sec.ToString ();
 
 			activeTime.text = min.ToString () + ":" + secStr;
+		} else if (!isActive) {
+			pauseMenuOffsetTime += Time.deltaTime;
 		}
-
 
 		//First check to see if the player wants to pause.
 		if (Input.GetKey (KeyCode.P)) {

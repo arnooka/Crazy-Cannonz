@@ -9,10 +9,11 @@ public class MatchManager : MonoBehaviour {
 	public AudioSource theMatchMusic;
 
 	public GameObject panel;
-	public Text text;
-	public static double matchTime = 10.0, soundFXVolume = 1.0, timeRemaining = 0.0;
+	public Text activeTime;
+	public Button leaveMatch;
+	public static double matchTime = 10.0, soundFXVolume = 1.0, timeRemaining = 0.0, pauseMenuOffsetTime = 0.0;
 	public static double musicVolume = 1.0;
-	private static bool isActive = false;
+	private static bool isActive = true;
 
 	public static int min = 0, sec = 0;
 	public static string secStr = "";
@@ -20,6 +21,9 @@ public class MatchManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		leaveMatch.onClick.AddListener (() => {
+			SceneManager.LoadScene ("MainMenu");
+		});
 
 	}
 	
@@ -27,7 +31,7 @@ public class MatchManager : MonoBehaviour {
 	void Update () {
 
 		if (isActive) {
-			timeRemaining = matchTime - Time.timeSinceLevelLoad;
+			timeRemaining = matchTime - Time.timeSinceLevelLoad + pauseMenuOffsetTime;
 
 			if (timeRemaining <= 0.0) {
 				SceneManager.LoadScene ("PostMatch");
@@ -41,14 +45,16 @@ public class MatchManager : MonoBehaviour {
 			} else
 				secStr = sec.ToString ();
 
-			text.text = min.ToString () + ":" + secStr;
+			activeTime.text = min.ToString () + ":" + secStr;
 		}
+
 
 		//First check to see if the player wants to pause.
 		if (Input.GetKey (KeyCode.P)) {
 
-			isActive = false;
-			panel.SetActive (true);
+			isActive = !isActive;
+			panel.SetActive (!isActive);
+
 		}
 		
 	}

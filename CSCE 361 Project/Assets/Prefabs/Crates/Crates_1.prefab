@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.03
   frequency: 2
+  projectile: {fileID: 1866571938232692, guid: df26df18bb899f04196684eb16a25983, type: 2}
 --- !u!212 &212482563472355646
 SpriteRenderer:
   m_ObjectHideFlags: 1

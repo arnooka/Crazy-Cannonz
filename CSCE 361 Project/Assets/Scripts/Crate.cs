@@ -6,8 +6,11 @@ public class Crate : MonoBehaviour {
 	public float amplitude = 0.5f;
 	public float frequency = 1f;
 
-	Vector2 posOffset = new Vector2 ();
-	Vector2 tempPos = new Vector2 ();
+	[SerializeField]
+	private GameObject projectile;
+
+	private Vector2 posOffset = new Vector2 ();
+	private Vector2 tempPos = new Vector2 ();
 
 	private PlayerScript playerScript;
 	private SpawnLocation location;
@@ -29,18 +32,7 @@ public class Crate : MonoBehaviour {
 			playerScript = col.gameObject.GetComponent<PlayerScript>();
 
 			if (!playerScript.GetProjectileBool()) {
-				if (this.gameObject.tag == "Crate_0") {
-					GameObject projectile = Resources.Load("Large Cannon Ball") as GameObject;
-					playerScript.SetProjectile(projectile);
-
-				} else if (this.gameObject.tag == "Crate_1") {
-					GameObject projectile = Resources.Load("Mid Cannon Ball") as GameObject;
-					playerScript.SetProjectile(projectile);
-
-				} else if (this.gameObject.tag == "Crate_2") {
-					GameObject projectile = Resources.Load("Small Cannon Ball") as GameObject;
-					playerScript.SetProjectile(projectile);
-				}
+				playerScript.SetProjectile(projectile);
 				location.SetBool(false);
 				Destroy(this.gameObject);
 			}

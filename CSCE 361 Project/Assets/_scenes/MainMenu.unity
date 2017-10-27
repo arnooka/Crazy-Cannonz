@@ -201,7 +201,7 @@ RectTransform:
   m_GameObject: {fileID: 22355796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 288, y: 162, z: 90}
-  m_LocalScale: {x: 6.357157, y: 6.357157, z: 6.357157}
+  m_LocalScale: {x: 6.9457827, y: 6.9457827, z: 6.9457827}
   m_Children:
   - {fileID: 2124389869}
   - {fileID: 1519769807}
@@ -748,8 +748,8 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_HorizontalAxis: UI_Horizontal
+  m_VerticalAxis: UI_Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -4365,7 +4365,11 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1796132789}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -0.23506165, y: 56.986115, z: 0}
+=======
+  m_LocalPosition: {x: 0.14230347, y: 52.165253, z: 0}
+>>>>>>> 665cadd85cfc323df1b6c30606cce4e2e621524c
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1380140830}
@@ -4775,7 +4779,11 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1892173275}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -0.23509216, y: -53.39472, z: 0}
+=======
+  m_LocalPosition: {x: 0.14227295, y: -48.79347, z: 0}
+>>>>>>> 665cadd85cfc323df1b6c30606cce4e2e621524c
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 642081464}
@@ -5284,7 +5292,11 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2015184266}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -0.23506165, y: -0.1371994, z: 0}
+=======
+  m_LocalPosition: {x: 0.14230347, y: -0.08319855, z: 0}
+>>>>>>> 665cadd85cfc323df1b6c30606cce4e2e621524c
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 966384295}

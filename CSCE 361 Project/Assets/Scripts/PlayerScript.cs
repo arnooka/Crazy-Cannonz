@@ -22,7 +22,16 @@ public class PlayerScript : MonoBehaviour {
 	[SerializeField]
 	private LayerMask WhatIsGround;
 
-    public AudioClip cannonSound;
+	[SerializeField]
+	private string jumpButton = "Jump_P1";
+	[SerializeField]
+	private string horizontalCtrl = "Horizontal_P1";
+	[SerializeField]
+	private string fireButton = "Fire_P1";
+	[SerializeField]
+	private string crouchButton = "Vertical_P1";
+
+	public AudioClip cannonSound;
 	private bool hasProjectile;
 	private bool facingRight;
 	private bool grounded;
@@ -39,7 +48,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		float Horizontal = Input.GetAxisRaw("Horizontal");
+		float Horizontal = Input.GetAxisRaw(horizontalCtrl);
 
 		grounded = IsGrounded();
 		PlayerInput();
@@ -80,7 +89,7 @@ public class PlayerScript : MonoBehaviour {
 		}
 
 		// Crouch Input (S Key, Down Arrow Key, or Left Joystick Down)
-		crouch = Input.GetAxisRaw("Vertical") < -0.5;
+		crouch = Input.GetAxisRaw(crouchButton) < -0.5;
 		if (crouch) {
 			cannonAnimator.SetBool("Crouch", true);
 		} else {
@@ -88,7 +97,7 @@ public class PlayerScript : MonoBehaviour {
 		}
 
 		// Fire Input (F Key or X Button on Xbox Controllers)
-		if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown("joystick button 2")) {
+		if (Input.GetButtonDown(fireButton)) {
 			if (hasProjectile) {
 				projectile = Instantiate(projectile, forward.transform.position, Quaternion.identity);
 

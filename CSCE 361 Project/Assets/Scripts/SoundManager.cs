@@ -7,10 +7,11 @@ public class SoundManager : MonoBehaviour {
 	public static SoundManager instance = null;
 	public AudioSource EFXSource;
 	public AudioSource musicSource;
+    public float musicVolume = 1f;
 	public float lowPitchVariation = .9f;
 	public float highPitchVariation = 1.1f;
 	public AudioClip[] musicClips;
-	public bool inMenu;
+	public static bool isMusic;
 
 
 	// Use this for initialization
@@ -24,8 +25,6 @@ public class SoundManager : MonoBehaviour {
 		DontDestroyOnLoad (gameObject);
 	}
 
-    /// Takes an audio clip and a pitch and plays the clip
-    /// using the EFX audio source
 	public void playClip(AudioClip audioClip, float pitch) {
         EFXSource.pitch = pitch;
 		EFXSource.clip = audioClip;
@@ -33,8 +32,6 @@ public class SoundManager : MonoBehaviour {
 		EFXSource.Play ();
 	}
 
-    /// Takes an array of audio clips, picks a random clip, 
-    /// and plays it at a pitch between a range
 	public void randomPitchClip(AudioClip[] audioClips) {
 		EFXSource.pitch = (float)Random.Range (lowPitchVariation, highPitchVariation);
 
@@ -43,10 +40,8 @@ public class SoundManager : MonoBehaviour {
 		EFXSource.Play ();
 	}
 
-    /// When we're not in a menu, pick a random in-game
-    /// song and play it. When a song ends, start another
 	public void Update() {
-        if (!musicSource.isPlaying && !inMenu) {
+		if (!musicSource.isPlaying) {
 			AudioClip clip = musicSource.clip;
 			while (musicSource.clip == clip) {
 				musicSource.clip = musicClips[Random.Range(0, musicClips.Length)];

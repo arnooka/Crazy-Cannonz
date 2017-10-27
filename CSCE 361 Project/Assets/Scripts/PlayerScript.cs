@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour {
 	[SerializeField]
 	private string crouchButton = "Vertical_P1";
 
-	public AudioClip cannonSound;
+    public AudioClip cannonSound;
 	private bool hasProjectile;
 	private bool facingRight;
 	private bool grounded;
@@ -83,13 +83,13 @@ public class PlayerScript : MonoBehaviour {
 
 	private void PlayerInput () {
 		// Jump Input (Spacebar or A Button on Xbox Controllers)
-		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0")) {
+		if (Input.GetButtonDown(jumpButton)) {
 			jump = true;
 			cannonAnimator.SetBool("Jump", true);
 		}
 
 		// Crouch Input (S Key, Down Arrow Key, or Left Joystick Down)
-		crouch = Input.GetAxisRaw(crouchButton) < -0.5;
+		crouch = Input.GetAxis(crouchButton) < -0.5;
 		if (crouch) {
 			cannonAnimator.SetBool("Crouch", true);
 		} else {

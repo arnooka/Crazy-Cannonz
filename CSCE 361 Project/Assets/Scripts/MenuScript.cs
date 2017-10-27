@@ -37,7 +37,7 @@ public class MenuScript : MonoBehaviour {
 		});
 
 		matchStartBtn.onClick.AddListener (() => {
-			MatchManager.matchTime = (double) matchTimerSlider.value * 60.0;
+			MatchSettings.matchTime = (double) matchTimerSlider.value;
 			matchMenu.SetActive(false);
 
 			//This is only because menuMusic.Pause() and menuMusic.Stop() both seem to crash Unity for some reason...
@@ -47,7 +47,7 @@ public class MenuScript : MonoBehaviour {
 
 		musicSlider.onValueChanged.AddListener (delegate {
 			menuMusic.volume = musicSlider.value;
-			MatchManager.musicVolume = (float) musicSlider.value;
+			MatchSettings.musicVolume = (float) musicSlider.value;
 		});
 
 	}

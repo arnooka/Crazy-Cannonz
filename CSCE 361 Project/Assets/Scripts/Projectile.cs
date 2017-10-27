@@ -44,16 +44,16 @@ public class Projectile : MonoBehaviour {
 		float time = 1;
 
 		if (explosionEffect.transform.name.Contains("BigExplosion")) {
-			scale.x = scale.x / 50;
-			scale.y = scale.y / 50;
-			time = 3;
+			scale.x /= 100f;
+			scale.y /= 100f;
+			time = 1;
 		} else if (explosionEffect.transform.name.Contains("SmallExplosion")) {
-			scale.x = scale.x / 10;
-			scale.y = scale.y / 10;
-			time = 3;
+			scale.x /= 10f;
+			scale.y /= 10f;
+			time = 1;
 		} else if (explosionEffect.transform.name.Contains("BulletImpactMetal")) {
-			scale.x = scale.x / 20;
-			scale.y = scale.y / 20;
+			scale.x /= 20f;
+			scale.y /= 20f;
 			time = 1;
 		}
 

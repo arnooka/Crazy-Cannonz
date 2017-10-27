@@ -51,12 +51,21 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		float Horizontal = Input.GetAxisRaw(horizontalCtrl);
+		if (MatchManager.getIsActive()) {
+			float Horizontal = Input.GetAxisRaw(horizontalCtrl);
 
-		grounded = IsGrounded();
-		PlayerInput();
-		Movement(Horizontal);
-		Flip(Horizontal);
+			grounded = IsGrounded();
+			PlayerInput();
+			Movement(Horizontal);
+			Flip(Horizontal);
+		} else {
+			Vector2 scale = crazyCannon.velocity;
+			scale.x = 0.0f;
+			crazyCannon.velocity = scale;
+			cannonAnimator.SetBool("Jump", false);
+			cannonAnimator.SetBool("Crouch", false);
+			cannonAnimator.SetFloat("Speed", 0.0f);
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D col) {

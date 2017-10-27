@@ -1,30 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MatchManager : MonoBehaviour {
 
 	public AudioSource theMatchMusic;
-<<<<<<< HEAD
+
 	public GameObject panel;
 	public Text text;
 	public static double matchTime = 10.0, soundFXVolume = 1.0, timeRemaining = 0.0;
+	public static double musicVolume = 1.0;
 
 	public static int min = 0, sec = 0;
 	public static string secStr = "";
-=======
->>>>>>> 3b3110f54eb97a7dd493c25012df2350d29fc8b3
 
 	// Use this for initialization
 	void Start () {
 
-		//theMatchMusic.volume = (float) MatchSettings.musicVolume;
-		
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-<<<<<<< HEAD
 		
 		timeRemaining = matchTime - Time.timeSinceLevelLoad;
 
@@ -41,8 +40,6 @@ public class MatchManager : MonoBehaviour {
 			secStr = sec.ToString ();
 
 		text.text = min.ToString () + ":" + secStr;
-=======
->>>>>>> 3b3110f54eb97a7dd493c25012df2350d29fc8b3
 
 		//matchTime -= Time.deltaTime;
 		//timer.text = matchTime.ToString();

@@ -201,7 +201,7 @@ RectTransform:
   m_GameObject: {fileID: 22355796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 288, y: 162, z: -9}
-  m_LocalScale: {x: 6.9457827, y: 6.9457827, z: 6.9457827}
+  m_LocalScale: {x: 6.697719, y: 6.697719, z: 6.697719}
   m_Children:
   - {fileID: 2124389869}
   - {fileID: 1519769807}
@@ -232,6 +232,7 @@ MonoBehaviour:
   matchBackBtn: {fileID: 1003164827}
   optionsBackBtn: {fileID: 1693522548}
   matchStartBtn: {fileID: 1244313639}
+  exitBtn: {fileID: 1892173277}
   musicSlider: {fileID: 1941642532}
   soundFXSlider: {fileID: 156553595}
   mainMenu: {fileID: 2124389868}
@@ -4365,7 +4366,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1796132789}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14230347, y: 52.165253, z: 0}
+  m_LocalPosition: {x: -0.28019714, y: 54.093597, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1380140830}
@@ -4775,7 +4776,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1892173275}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14227295, y: -48.79347, z: 0}
+  m_LocalPosition: {x: -0.28022766, y: -50.63397, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 642081464}
@@ -5284,7 +5285,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2015184266}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14230347, y: -0.08319855, z: 0}
+  m_LocalPosition: {x: -0.28019714, y: -0.10479736, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 966384295}

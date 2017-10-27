@@ -8,7 +8,7 @@ public class MenuScript : MonoBehaviour {
 
 	public Slider matchTimerSlider;
 	public Text matchTimerText;
-	public Button optionsBtn, matchBtn, matchBackBtn, optionsBackBtn, matchStartBtn;
+	public Button optionsBtn, matchBtn, matchBackBtn, optionsBackBtn, matchStartBtn, exitBtn;
 	public Slider musicSlider, soundFXSlider;
 	public GameObject mainMenu, optionsMenu, matchMenu;
 
@@ -48,7 +48,7 @@ public class MenuScript : MonoBehaviour {
         /// Button for starting a match
 		matchStartBtn.onClick.AddListener (() => {
             //save time value in match settings
-			MatchSettings.matchTime = matchTimerSlider.value;
+			MatchManager.matchTime = matchTimerSlider.value;
 
             /// Stop the menu music and tell the sound manager
             /// that we're no longer at the menu
@@ -65,14 +65,18 @@ public class MenuScript : MonoBehaviour {
 		musicSlider.onValueChanged.AddListener (delegate {
             //set music volume for sound manager and save
             soundManager.musicSource.volume = musicSlider.value;
-			MatchSettings.musicVolume = musicSlider.value;
+			MatchManager.musicVolume = musicSlider.value;
 		});
 
         soundFXSlider.onValueChanged.AddListener(delegate {
             //set sound effects volume for sound manager and save
             soundManager.EFXSource.volume = soundFXSlider.value;
-            MatchSettings.soundFXVolume = soundFXSlider.value;
+            MatchManager.soundFXVolume = soundFXSlider.value;
         });
+
+		exitBtn.onClick.AddListener (() => {
+			Application.Quit ();
+		});
 
 	}
 

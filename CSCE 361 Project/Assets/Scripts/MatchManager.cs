@@ -9,25 +9,22 @@ public class MatchManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		theMatchMusic.volume = (float) MatchSettings.musicVolume;
+		//theMatchMusic.volume = (float) MatchSettings.musicVolume;
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-<<<<<<< HEAD
 
-		matchTime -= Time.deltaTime;
+		//matchTime -= Time.deltaTime;
 		//timer.text = matchTime.ToString();
-		print(matchTime);
-
+		//print(matchTime);
+		//
 		//First check to see if the player wants to pause.
-		if (Input.GetKey (KeyCode.P)) {
-			panel.SetActive (false);
-			print ("p button pressed");
-		}
-=======
->>>>>>> parent of e8cfc38... Merge branch 'master' of https://github.com/nookavish/CSCE-361
+		//if (Input.GetKey (KeyCode.P)) {
+		//	panel.SetActive (false);
+		//	print ("p button pressed");
+		//}
 		
 	}
 }

@@ -10,6 +10,9 @@ public class PlayerScript : MonoBehaviour {
 	private GameObject projectile;
 
 	[SerializeField]
+	private Transform[] spawnLocation;
+
+	[SerializeField]
 	private GameObject forward;
 	[SerializeField]
 	private float MovementSpeed;
@@ -59,6 +62,14 @@ public class PlayerScript : MonoBehaviour {
 	private void OnCollisionEnter2D(Collision2D col) {
 		if (col.gameObject.tag.Contains("Player")) {
 			Physics2D.IgnoreCollision(col.collider, this.gameObject.GetComponent<Collider2D>());
+		}
+		if (col.gameObject.tag.Contains("Projectile") && col.gameObject != projectile) {
+			gameObject.SetActive (false);
+			//TODO: wait for some amount of time before spawning
+			int i = Random.Range (0, spawnLocation.Length);
+			gameObject.SetActive (true);
+			gameObject.transform.position = spawnLocation [i].position;
+
 		}
 	}
 
@@ -162,6 +173,10 @@ public class PlayerScript : MonoBehaviour {
 
 	public bool GetDirection () {
 		return facingRight;
+	}
+
+	IEnumerator Waiting() {
+		yield return new WaitForSeconds (3.0f);
 	}
 
 }

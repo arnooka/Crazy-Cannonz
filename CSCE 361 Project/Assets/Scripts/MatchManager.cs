@@ -12,6 +12,10 @@ public class MatchManager : MonoBehaviour {
 	public static double matchTime = 600.0, soundFXVolume = 1.0, timeRemaining = 0.0;
 	public static int min = 0, sec = 0;
 
+	private int killScore = 50;
+	private int deathScore = 10;
+
+
 	// Use this for initialization
 	void Start () {
 		timeRemaining = matchTime;

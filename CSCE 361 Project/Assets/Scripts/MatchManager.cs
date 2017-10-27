@@ -12,6 +12,7 @@ public class MatchManager : MonoBehaviour {
 	public static double matchTime = 10.0, soundFXVolume = 1.0, timeRemaining = 0.0;
 
 	public static int min = 0, sec = 0;
+	public static string secStr = "";
 
 	// Use this for initialization
 	void Start () {
@@ -30,9 +31,12 @@ public class MatchManager : MonoBehaviour {
 		min = (int) timeRemaining / 60;
 		sec = (int) timeRemaining % 60;
 
-		text.text = min.ToString () + ":" + sec.ToString ();
-		matchTime -= Time.deltaTime;
-		text.text = matchTime.ToString();
+		if (sec < 10) {
+			secStr = "0" + sec.ToString ();
+		} else
+			secStr = sec.ToString ();
+
+		text.text = min.ToString () + ":" + secStr;
 
 		//First check to see if the player wants to pause.
 		if (Input.GetKey (KeyCode.P)) {

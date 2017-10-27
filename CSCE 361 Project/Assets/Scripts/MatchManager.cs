@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class MatchManager : MonoBehaviour {
 
 	public AudioSource theMatchMusic;
-
 	public GameObject panel;
 	public Text activeTime;
 	public Button leaveMatch;
@@ -22,6 +21,8 @@ public class MatchManager : MonoBehaviour {
 	void Start () {
 
 		leaveMatch.onClick.AddListener (() => {
+			isActive = true;
+			pauseMenuOffsetTime = 0.0;
 			SceneManager.LoadScene ("MainMenu");
 		});
 
@@ -51,7 +52,7 @@ public class MatchManager : MonoBehaviour {
 		}
 
 		//First check to see if the player wants to pause.
-		if (Input.GetKey (KeyCode.P)) {
+		if (Input.GetKeyUp (KeyCode.P)) {
 
 			isActive = !isActive;
 			panel.SetActive (!isActive);

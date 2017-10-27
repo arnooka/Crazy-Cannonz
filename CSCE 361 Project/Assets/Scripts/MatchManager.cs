@@ -41,15 +41,11 @@ public class MatchManager : MonoBehaviour {
 
 		text.text = min.ToString () + ":" + secStr;
 
-		//matchTime -= Time.deltaTime;
-		//timer.text = matchTime.ToString();
-		//print(matchTime);
-		//
 		//First check to see if the player wants to pause.
-		//if (Input.GetKey (KeyCode.P)) {
-		//	panel.SetActive (false);
-		//	print ("p button pressed");
-		//}
+		if (Input.GetKey (KeyCode.P)) {
+			panel.SetActive (false);
+			print ("p button pressed");
+		}
 		
 	}
 }

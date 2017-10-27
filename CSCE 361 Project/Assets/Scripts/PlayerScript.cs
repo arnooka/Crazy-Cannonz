@@ -22,6 +22,7 @@ public class PlayerScript : MonoBehaviour {
 	[SerializeField]
 	private LayerMask WhatIsGround;
 
+    public AudioClip cannonSound;
 	private bool hasProjectile;
 	private bool facingRight;
 	private bool grounded;
@@ -95,7 +96,16 @@ public class PlayerScript : MonoBehaviour {
 				if (projectile.gameObject.name.Contains("Large Cannon Ball")) {
 					shift.y += 0.05f;
 					projectile.transform.position = shift;
-				}
+                    SoundManager.instance.playClip(cannonSound, 1f);
+                } else if(projectile.gameObject.name.Contains("Mid Cannon Ball")) {
+                    
+                    SoundManager.instance.playClip(cannonSound, 2f);
+
+                } else if(projectile.gameObject.name.Contains("Small Cannon Ball")) {
+                    
+                    SoundManager.instance.playClip(cannonSound, 3f);
+
+                }
 
 				projectile.GetComponent<Projectile>().SetWhoFired(this.gameObject);
 				hasProjectile = false;

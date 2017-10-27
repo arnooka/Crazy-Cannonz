@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour {
 
 	private Rigidbody2D projectile;
 	private GameObject whoFired;
+    public AudioClip projectileCollisionClip;
 
 	// Use this for initialization
 	void Start () {
@@ -56,7 +57,14 @@ public class Projectile : MonoBehaviour {
 			scale.y /= 20f;
 			time = 1;
 		}
-
+        //find type of cannon ball and adjust pitch accordingly
+        if(name.Contains("Large")) {
+            SoundManager.instance.playClip(projectileCollisionClip, 2);
+        } else if(name.Contains("Mid")) {
+            SoundManager.instance.playClip(projectileCollisionClip, 3);
+        } else {
+            SoundManager.instance.playClip(projectileCollisionClip, 4);
+        }
 		explosionEffect.transform.localScale = scale;
 		Destroy(explosionEffect, time);
 	}

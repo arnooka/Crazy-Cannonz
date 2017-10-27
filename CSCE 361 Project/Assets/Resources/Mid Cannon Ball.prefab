@@ -109,6 +109,8 @@ MonoBehaviour:
   speed: 3.5
   explosionEffect: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1,
     type: 2}
+  projectileCollisionClip: {fileID: 8300000, guid: 51441d4982a24409b8732c39435d0f6d,
+    type: 3}
 --- !u!212 &212574317656481682
 SpriteRenderer:
   m_ObjectHideFlags: 1

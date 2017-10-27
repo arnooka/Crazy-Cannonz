@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour {
 	public static SoundManager instance = null;
 	public AudioSource EFXSource;
 	public AudioSource musicSource;
+    public float musicVolume = 1f;
 	public float lowPitchVariation = .9f;
 	public float highPitchVariation = 1.1f;
 	public AudioClip[] musicClips;
@@ -15,6 +16,7 @@ public class SoundManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        musicSource.volume = .75f;
 		if (instance == null) {
 			instance = this;
 		} else {
@@ -23,7 +25,8 @@ public class SoundManager : MonoBehaviour {
 		DontDestroyOnLoad (gameObject);
 	}
 
-	public void playClip(AudioClip audioClip) {
+	public void playClip(AudioClip audioClip, float pitch) {
+        EFXSource.pitch = pitch;
 		EFXSource.clip = audioClip;
 
 		EFXSource.Play ();

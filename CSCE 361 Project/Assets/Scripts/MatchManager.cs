@@ -12,6 +12,7 @@ public class MatchManager : MonoBehaviour {
 	public Text text;
 	public static double matchTime = 10.0, soundFXVolume = 1.0, timeRemaining = 0.0;
 	public static double musicVolume = 1.0;
+	private static bool isActive = false;
 
 	public static int min = 0, sec = 0;
 	public static string secStr = "";
@@ -24,27 +25,30 @@ public class MatchManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		timeRemaining = matchTime - Time.timeSinceLevelLoad;
 
-		if (timeRemaining <= 0.0) {
-			SceneManager.LoadScene ("PostMatch");
+		if (isActive) {
+			timeRemaining = matchTime - Time.timeSinceLevelLoad;
+
+			if (timeRemaining <= 0.0) {
+				SceneManager.LoadScene ("PostMatch");
+			}
+
+			min = (int)timeRemaining / 60;
+			sec = (int)timeRemaining % 60;
+
+			if (sec < 10) {
+				secStr = "0" + sec.ToString ();
+			} else
+				secStr = sec.ToString ();
+
+			text.text = min.ToString () + ":" + secStr;
 		}
-
-		min = (int) timeRemaining / 60;
-		sec = (int) timeRemaining % 60;
-
-		if (sec < 10) {
-			secStr = "0" + sec.ToString ();
-		} else
-			secStr = sec.ToString ();
-
-		text.text = min.ToString () + ":" + secStr;
 
 		//First check to see if the player wants to pause.
 		if (Input.GetKey (KeyCode.P)) {
-			panel.SetActive (false);
-			print ("p button pressed");
+
+			isActive = false;
+			panel.SetActive (true);
 		}
 		
 	}

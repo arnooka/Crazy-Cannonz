@@ -89,7 +89,7 @@ public class PlayerScript : MonoBehaviour {
 		}
 
 		// Crouch Input (S Key, Down Arrow Key, or Left Joystick Down)
-		crouch = Input.GetAxis(crouchButton) < -0.5;
+		crouch = Input.GetAxisRaw(crouchButton) < -0.5;
 		if (crouch) {
 			cannonAnimator.SetBool("Crouch", true);
 		} else {

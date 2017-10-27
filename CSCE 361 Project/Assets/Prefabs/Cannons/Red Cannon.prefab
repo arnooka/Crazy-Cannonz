@@ -81,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325592347726456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.94, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4004708806162038}
@@ -195,7 +195,7 @@ MonoBehaviour:
   horizontalCtrl: Horizontal_P2
   fireButton: Fire_P2
   crouchButton: Vertical_P2
-  cannonSound: {fileID: 0}
+  cannonSound: {fileID: 8300000, guid: 51441d4982a24409b8732c39435d0f6d, type: 3}
 --- !u!212 &212982257301957916
 SpriteRenderer:
   m_ObjectHideFlags: 1

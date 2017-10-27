@@ -191,6 +191,11 @@ MonoBehaviour:
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
+  jumpButton: Jump_P3
+  horizontalCtrl: Horizontal_P3
+  fireButton: Fire_P3
+  crouchButton: Vertical_P3
+  cannonSound: {fileID: 8300000, guid: 51441d4982a24409b8732c39435d0f6d, type: 3}
 --- !u!212 &212652915902228178
 SpriteRenderer:
   m_ObjectHideFlags: 1

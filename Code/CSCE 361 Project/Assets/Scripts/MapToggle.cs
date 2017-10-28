@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class MapToggle : MonoBehaviour {
 
 	public ToggleGroup toggles;
-	public Toggle toggle1, toggle2, toggle3;
+	public Toggle toggle1, toggle2, toggle3, toggle4;
 	public Image mapImage;
-	public Sprite mapS, mapM, mapL;
+	public Sprite mapS, mapM, mapL, mapMystery;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +25,10 @@ public class MapToggle : MonoBehaviour {
 
 		toggle3.onValueChanged.AddListener ((value) => {
 			if(value) mapImage.sprite = mapL;
+		});
+
+		toggle4.onValueChanged.AddListener ((value) => {
+			if (value) mapImage.sprite = mapMystery;
 		});
 
 		

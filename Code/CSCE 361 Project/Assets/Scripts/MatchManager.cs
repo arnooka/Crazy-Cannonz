@@ -23,7 +23,7 @@ public class MatchManager : MonoBehaviour {
 		leaveMatch.onClick.AddListener (() => {
 			isActive = true;
 			pauseMenuOffsetTime = 0.0;
-			SceneManager.LoadScene ("MainMenu");
+			SceneManager.LoadScene ("PostMatch");
 		});
 
 	}

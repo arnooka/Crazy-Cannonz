@@ -20,9 +20,14 @@ public class MatchManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		isActive = true;
+		isCountdown = true;
+		pauseMenuOffsetTime = 5.0;
+
+		print (isCountdown);
+		countdownPanel.SetActive (isCountdown);
+
 		leaveMatch.onClick.AddListener (() => {
-			isActive = true;
-			pauseMenuOffsetTime = 0.0;
 			SceneManager.LoadScene ("PostMatch");
 		});
 

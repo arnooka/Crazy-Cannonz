@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PostMatch : MonoBehaviour {
 
-	public Button returnBtn;
+	public Button mainMenuBtn, rematchBtn;
 	public AudioClip menuMusic;
 	private SoundManager soundManager = SoundManager.instance;
 	[SerializeField]
@@ -15,7 +15,7 @@ public class PostMatch : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		returnBtn.onClick.AddListener (() => {
+		mainMenuBtn.onClick.AddListener (() => {
 			print("return");
 			soundManager.musicSource.Stop();
 			soundManager.musicSource.loop = true;
@@ -25,10 +25,16 @@ public class PostMatch : MonoBehaviour {
 			SceneManager.LoadScene ("MainMenu");
 		});
 
+<<<<<<< HEAD
 		Score1.text = MatchManager.score1.ToString();
 		Score2.text = MatchManager.score2.ToString();
 		Score3.text = MatchManager.score3.ToString();
 		Score4.text = MatchManager.score4.ToString();
+=======
+		rematchBtn.onClick.AddListener (() => {
+			SceneManager.LoadScene ("Arena Mid");
+		});
+>>>>>>> 72405a45d92b5acb83c7b0c7d6275c877a77d875
 
 	}
 	

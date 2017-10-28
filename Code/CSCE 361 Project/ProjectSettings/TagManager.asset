@@ -10,6 +10,10 @@ TagManager:
   - Crate_1
   - Crate_2
   - Projectile
+  - Player 1
+  - Player 2
+  - Player 3
+  - Player 4
   layers:
   - Default
   - TransparentFX

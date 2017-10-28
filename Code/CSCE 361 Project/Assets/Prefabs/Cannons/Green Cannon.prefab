@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 60673246220145842}
   m_Layer: 0
   m_Name: Green Cannon
-  m_TagString: Player
+  m_TagString: Player 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49e068f5bee14c5eacc15bd864a08fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnLocation: []
   forward: {fileID: 1351981039649734}
   MovementSpeed: 2
   JumpForce: 200
@@ -191,6 +192,8 @@ MonoBehaviour:
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
+  scoreText: {fileID: 0}
+  playerNumber: 3
   jumpButton: Jump_P3
   horizontalCtrl: Horizontal_P3
   fireButton: Fire_P3

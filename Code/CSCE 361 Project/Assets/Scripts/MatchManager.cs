@@ -14,6 +14,8 @@ public class MatchManager : MonoBehaviour {
 	public static double musicVolume = 1.0;
 	private static bool isActive = true, isCountdown = true;
 
+	public static int score1, score2, score3, score4;
+
 	public static int min = 0, sec = 0;
 	public static string secStr = "";
 
@@ -30,7 +32,6 @@ public class MatchManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		if (isCountdown) {
 			countdownTime.text = (5 - (int) Time.timeSinceLevelLoad).ToString();
 			if (Time.timeSinceLevelLoad > 5.0)

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Threading;
 
 public class PlayerScript : MonoBehaviour {
 
@@ -26,6 +28,11 @@ public class PlayerScript : MonoBehaviour {
 	private LayerMask WhatIsGround;
 
 	[SerializeField]
+	private Text scoreText;
+	[SerializeField]
+	private int playerNumber = 1;
+
+	[SerializeField]
 	private string jumpButton = "Jump_P1";
 	[SerializeField]
 	private string horizontalCtrl = "Horizontal_P1";
@@ -33,6 +40,8 @@ public class PlayerScript : MonoBehaviour {
 	private string fireButton = "Fire_P1";
 	[SerializeField]
 	private string crouchButton = "Vertical_P1";
+
+	private int score;
 
     public AudioClip cannonSound;
 	private bool hasProjectile;
@@ -46,12 +55,27 @@ public class PlayerScript : MonoBehaviour {
 		facingRight = true;
 		hasProjectile = false;
 		projectile = null;
+		score = 0;
 		crazyCannon = GetComponent<Rigidbody2D>();
 		cannonAnimator = GetComponent<Animator>();
 	}
 
 	void FixedUpdate () {
-		if (MatchManager.getIsActive()) {
+		if(playerNumber == 1)
+		{
+			MatchManager.score1 = score;
+		} else if (playerNumber == 2)
+		{
+			MatchManager.score2 = score;
+		} else if (playerNumber == 3)
+		{
+			MatchManager.score3 = score;
+		} else
+		{
+			MatchManager.score4 = score;
+		}
+		scoreText.text = "P" + playerNumber.ToString() + ": " + score.ToString();
+		if (MatchManager.getIsActive() && !MatchManager.getIsCountdown()) {
 			float Horizontal = Input.GetAxisRaw(horizontalCtrl);
 
 			grounded = IsGrounded();
@@ -73,8 +97,11 @@ public class PlayerScript : MonoBehaviour {
 			Physics2D.IgnoreCollision(col.collider, this.gameObject.GetComponent<Collider2D>());
 		}
 		if (col.gameObject.tag.Contains("Projectile") && col.gameObject != projectile) {
+			if (score != 0) {
+				score--;
+			}
 			gameObject.SetActive (false);
-			//TODO: wait for some amount of time before spawning
+			//Thread.Sleep(2000);
 			int i = Random.Range (0, spawnLocation.Length);
 			gameObject.SetActive (true);
 			gameObject.transform.position = spawnLocation [i].position;
@@ -182,6 +209,14 @@ public class PlayerScript : MonoBehaviour {
 
 	public bool GetDirection () {
 		return facingRight;
+	}
+
+	public void AddScore(int value) {
+		score += value;
+	}
+
+	public int GetScore() {
+		return score;
 	}
 
 	IEnumerator Waiting() {

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 60219592652530776}
   m_Layer: 0
   m_Name: Red Cannon
-  m_TagString: Player
+  m_TagString: Player 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,6 +196,8 @@ MonoBehaviour:
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
+  scoreText: {fileID: 0}
+  playerNumber: 2
   jumpButton: Jump_P2
   horizontalCtrl: Horizontal_P2
   fireButton: Fire_P2

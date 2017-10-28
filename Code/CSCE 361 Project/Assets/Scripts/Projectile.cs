@@ -8,6 +8,9 @@ public class Projectile : MonoBehaviour {
 	private float speed;
 	[SerializeField]
 	private GameObject explosionEffect;
+	[SerializeField]
+	private int pointValue;
+
 
 	private Rigidbody2D projectile;
 	private GameObject whoFired;
@@ -36,6 +39,9 @@ public class Projectile : MonoBehaviour {
 			// instantiate particle effect
 			explosionEffect = Instantiate(explosionEffect, transform.position, transform.rotation);
 			adjustEffectScale();
+			if (col.gameObject.tag.Contains("Player")) {
+				whoFired.GetComponent<PlayerScript>().AddScore(pointValue);
+			}
 			Destroy(this.gameObject);
 		}
 	}

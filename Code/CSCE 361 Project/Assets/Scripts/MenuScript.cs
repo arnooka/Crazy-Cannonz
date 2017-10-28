@@ -17,9 +17,8 @@ public class MenuScript : MonoBehaviour {
 	void Start () {
         /// Get an instance of the sound manager, tell it that
         /// we're in a menu, and play menu music
-        SoundManager soundManager = SoundManager.instance;
-        soundManager.inMenu = true;
-        soundManager.musicSource.Play();
+        SoundManager.instance.inMenu = true;
+        SoundManager.instance.musicSource.Play();
 
         /// Button for returning from match menu
 		matchBackBtn.onClick.AddListener (() => {
@@ -52,8 +51,8 @@ public class MenuScript : MonoBehaviour {
 
             /// Stop the menu music and tell the sound manager
             /// that we're no longer at the menu
-            soundManager.musicSource.Stop();
-            soundManager.inMenu = false;
+            SoundManager.instance.musicSource.Stop();
+            SoundManager.instance.inMenu = false;
 
             /// Hide the match menu
 			matchMenu.SetActive(false);
@@ -64,13 +63,13 @@ public class MenuScript : MonoBehaviour {
 
 		musicSlider.onValueChanged.AddListener (delegate {
             //set music volume for sound manager and save
-            soundManager.musicSource.volume = musicSlider.value;
+            SoundManager.instance.musicSource.volume = musicSlider.value;
 			MatchManager.musicVolume = musicSlider.value;
 		});
 
         soundFXSlider.onValueChanged.AddListener(delegate {
             //set sound effects volume for sound manager and save
-            soundManager.EFXSource.volume = soundFXSlider.value;
+            SoundManager.instance.EFXSource.volume = soundFXSlider.value;
             MatchManager.soundFXVolume = soundFXSlider.value;
         });
 

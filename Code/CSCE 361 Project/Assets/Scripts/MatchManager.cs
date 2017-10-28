@@ -52,7 +52,7 @@ public class MatchManager : MonoBehaviour {
 		}
 
 		//First check to see if the player wants to pause.
-		if (Input.GetKeyUp (KeyCode.P)) {
+		if (Input.GetButtonDown ("Pause")) {
 
 			isActive = !isActive;
 			panel.SetActive (!isActive);

@@ -2,41 +2,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MatchManager : MonoBehaviour {
 
-	public AudioSource theMatchMusic;
-	public GameObject panel, countdownPanel;
-	public Text activeTime, countdownTime;
-	public Button leaveMatch;
-	public static double matchTime = 10.0, soundFXVolume = 1.0, timeRemaining = 0.0, pauseMenuOffsetTime = 5.0;
-	public static double musicVolume = 1.0;
-	private static bool isActive = true, isCountdown = true;
+	[SerializeField]
+	private GameObject panel, countdownPanel;
+	[SerializeField]
+	private Text activeTime, countdownTime;
+	[SerializeField]
+	private Button leaveMatch;
 
-	public static int score1, score2, score3, score4;
+	private static double matchTime = 10.0, soundFXVolume = 1.0, timeRemaining = 0.0, pauseMenuOffsetTime = 5.0;
+	private static double musicVolume = 1.0;
+	private static bool isActive = true, isCountdown = true;
+	private static List<int> scores;
+
+	[SerializeField]
+	private EventSystem ES;
+	[SerializeField]
+	private GameObject pauseField;
+	private GameObject selectedField;
+
+	//public static int score1, score2, score3, score4;
 
 	public static int min = 0, sec = 0;
 	public static string secStr = "";
 
 	// Use this for initialization
 	void Start () {
-
+		selectedField = ES.firstSelectedGameObject;
 		isActive = true;
 		isCountdown = true;
 		pauseMenuOffsetTime = 5.0;
 
-		print (isCountdown);
+		//print (isCountdown);
 		countdownPanel.SetActive (isCountdown);
-
+		scores = new List<int>() {0,0,0,0};
+		
 		leaveMatch.onClick.AddListener (() => {
 			SceneManager.LoadScene ("PostMatch");
+			ES.SetSelectedGameObject(pauseField);
 		});
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (ES.currentSelectedGameObject != selectedField) {
+			if (ES.currentSelectedGameObject == null) {
+				ES.SetSelectedGameObject(selectedField);
+			} else {
+				selectedField = ES.currentSelectedGameObject;
+			}
+		}
+
 		if (isCountdown) {
 			countdownTime.text = (5 - (int) Time.timeSinceLevelLoad).ToString();
 			if (Time.timeSinceLevelLoad > 5.0)
@@ -56,9 +77,10 @@ public class MatchManager : MonoBehaviour {
 			sec = (int)timeRemaining % 60;
 
 			if (sec < 10) {
-				secStr = "0" + sec.ToString ();
-			} else
-				secStr = sec.ToString ();
+				secStr = "0" + sec.ToString();
+			} else {
+				secStr = sec.ToString();
+			}
 
 			activeTime.text = min.ToString () + ":" + secStr;
 		} else if (!isActive) {
@@ -67,10 +89,9 @@ public class MatchManager : MonoBehaviour {
 
 		//First check to see if the player wants to pause.
 		if (Input.GetButtonDown ("Pause")) {
-
 			isActive = !isActive;
 			panel.SetActive (!isActive);
-
+			ES.SetSelectedGameObject(pauseField);
 		}
 		
 	}
@@ -83,4 +104,23 @@ public class MatchManager : MonoBehaviour {
 		return isCountdown;
 	}
 
+	public static void setMatchTime(double value) {
+		matchTime = value;
+	}
+
+	public static void setSoundFXVolume(double value) {
+		soundFXVolume = value;
+	}
+
+	public static void setMusicVolume(double value) {
+		musicVolume = value;
+	}
+
+	public static int getPlayerScore(int i) {
+		return scores[i-1];
+	}
+
+	public static void setPlayerScore(int playerNumber, int score) {
+		scores[playerNumber - 1] = score;
+	}
 }

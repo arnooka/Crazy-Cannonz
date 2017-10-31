@@ -215,10 +215,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EFXSource: {fileID: 82396776000650364}
   musicSource: {fileID: 82415161258122676}
-  musicVolume: 1
   lowPitchVariation: 0.9
   highPitchVariation: 1.1
   musicClips:
   - {fileID: 8300000, guid: 10941956802a242c5a43961f4b56f2da, type: 3}
   - {fileID: 8300000, guid: eded0547e628d427e8ab692c01f1173f, type: 3}
   - {fileID: 8300000, guid: 7a7d7e584c7b547fca9f3b33e55c666d, type: 3}
+  inMenu: 0

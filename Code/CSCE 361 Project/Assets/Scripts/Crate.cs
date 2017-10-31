@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Crate : MonoBehaviour {
 
-	public float amplitude = 0.5f;
-	public float frequency = 1f;
+	[SerializeField]
+	private float amplitude = 0.5f;
+	[SerializeField]
+	private float frequency = 1f;
 
 	[SerializeField]
 	private GameObject projectile;

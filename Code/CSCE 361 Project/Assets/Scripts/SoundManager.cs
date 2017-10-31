@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
 
-	public static SoundManager instance = null;
+	public static SoundManager instance;
+
+	[SerializeField]
 	public AudioSource EFXSource;
+	[SerializeField]
 	public AudioSource musicSource;
+	[SerializeField]
 	public float lowPitchVariation = .9f;
+	[SerializeField]
 	public float highPitchVariation = 1.1f;
+
+	[SerializeField]
 	public AudioClip[] musicClips;
 	public bool inMenu;
 

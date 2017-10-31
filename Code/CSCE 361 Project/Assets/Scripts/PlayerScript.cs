@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using System.Threading;
 
 public class PlayerScript : MonoBehaviour {
-
-
+	
 	private Rigidbody2D crazyCannon;
 	private Animator cannonAnimator;
 	private GameObject projectile;
@@ -43,7 +42,7 @@ public class PlayerScript : MonoBehaviour {
 
 	private int score;
 
-    public AudioClip cannonSound;
+	public AudioClip cannonSound;
 	private bool hasProjectile;
 	private bool facingRight;
 	private bool grounded;
@@ -58,22 +57,12 @@ public class PlayerScript : MonoBehaviour {
 		score = 0;
 		crazyCannon = GetComponent<Rigidbody2D>();
 		cannonAnimator = GetComponent<Animator>();
+
 	}
 
-	void FixedUpdate () {
-		if(playerNumber == 1)
-		{
-			MatchManager.score1 = score;
-		} else if (playerNumber == 2)
-		{
-			MatchManager.score2 = score;
-		} else if (playerNumber == 3)
-		{
-			MatchManager.score3 = score;
-		} else
-		{
-			MatchManager.score4 = score;
-		}
+	void Update () {
+		MatchManager.setPlayerScore(playerNumber, score);
+		
 		scoreText.text = "P" + playerNumber.ToString() + ": " + score.ToString();
 		if (MatchManager.getIsActive() && !MatchManager.getIsCountdown()) {
 			float Horizontal = Input.GetAxisRaw(horizontalCtrl);
@@ -96,6 +85,7 @@ public class PlayerScript : MonoBehaviour {
 		if (col.gameObject.tag.Contains("Player")) {
 			Physics2D.IgnoreCollision(col.collider, this.gameObject.GetComponent<Collider2D>());
 		}
+		
 		if (col.gameObject.tag.Contains("Projectile") && col.gameObject != projectile) {
 			if (score != 0) {
 				score--;
@@ -147,25 +137,24 @@ public class PlayerScript : MonoBehaviour {
 		if (Input.GetButtonDown(fireButton)) {
 			if (hasProjectile) {
 				projectile = Instantiate(projectile, forward.transform.position, Quaternion.identity);
-
+				
 				Vector2 shift = forward.transform.position;
 				if (projectile.gameObject.name.Contains("Large Cannon Ball")) {
 					shift.y += 0.05f;
 					projectile.transform.position = shift;
-                    SoundManager.instance.playClip(cannonSound, 1f);
-                } else if(projectile.gameObject.name.Contains("Mid Cannon Ball")) {
-                    
-                    SoundManager.instance.playClip(cannonSound, 2f);
-
-                } else if(projectile.gameObject.name.Contains("Small Cannon Ball")) {
-                    
-                    SoundManager.instance.playClip(cannonSound, 3f);
-
-                }
-
+					SoundManager.instance.playClip(cannonSound, 1f);
+				} else if(projectile.gameObject.name.Contains("Mid Cannon Ball")) {
+					
+					SoundManager.instance.playClip(cannonSound, 2f);
+					
+				} else if(projectile.gameObject.name.Contains("Small Cannon Ball")) {
+					
+					SoundManager.instance.playClip(cannonSound, 3f);
+				
+				}
+				
 				projectile.GetComponent<Projectile>().SetWhoFired(this.gameObject);
 				hasProjectile = false;
-				//Debug.Log("Projectile Fired!");
 			}
 		}
 	}
@@ -174,9 +163,9 @@ public class PlayerScript : MonoBehaviour {
 	private void Flip (float Horizontal) {
 		if (Horizontal > 0 && !facingRight || Horizontal < 0 && facingRight) {
 			facingRight = !facingRight;
-
+			
 			Vector2 scale = transform.localScale;
-
+			
 			scale.x *= -1;
 			transform.localScale = scale;
 		}

@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
 
-	public static SoundManager instance;
+	private static SoundManager instance = null;
 
 	[SerializeField]
-	public AudioSource EFXSource;
+	private AudioSource EFXSource;
 	[SerializeField]
-	public AudioSource musicSource;
+	private AudioSource musicSource;
 	[SerializeField]
-	public float lowPitchVariation = .9f;
+	private float lowPitchVariation = .9f;
 	[SerializeField]
-	public float highPitchVariation = 1.1f;
+	private float highPitchVariation = 1.1f;
 
 	[SerializeField]
-	public AudioClip[] musicClips;
-	public bool inMenu;
+	private AudioClip[] musicClips;
+	private bool inMenu;
 
 
 	// Use this for initialization
-	void Start () {
-        musicSource.volume = .75f;
+	void Awake () {
+		musicSource.volume = .75f;
 		if (instance == null) {
 			instance = this;
 		} else {
@@ -60,6 +60,22 @@ public class SoundManager : MonoBehaviour {
 			}
 			musicSource.Play ();
 		}
+	}
+
+	public static SoundManager getInstance() {
+		return instance;
+	}
+
+	public AudioSource getMusicSource() {
+		return musicSource;
+	}
+
+	public AudioSource getEFXSource() {
+		return EFXSource;
+	}
+
+	public void setInMenu(bool flag){
+		inMenu = flag;
 	}
 
 }

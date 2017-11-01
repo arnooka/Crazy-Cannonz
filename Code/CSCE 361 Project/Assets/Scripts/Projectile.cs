@@ -10,11 +10,11 @@ public class Projectile : MonoBehaviour {
 	private GameObject explosionEffect;
 	[SerializeField]
 	private int pointValue;
-
+	[SerializeField]
+	private AudioClip projectileCollisionClip;
 
 	private Rigidbody2D projectile;
 	private GameObject whoFired;
-    public AudioClip projectileCollisionClip;
 
 	// Use this for initialization
 	void Start () {
@@ -33,10 +33,11 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
+		// Ignore collisions with player who fired projectile and crates
 		if (col.gameObject == whoFired || col.gameObject.tag.Contains("Crate")) {
 			Physics2D.IgnoreCollision(col.collider, gameObject.GetComponent<Collider2D>());
 		} else {
-			// instantiate particle effect
+			// Instantiate particle effect
 			explosionEffect = Instantiate(explosionEffect, transform.position, transform.rotation);
 			adjustEffectScale();
 			if (col.gameObject.tag.Contains("Player")) {
@@ -63,14 +64,14 @@ public class Projectile : MonoBehaviour {
 			scale.y /= 20f;
 			time = 1;
 		}
-        //find type of cannon ball and adjust pitch accordingly
-        if(name.Contains("Large")) {
-            SoundManager.instance.playClip(projectileCollisionClip, 2);
-        } else if(name.Contains("Mid")) {
-            SoundManager.instance.playClip(projectileCollisionClip, 3);
-        } else {
-            SoundManager.instance.playClip(projectileCollisionClip, 4);
-        }
+		//find type of cannon ball and adjust pitch accordingly
+		if(name.Contains("Large")) {
+			SoundManager.getInstance().playClip(projectileCollisionClip, 2);
+		} else if(name.Contains("Mid")) {
+			SoundManager.getInstance().playClip(projectileCollisionClip, 3);
+		} else if(name.Contains("Small")) {
+			SoundManager.getInstance().playClip(projectileCollisionClip, 4);
+		}
 		explosionEffect.transform.localScale = scale;
 		Destroy(explosionEffect, time);
 	}

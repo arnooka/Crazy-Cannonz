@@ -31,13 +31,13 @@ public class MenuScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		// Sets the first selected field from the event system
+		// Save the first selected field from the event system
 		selectedField = ES.firstSelectedGameObject;
 		
 		// Get an instance of the sound manager, tell it that
 		// we're in a menu, and play menu music
-		SoundManager.instance.inMenu = true;
-		SoundManager.instance.musicSource.Play();
+		SoundManager.getInstance().setInMenu(true);
+		SoundManager.getInstance().getMusicSource().Play();
 
 		// Button for returning from match menu
 		matchBackBtn.onClick.AddListener(() => {
@@ -70,12 +70,12 @@ public class MenuScript : MonoBehaviour {
 		// Button for starting a match
 		matchStartBtn.onClick.AddListener(() => {
 			//save time value in match settings
-			MatchManager.setMatchTime(matchTimerSlider.value * 60.0);
+			MatchManager.setMatchTime(matchTimerSlider.value * 60.0f);
 
 			// Stop the menu music and tell the sound manager
 			// that we're no longer at the menu
-			SoundManager.instance.musicSource.Stop();
-			SoundManager.instance.inMenu = false;
+			SoundManager.getInstance().getMusicSource().Stop();
+			SoundManager.getInstance().setInMenu(false);
 
 			// Hide the match menu
 			matchMenu.SetActive(false);
@@ -86,14 +86,12 @@ public class MenuScript : MonoBehaviour {
 
 		musicSlider.onValueChanged.AddListener(delegate {
 			//set music volume for sound manager and save
-			SoundManager.instance.musicSource.volume = musicSlider.value;
-			MatchManager.setMusicVolume(musicSlider.value);
+			SoundManager.getInstance().getMusicSource().volume = musicSlider.value;
 		});
 
 		soundFXSlider.onValueChanged.AddListener(delegate {
 			//set sound effects volume for sound manager and save
-			SoundManager.instance.EFXSource.volume = soundFXSlider.value;
-			MatchManager.setSoundFXVolume(soundFXSlider.value);
+			SoundManager.getInstance().getEFXSource().volume = soundFXSlider.value;
 		});
 
 		exitBtn.onClick.AddListener(() => {

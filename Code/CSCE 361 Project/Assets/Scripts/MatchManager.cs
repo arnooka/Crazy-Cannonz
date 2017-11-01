@@ -14,8 +14,7 @@ public class MatchManager : MonoBehaviour {
 	[SerializeField]
 	private Button leaveMatch;
 
-	private static double matchTime = 10.0, soundFXVolume = 1.0, timeRemaining = 0.0, pauseMenuOffsetTime = 5.0;
-	private static double musicVolume = 1.0;
+	private static float matchTime = 10.0f, timeRemaining = 0.0f, pauseMenuOffsetTime = 5.0f;
 	private static bool isActive = true, isCountdown = true;
 	private static List<int> scores;
 
@@ -32,10 +31,12 @@ public class MatchManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		// Set music volume and save the first selected field from the event system
 		selectedField = ES.firstSelectedGameObject;
+
 		isActive = true;
 		isCountdown = true;
-		pauseMenuOffsetTime = 5.0;
+		pauseMenuOffsetTime = 5.0f;
 
 		//print (isCountdown);
 		countdownPanel.SetActive (isCountdown);
@@ -66,16 +67,15 @@ public class MatchManager : MonoBehaviour {
 			countdownPanel.SetActive (false);
 		}
 
+		// Set active timer
 		if (isActive && !isCountdown) {
 			timeRemaining = matchTime - Time.timeSinceLevelLoad + pauseMenuOffsetTime;
-
 			if (timeRemaining <= 0.0) {
 				SceneManager.LoadScene ("PostMatch");
 			}
 
 			min = (int)timeRemaining / 60;
 			sec = (int)timeRemaining % 60;
-
 			if (sec < 10) {
 				secStr = "0" + sec.ToString();
 			} else {
@@ -87,7 +87,7 @@ public class MatchManager : MonoBehaviour {
 			pauseMenuOffsetTime += Time.deltaTime;
 		}
 
-		//First check to see if the player wants to pause.
+		// Pause input check
 		if (Input.GetButtonDown ("Pause")) {
 			isActive = !isActive;
 			panel.SetActive (!isActive);
@@ -104,16 +104,8 @@ public class MatchManager : MonoBehaviour {
 		return isCountdown;
 	}
 
-	public static void setMatchTime(double value) {
+	public static void setMatchTime(float value) {
 		matchTime = value;
-	}
-
-	public static void setSoundFXVolume(double value) {
-		soundFXVolume = value;
-	}
-
-	public static void setMusicVolume(double value) {
-		musicVolume = value;
 	}
 
 	public static int getPlayerScore(int i) {

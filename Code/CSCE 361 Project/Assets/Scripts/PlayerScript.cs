@@ -61,6 +61,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void Update () {
+		// Set player score based on player number
 		MatchManager.setPlayerScore(playerNumber, score);
 		
 		scoreText.text = "P" + playerNumber.ToString() + ": " + score.ToString();
@@ -82,16 +83,18 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter2D(Collision2D col) {
+		// Ignore collisions with other players
 		if (col.gameObject.tag.Contains("Player")) {
 			Physics2D.IgnoreCollision(col.collider, this.gameObject.GetComponent<Collider2D>());
 		}
 		
+		// Collided with projectile that another player fired
 		if (col.gameObject.tag.Contains("Projectile") && col.gameObject != projectile) {
 			if (score != 0) {
 				score--;
 			}
 			gameObject.SetActive (false);
-			//Thread.Sleep(2000);
+			//TODO: Set delay for respawn
 			int i = Random.Range (0, spawnLocation.Length);
 			gameObject.SetActive (true);
 			gameObject.transform.position = spawnLocation [i].position;
@@ -102,7 +105,7 @@ public class PlayerScript : MonoBehaviour {
 	private void Movement (float Horizontal) {
 		// Set player x velocity
 		crazyCannon.velocity = new Vector2(MovementSpeed * Horizontal, crazyCannon.velocity.y);
-		crazyCannon.velocity.Normalize();
+		
 		// Set player velocity to zero if crouched
 		if (grounded && crouch) {
 			crazyCannon.velocity = new Vector2(0, crazyCannon.velocity.y);
@@ -142,14 +145,14 @@ public class PlayerScript : MonoBehaviour {
 				if (projectile.gameObject.name.Contains("Large Cannon Ball")) {
 					shift.y += 0.05f;
 					projectile.transform.position = shift;
-					SoundManager.instance.playClip(cannonSound, 1f);
+					SoundManager.getInstance().playClip(cannonSound, 1f);
 				} else if(projectile.gameObject.name.Contains("Mid Cannon Ball")) {
 					
-					SoundManager.instance.playClip(cannonSound, 2f);
+					SoundManager.getInstance().playClip(cannonSound, 2f);
 					
 				} else if(projectile.gameObject.name.Contains("Small Cannon Ball")) {
 					
-					SoundManager.instance.playClip(cannonSound, 3f);
+					SoundManager.getInstance().playClip(cannonSound, 3f);
 				
 				}
 				
@@ -202,14 +205,6 @@ public class PlayerScript : MonoBehaviour {
 
 	public void AddScore(int value) {
 		score += value;
-	}
-
-	public int GetScore() {
-		return score;
-	}
-
-	IEnumerator Waiting() {
-		yield return new WaitForSeconds (3.0f);
 	}
 
 }

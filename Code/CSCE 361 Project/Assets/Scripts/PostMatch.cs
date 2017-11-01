@@ -23,14 +23,22 @@ public class PostMatch : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		// Save the first selected field from event system
 		selectedField = ES.firstSelectedGameObject;
+
+		// Initializing text fields
+		Score1.text = 0.ToString();
+		Score2.text = 0.ToString();
+		Score3.text = 0.ToString();
+		Score4.text = 0.ToString();
+
 		mainMenuBtn.onClick.AddListener (() => {
 			//print("return");
-			SoundManager.instance.musicSource.Stop();
-			SoundManager.instance.musicSource.loop = true;
-			SoundManager.instance.inMenu = true;
-			SoundManager.instance.musicSource.clip = menuMusic;
-			SoundManager.instance.musicSource.Play();
+			SoundManager.getInstance().getMusicSource().Stop();
+			SoundManager.getInstance().getMusicSource().loop = true;
+			SoundManager.getInstance().setInMenu(true);
+			SoundManager.getInstance().getMusicSource().clip = menuMusic;
+			SoundManager.getInstance().getMusicSource().Play();
 			SceneManager.LoadScene ("MainMenu");
 		});
 

@@ -19,20 +19,16 @@ public class MenuScript : MonoBehaviour {
 	private GameObject mainMenu, optionsMenu, matchMenu;
 	
 	[SerializeField]
-	private EventSystem ES;
+	private EventSystem eventSystem;
 	private GameObject selectedField;
 	
 	[SerializeField]
-	private GameObject mainMenuField;
-	[SerializeField]
-	private GameObject matchField;
-	[SerializeField]
-	private GameObject optionsField;
+	private GameObject mainMenuField, matchField, optionsField;
 
 	// Use this for initialization
 	void Start () {
 		// Save the first selected field from the event system
-		selectedField = ES.firstSelectedGameObject;
+		selectedField = eventSystem.firstSelectedGameObject;
 		
 		// Get an instance of the sound manager, tell it that
 		// we're in a menu, and play menu music
@@ -43,28 +39,28 @@ public class MenuScript : MonoBehaviour {
 		matchBackBtn.onClick.AddListener(() => {
 			mainMenu.SetActive(true);
 			matchMenu.SetActive(false);
-			ES.SetSelectedGameObject(mainMenuField);
+			eventSystem.SetSelectedGameObject(mainMenuField);
 		});
 
 		// Button for returning from options menu
 		optionsBackBtn.onClick.AddListener(() => {
 			mainMenu.SetActive(true);
 			optionsMenu.SetActive(false);
-			ES.SetSelectedGameObject(mainMenuField);
+			eventSystem.SetSelectedGameObject(mainMenuField);
 		});
 
 		// Button for entering options menu
 		optionsBtn.onClick.AddListener(() => {
 			optionsMenu.SetActive(true);
 			mainMenu.SetActive(false);
-			ES.SetSelectedGameObject(optionsField);
+			eventSystem.SetSelectedGameObject(optionsField);
 		});
 
 		// Button for entering match menu
 		matchBtn.onClick.AddListener(() => {
 			matchMenu.SetActive(true);
 			mainMenu.SetActive(false);
-			ES.SetSelectedGameObject(matchField);
+			eventSystem.SetSelectedGameObject(matchField);
 		});
 
 		// Button for starting a match
@@ -105,11 +101,11 @@ public class MenuScript : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (ES.currentSelectedGameObject != selectedField) {
-			if (ES.currentSelectedGameObject == null) {
-				ES.SetSelectedGameObject(selectedField);
+		if (eventSystem.currentSelectedGameObject != selectedField) {
+			if (eventSystem.currentSelectedGameObject == null) {
+				eventSystem.SetSelectedGameObject(selectedField);
 			} else {
-				selectedField = ES.currentSelectedGameObject;
+				selectedField = eventSystem.currentSelectedGameObject;
 			}
 		}
 	}

@@ -182,14 +182,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49e068f5bee14c5eacc15bd864a08fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnLocation: []
   forward: {fileID: 1351981039649734}
-  MovementSpeed: 2
-  JumpForce: 200
-  GroundPoints:
+  spawnLocation: []
+  groundPoints:
   - {fileID: 4623225307975596}
-  GroundRadius: 0.1
-  WhatIsGround:
+  groundRadius: 0.1
+  movementSpeed: 2
+  jumpForce: 200
+  whatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
   scoreText: {fileID: 0}

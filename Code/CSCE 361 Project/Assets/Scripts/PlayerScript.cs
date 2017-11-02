@@ -11,25 +11,16 @@ public class PlayerScript : MonoBehaviour {
 	private GameObject projectile;
 
 	[SerializeField]
-	private Transform[] spawnLocation;
-
+	private int playerNumber = 1;
 	[SerializeField]
 	private GameObject forward;
+	
 	[SerializeField]
-	private float MovementSpeed;
-	[SerializeField]
-	private float JumpForce;
-	[SerializeField]
-	private Transform[] GroundPoints;
-	[SerializeField]
-	private float GroundRadius;
-	[SerializeField]
-	private LayerMask WhatIsGround;
-
+	private float groundRadius, movementSpeed, jumpForce;
 	[SerializeField]
 	private Text scoreText;
 	[SerializeField]
-	private int playerNumber = 1;
+	private AudioClip cannonSound;
 
 	[SerializeField]
 	private string jumpButton = "Jump_P1";
@@ -40,14 +31,13 @@ public class PlayerScript : MonoBehaviour {
 	[SerializeField]
 	private string crouchButton = "Vertical_P1";
 
-	private int score;
+	[SerializeField]
+	private LayerMask whatIsGround;
+	[SerializeField]
+	private Transform[] spawnLocation, groundPoints;
 
-	public AudioClip cannonSound;
-	private bool hasProjectile;
-	private bool facingRight;
-	private bool grounded;
-	private bool crouch;
-	private bool jump;
+	private int score;
+	private bool hasProjectile, facingRight, grounded, crouch, jump;
 
 	// Use this for initialization
 	void Start () {
@@ -104,7 +94,7 @@ public class PlayerScript : MonoBehaviour {
 
 	private void Movement (float Horizontal) {
 		// Set player x velocity
-		crazyCannon.velocity = new Vector2(MovementSpeed * Horizontal, crazyCannon.velocity.y);
+		crazyCannon.velocity = new Vector2(movementSpeed * Horizontal, crazyCannon.velocity.y);
 		
 		// Set player velocity to zero if crouched
 		if (grounded && crouch) {
@@ -114,7 +104,7 @@ public class PlayerScript : MonoBehaviour {
 		// Set player y velocity (jumping)
 		if (grounded && jump) {
 			grounded = false;
-			crazyCannon.AddForce(new Vector2(0, JumpForce));
+			crazyCannon.AddForce(new Vector2(0, jumpForce));
 		}
 
 		// Set animator float to begin walk animation
@@ -176,8 +166,8 @@ public class PlayerScript : MonoBehaviour {
 
 	private bool IsGrounded () {
 		if (crazyCannon.velocity.y <= 0) {
-			foreach (Transform Point in GroundPoints) {
-				Collider2D[] col = Physics2D.OverlapCircleAll(Point.position, GroundRadius, WhatIsGround);
+			foreach (Transform Point in groundPoints) {
+				Collider2D[] col = Physics2D.OverlapCircleAll(Point.position, groundRadius, whatIsGround);
 				for (int i = 0; i < col.Length; i++) {
 					if (col[i].gameObject != gameObject) {
 						jump = false;

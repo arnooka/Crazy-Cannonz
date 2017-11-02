@@ -19,7 +19,7 @@ public class MatchManager : MonoBehaviour {
 	private static List<int> scores;
 
 	[SerializeField]
-	private EventSystem ES;
+	private EventSystem eventSystem;
 	[SerializeField]
 	private GameObject pauseField;
 	private GameObject selectedField;
@@ -32,7 +32,7 @@ public class MatchManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// Set music volume and save the first selected field from the event system
-		selectedField = ES.firstSelectedGameObject;
+		selectedField = eventSystem.firstSelectedGameObject;
 
 		isActive = true;
 		isCountdown = true;
@@ -44,18 +44,18 @@ public class MatchManager : MonoBehaviour {
 		
 		leaveMatch.onClick.AddListener (() => {
 			SceneManager.LoadScene ("PostMatch");
-			ES.SetSelectedGameObject(pauseField);
+			eventSystem.SetSelectedGameObject(pauseField);
 		});
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (ES.currentSelectedGameObject != selectedField) {
-			if (ES.currentSelectedGameObject == null) {
-				ES.SetSelectedGameObject(selectedField);
+		if (eventSystem.currentSelectedGameObject != selectedField) {
+			if (eventSystem.currentSelectedGameObject == null) {
+				eventSystem.SetSelectedGameObject(selectedField);
 			} else {
-				selectedField = ES.currentSelectedGameObject;
+				selectedField = eventSystem.currentSelectedGameObject;
 			}
 		}
 
@@ -91,7 +91,7 @@ public class MatchManager : MonoBehaviour {
 		if (Input.GetButtonDown ("Pause")) {
 			isActive = !isActive;
 			panel.SetActive (!isActive);
-			ES.SetSelectedGameObject(pauseField);
+			eventSystem.SetSelectedGameObject(pauseField);
 		}
 		
 	}

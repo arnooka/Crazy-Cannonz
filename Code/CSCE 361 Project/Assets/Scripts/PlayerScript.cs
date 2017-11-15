@@ -5,32 +5,22 @@ using UnityEngine.UI;
 using System.Threading;
 
 public class PlayerScript : MonoBehaviour {
-
-
+	
 	private Rigidbody2D crazyCannon;
 	private Animator cannonAnimator;
 	private GameObject projectile;
 
 	[SerializeField]
-	private Transform[] spawnLocation;
-
+	private int playerNumber = 1;
 	[SerializeField]
 	private GameObject forward;
+	
 	[SerializeField]
-	private float MovementSpeed;
-	[SerializeField]
-	private float JumpForce;
-	[SerializeField]
-	private Transform[] GroundPoints;
-	[SerializeField]
-	private float GroundRadius;
-	[SerializeField]
-	private LayerMask WhatIsGround;
-
+	private float groundRadius, movementSpeed, jumpForce;
 	[SerializeField]
 	private Text scoreText;
 	[SerializeField]
-	private int playerNumber = 1;
+	private AudioClip cannonSound;
 
 	[SerializeField]
 	private string jumpButton = "Jump_P1";
@@ -41,14 +31,13 @@ public class PlayerScript : MonoBehaviour {
 	[SerializeField]
 	private string crouchButton = "Vertical_P1";
 
-	private int score;
+	[SerializeField]
+	private LayerMask whatIsGround;
+	[SerializeField]
+	private Transform[] spawnLocation, groundPoints;
 
-    public AudioClip cannonSound;
-	private bool hasProjectile;
-	private bool facingRight;
-	private bool grounded;
-	private bool crouch;
-	private bool jump;
+	private int score, lastLocation = -1;
+	private bool hasProjectile, facingRight, grounded, crouch, jump;
 
 	// Use this for initialization
 	void Start () {
@@ -58,22 +47,13 @@ public class PlayerScript : MonoBehaviour {
 		score = 0;
 		crazyCannon = GetComponent<Rigidbody2D>();
 		cannonAnimator = GetComponent<Animator>();
+
 	}
 
-	void FixedUpdate () {
-		if(playerNumber == 1)
-		{
-			MatchManager.score1 = score;
-		} else if (playerNumber == 2)
-		{
-			MatchManager.score2 = score;
-		} else if (playerNumber == 3)
-		{
-			MatchManager.score3 = score;
-		} else
-		{
-			MatchManager.score4 = score;
-		}
+	void Update () {
+		// Set player score based on player number
+		MatchManager.setPlayerScore(playerNumber, score);
+		
 		scoreText.text = "P" + playerNumber.ToString() + ": " + score.ToString();
 		if (MatchManager.getIsActive() && !MatchManager.getIsCountdown()) {
 			float Horizontal = Input.GetAxisRaw(horizontalCtrl);
@@ -93,26 +73,41 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter2D(Collision2D col) {
+		// Ignore collisions with other players
 		if (col.gameObject.tag.Contains("Player")) {
 			Physics2D.IgnoreCollision(col.collider, this.gameObject.GetComponent<Collider2D>());
 		}
+		
+		// Collided with projectile that another player fired
 		if (col.gameObject.tag.Contains("Projectile") && col.gameObject != projectile) {
 			if (score != 0) {
 				score--;
 			}
 			gameObject.SetActive (false);
-			//Thread.Sleep(2000);
-			int i = Random.Range (0, spawnLocation.Length);
+			
+			// TODO: implement respawn delay  
+			//float respawnDelay = 0;
+			//while(respawnDelay < 10) {
+			//	respawnDelay += Time.fixedDeltaTime;
+			//	Debug.Log(respawnDelay);
+			//}
+
+			int location = Random.Range (0, spawnLocation.Length);
+			while (location == lastLocation) {
+				location = Random.Range(0, spawnLocation.Length);
+			}
+			lastLocation = location;
+			
 			gameObject.SetActive (true);
-			gameObject.transform.position = spawnLocation [i].position;
+			gameObject.transform.position = spawnLocation[location].position;
 
 		}
 	}
 
 	private void Movement (float Horizontal) {
 		// Set player x velocity
-		crazyCannon.velocity = new Vector2(MovementSpeed * Horizontal, crazyCannon.velocity.y);
-		crazyCannon.velocity.Normalize();
+		crazyCannon.velocity = new Vector2(movementSpeed * Horizontal, crazyCannon.velocity.y);
+		
 		// Set player velocity to zero if crouched
 		if (grounded && crouch) {
 			crazyCannon.velocity = new Vector2(0, crazyCannon.velocity.y);
@@ -121,7 +116,7 @@ public class PlayerScript : MonoBehaviour {
 		// Set player y velocity (jumping)
 		if (grounded && jump) {
 			grounded = false;
-			crazyCannon.AddForce(new Vector2(0, JumpForce));
+			crazyCannon.AddForce(new Vector2(0, jumpForce));
 		}
 
 		// Set animator float to begin walk animation
@@ -147,25 +142,24 @@ public class PlayerScript : MonoBehaviour {
 		if (Input.GetButtonDown(fireButton)) {
 			if (hasProjectile) {
 				projectile = Instantiate(projectile, forward.transform.position, Quaternion.identity);
-
+				
 				Vector2 shift = forward.transform.position;
 				if (projectile.gameObject.name.Contains("Large Cannon Ball")) {
 					shift.y += 0.05f;
 					projectile.transform.position = shift;
-                    SoundManager.instance.playClip(cannonSound, 1f);
-                } else if(projectile.gameObject.name.Contains("Mid Cannon Ball")) {
-                    
-                    SoundManager.instance.playClip(cannonSound, 2f);
-
-                } else if(projectile.gameObject.name.Contains("Small Cannon Ball")) {
-                    
-                    SoundManager.instance.playClip(cannonSound, 3f);
-
-                }
-
+					SoundManager.getInstance().playClip(cannonSound, 1f);
+				} else if(projectile.gameObject.name.Contains("Mid Cannon Ball")) {
+					
+					SoundManager.getInstance().playClip(cannonSound, 2f);
+					
+				} else if(projectile.gameObject.name.Contains("Small Cannon Ball")) {
+					
+					SoundManager.getInstance().playClip(cannonSound, 3f);
+				
+				}
+				
 				projectile.GetComponent<Projectile>().SetWhoFired(this.gameObject);
 				hasProjectile = false;
-				//Debug.Log("Projectile Fired!");
 			}
 		}
 	}
@@ -174,9 +168,9 @@ public class PlayerScript : MonoBehaviour {
 	private void Flip (float Horizontal) {
 		if (Horizontal > 0 && !facingRight || Horizontal < 0 && facingRight) {
 			facingRight = !facingRight;
-
+			
 			Vector2 scale = transform.localScale;
-
+			
 			scale.x *= -1;
 			transform.localScale = scale;
 		}
@@ -184,8 +178,8 @@ public class PlayerScript : MonoBehaviour {
 
 	private bool IsGrounded () {
 		if (crazyCannon.velocity.y <= 0) {
-			foreach (Transform Point in GroundPoints) {
-				Collider2D[] col = Physics2D.OverlapCircleAll(Point.position, GroundRadius, WhatIsGround);
+			foreach (Transform Point in groundPoints) {
+				Collider2D[] col = Physics2D.OverlapCircleAll(Point.position, groundRadius, whatIsGround);
 				for (int i = 0; i < col.Length; i++) {
 					if (col[i].gameObject != gameObject) {
 						jump = false;
@@ -213,14 +207,6 @@ public class PlayerScript : MonoBehaviour {
 
 	public void AddScore(int value) {
 		score += value;
-	}
-
-	public int GetScore() {
-		return score;
-	}
-
-	IEnumerator Waiting() {
-		yield return new WaitForSeconds (3.0f);
 	}
 
 }

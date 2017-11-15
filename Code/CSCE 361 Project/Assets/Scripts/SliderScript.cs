@@ -20,24 +20,22 @@ public class SliderScript : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
 	}
 
 	public void OnSelect(BaseEventData eventData) {
-		Debug.Log ("fx slider selected");
+		
 	}
 
 	public void OnDeselect(BaseEventData eventData) {
-		Debug.Log ("fx slider deselected");
+		
 	}
 
 	public void OnPointerDown(PointerEventData eventData) {
-		Debug.Log ("slider clicked");
+		//Debug.Log ("slider clicked");
 		source.volume = slideFX.value;
-		MatchManager.soundFXVolume = slideFX.value;
-		source.Play ();
+		//source.Play ();
 	}
 
 	public void OnPointerUp(PointerEventData eventData) {
-		Debug.Log ("slider unclicked");
+		//Debug.Log ("slider unclicked");
 		source.volume = slideFX.value;
-		MatchManager.soundFXVolume = slideFX.value;
 		source.Play ();
 	}
 }

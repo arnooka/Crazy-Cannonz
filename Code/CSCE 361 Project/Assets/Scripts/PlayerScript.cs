@@ -36,7 +36,7 @@ public class PlayerScript : MonoBehaviour {
 	[SerializeField]
 	private Transform[] spawnLocation, groundPoints;
 
-	private int score;
+	private int score, lastLocation = -1;
 	private bool hasProjectile, facingRight, grounded, crouch, jump;
 
 	// Use this for initialization
@@ -84,10 +84,22 @@ public class PlayerScript : MonoBehaviour {
 				score--;
 			}
 			gameObject.SetActive (false);
-			//TODO: Set delay for respawn
-			int i = Random.Range (0, spawnLocation.Length);
+			
+			// TODO: implement respawn delay  
+			//float respawnDelay = 0;
+			//while(respawnDelay < 10) {
+			//	respawnDelay += Time.fixedDeltaTime;
+			//	Debug.Log(respawnDelay);
+			//}
+
+			int location = Random.Range (0, spawnLocation.Length);
+			while (location == lastLocation) {
+				location = Random.Range(0, spawnLocation.Length);
+			}
+			lastLocation = location;
+			
 			gameObject.SetActive (true);
-			gameObject.transform.position = spawnLocation [i].position;
+			gameObject.transform.position = spawnLocation[location].position;
 
 		}
 	}

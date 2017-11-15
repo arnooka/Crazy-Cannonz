@@ -12,7 +12,7 @@ public class MenuScript : MonoBehaviour {
 	[SerializeField]
 	private Text matchTimerText;
 	[SerializeField]
-	private Button optionsBtn, matchBtn, matchBackBtn, optionsBackBtn, matchStartBtn, exitBtn;
+	private Button optionsBtn, localMatchBtn, onlineMatchBtn, matchBackBtn, optionsBackBtn, matchStartBtn, exitBtn;
 	[SerializeField]
 	private Slider musicSlider, soundFXSlider;
 	[SerializeField]
@@ -56,12 +56,18 @@ public class MenuScript : MonoBehaviour {
 			eventSystem.SetSelectedGameObject(optionsField);
 		});
 
-		// Button for entering match menu
-		matchBtn.onClick.AddListener(() => {
+		// Button for entering local match menu
+		localMatchBtn.onClick.AddListener(() => {
 			matchMenu.SetActive(true);
 			mainMenu.SetActive(false);
 			eventSystem.SetSelectedGameObject(matchField);
 		});
+
+		// Button for entering online match menu
+		onlineMatchBtn.onClick.AddListener(() =>{
+			Debug.Log("Entering Online Menu");
+		});
+
 
 		// Button for starting a match
 		matchStartBtn.onClick.AddListener(() => {

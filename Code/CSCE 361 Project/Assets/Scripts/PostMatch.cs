@@ -42,10 +42,10 @@ public class PostMatch : MonoBehaviour {
 			SceneManager.LoadScene ("MainMenu");
 		});
 
-		Score1.text = MatchManager.getPlayerScore(1).ToString();
-		Score2.text = MatchManager.getPlayerScore(2).ToString();
-		Score3.text = MatchManager.getPlayerScore(3).ToString();
-		Score4.text = MatchManager.getPlayerScore(4).ToString();
+		Score1.text = MatchManager.GetPlayerScore(1).ToString();
+		Score2.text = MatchManager.GetPlayerScore(2).ToString();
+		Score3.text = MatchManager.GetPlayerScore(3).ToString();
+		Score4.text = MatchManager.GetPlayerScore(4).ToString();
 
 		rematchBtn.onClick.AddListener (() => {
 			SceneManager.LoadScene ("Arena Mid");

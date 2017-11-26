@@ -72,7 +72,7 @@ public class MenuScript : MonoBehaviour {
 		// Button for starting a match
 		matchStartBtn.onClick.AddListener(() => {
 			//save time value in match settings
-			MatchManager.setMatchTime(matchTimerSlider.value * 60.0f);
+			MatchManager.SetMatchTime(matchTimerSlider.value * 60.0f);
 
 			// Stop the menu music and tell the sound manager
 			// that we're no longer at the menu

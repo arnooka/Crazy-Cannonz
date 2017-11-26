@@ -26,11 +26,6 @@ public class Projectile : MonoBehaviour {
 		Vector2 vel = new Vector2(dir * speed, 0);
 		projectile.velocity = vel;
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-		
-	}
 
 	void OnCollisionEnter2D(Collision2D col) {
 		// Ignore collisions with player who fired projectile and crates
@@ -39,7 +34,7 @@ public class Projectile : MonoBehaviour {
 		} else {
 			// Instantiate particle effect
 			explosionEffect = Instantiate(explosionEffect, transform.position, transform.rotation);
-			adjustEffectScale();
+			AdjustEffectScale();
 			if (col.gameObject.tag.Contains("Player")) {
 				whoFired.GetComponent<PlayerScript>().AddScore(pointValue);
 			}
@@ -47,7 +42,7 @@ public class Projectile : MonoBehaviour {
 		}
 	}
 
-	private void adjustEffectScale() {
+	private void AdjustEffectScale() {
 		Vector2 scale = explosionEffect.transform.localScale;
 		float time = 1;
 
@@ -64,7 +59,8 @@ public class Projectile : MonoBehaviour {
 			scale.y /= 20f;
 			time = 1;
 		}
-		//find type of cannon ball and adjust pitch accordingly
+
+		// Find type of cannon ball and adjust pitch accordingly
 		if(name.Contains("Large")) {
 			SoundManager.getInstance().playClip(projectileCollisionClip, 2);
 		} else if(name.Contains("Mid")) {

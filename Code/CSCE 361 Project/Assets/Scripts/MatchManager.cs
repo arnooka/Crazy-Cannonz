@@ -96,23 +96,23 @@ public class MatchManager : MonoBehaviour {
 		
 	}
 
-	public static bool getIsActive() {
+	public static bool GetIsActive() {
 		return isActive;
 	}
 
-	public static bool getIsCountdown() {
+	public static bool GetIsCountdown() {
 		return isCountdown;
 	}
 
-	public static void setMatchTime(float value) {
+	public static void SetMatchTime(float value) {
 		matchTime = value;
 	}
 
-	public static int getPlayerScore(int i) {
+	public static int GetPlayerScore(int i) {
 		return scores[i-1];
 	}
 
-	public static void setPlayerScore(int playerNumber, int score) {
+	public static void SetPlayerScore(int playerNumber, int score) {
 		scores[playerNumber - 1] = score;
 	}
 }

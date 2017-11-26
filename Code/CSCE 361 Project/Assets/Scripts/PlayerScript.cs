@@ -52,10 +52,10 @@ public class PlayerScript : MonoBehaviour {
 
 	void Update () {
 		// Set player score based on player number
-		MatchManager.setPlayerScore(playerNumber, score);
+		MatchManager.SetPlayerScore(playerNumber, score);
 		
 		scoreText.text = "P" + playerNumber.ToString() + ": " + score.ToString();
-		if (MatchManager.getIsActive() && !MatchManager.getIsCountdown()) {
+		if (MatchManager.GetIsActive() && !MatchManager.GetIsCountdown()) {
 			float Horizontal = Input.GetAxisRaw(horizontalCtrl);
 
 			grounded = IsGrounded();

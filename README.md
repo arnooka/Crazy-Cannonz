@@ -1,12 +1,24 @@
 ## Crazy Cannonz
 
 ### Introduction
-
-    TODO
+	
+	TODO
 
 ### Gameplay
 
-    TODO
+	TODO
+
+### Contributors 
+
+- Joseph Field III ([jjfield3](https://github.com/jjfield3))
+- Grant Harrison ([grant-gitcode](https://github.com/grant-gitcode))
+- Jared Nightingale ([jjnight444](https://github.com/jnight444))
+- Avinash Nooka ([nookavish](https://github.com/nookavish))
+    
+### Download
+
+Download the standalone game [here](https://help.github.com/categories/github-pages-basics/).
+
 
 ```markdown
 Syntax highlighted code block
@@ -27,17 +39,3 @@ Syntax highlighted code block
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Contributors
-
-Joseph Field III ([jjfield3](https://github.com/jjfield3)),
-Grant Harrison ([grant-gitcode](https://github.com/grant-gitcode)),
-Jared Nightingale ([jjnight444](https://github.com/jnight444)),
-Avinash Nooka ([nookavish](https://github.com/nookavish))
-    
-### Download
-
-[Download](https://help.github.com/categories/github-pages-basics/) the game only through the following link.
-
-
-

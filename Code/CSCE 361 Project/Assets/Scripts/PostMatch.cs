@@ -42,6 +42,7 @@ public class PostMatch : MonoBehaviour {
 			SceneManager.LoadScene ("MainMenu");
 		});
 
+		// Set score text panels with player scores
 		Score1.text = MatchManager.GetPlayerScore(1).ToString();
 		Score2.text = MatchManager.GetPlayerScore(2).ToString();
 		Score3.text = MatchManager.GetPlayerScore(3).ToString();

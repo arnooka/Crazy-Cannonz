@@ -156,6 +156,7 @@ public class PlayerScript : MonoBehaviour {
 		}
 	}
 
+	// Checks if player is touching the ground
 	private bool IsGrounded () {
 		if (crazyCannon.velocity.y <= 0) {
 			foreach (Transform Point in groundPoints) {
@@ -172,6 +173,7 @@ public class PlayerScript : MonoBehaviour {
 		return false;
 	}
 
+	// Respawn coroutine
 	IEnumerator Respawn() {
 		if (score != 0) {
 			score--;
@@ -193,6 +195,7 @@ public class PlayerScript : MonoBehaviour {
 		gameObject.transform.position = spawnLocation[location].position;
 	}
 
+	// Selfmade gameobject enable and disable function
 	private void EnableGameobject(bool condition){
 		this.gameObject.GetComponent<PolygonCollider2D>().enabled = condition;
 		this.gameObject.GetComponent<SpriteRenderer>().enabled = condition;

@@ -42,6 +42,7 @@ public class Projectile : MonoBehaviour {
 		}
 	}
 
+	// Particle effect scaling
 	private void AdjustEffectScale() {
 		Vector2 scale = explosionEffect.transform.localScale;
 		float time = 1;

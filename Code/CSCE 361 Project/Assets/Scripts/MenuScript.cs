@@ -71,7 +71,7 @@ public class MenuScript : MonoBehaviour {
 
 		// Button for starting a match
 		matchStartBtn.onClick.AddListener(() => {
-			//save time value in match settings
+			// Save time value in match settings
 			MatchManager.SetMatchTime(matchTimerSlider.value * 60.0f);
 
 			// Stop the menu music and tell the sound manager
@@ -87,12 +87,12 @@ public class MenuScript : MonoBehaviour {
 		});
 
 		musicSlider.onValueChanged.AddListener(delegate {
-			//set music volume for sound manager and save
+			// Set music volume for sound manager and save
 			SoundManager.getInstance().getMusicSource().volume = musicSlider.value;
 		});
 
 		soundFXSlider.onValueChanged.AddListener(delegate {
-			//set sound effects volume for sound manager and save
+			// Set sound effects volume for sound manager and save
 			SoundManager.getInstance().getEFXSource().volume = soundFXSlider.value;
 		});
 

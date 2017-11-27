@@ -107,6 +107,7 @@ public class MenuScript : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		// Prevents "no button selected" issue
 		if (eventSystem.currentSelectedGameObject != selectedField) {
 			if (eventSystem.currentSelectedGameObject == null) {
 				eventSystem.SetSelectedGameObject(selectedField);

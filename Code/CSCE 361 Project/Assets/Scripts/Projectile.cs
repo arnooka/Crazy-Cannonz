@@ -50,15 +50,12 @@ public class Projectile : MonoBehaviour {
 		if (explosionEffect.transform.name.Contains("BigExplosion")) {
 			scale.x /= 100f;
 			scale.y /= 100f;
-			time = 1;
 		} else if (explosionEffect.transform.name.Contains("SmallExplosion")) {
 			scale.x /= 10f;
 			scale.y /= 10f;
-			time = 1;
 		} else if (explosionEffect.transform.name.Contains("BulletImpactMetal")) {
 			scale.x /= 20f;
 			scale.y /= 20f;
-			time = 1;
 		}
 
 		// Find type of cannon ball and adjust pitch accordingly
@@ -69,6 +66,8 @@ public class Projectile : MonoBehaviour {
 		} else if(name.Contains("Small")) {
 			SoundManager.getInstance().playClip(projectileCollisionClip, 4);
 		}
+
+		// Update effect scale and destroy particle effect gameobject after "time" seconds
 		explosionEffect.transform.localScale = scale;
 		Destroy(explosionEffect, time);
 	}

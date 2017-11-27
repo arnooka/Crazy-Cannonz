@@ -182,7 +182,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49e068f5bee14c5eacc15bd864a08fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 2
   forward: {fileID: 1688865975648302}
+  groundRadius: 0.1
+  movementSpeed: 2
+  jumpForce: 200
+  scoreText: {fileID: 0}
+  cannonSound: {fileID: 8300000, guid: 51441d4982a24409b8732c39435d0f6d, type: 3}
+  jumpButton: Jump_P2
+  horizontalCtrl: Horizontal_P2
+  fireButton: Fire_P2
+  crouchButton: Vertical_P2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 4294967295
   spawnLocation:
   - {fileID: 0}
   - {fileID: 0}
@@ -190,19 +203,6 @@ MonoBehaviour:
   - {fileID: 0}
   groundPoints:
   - {fileID: 4004708806162038}
-  groundRadius: 0.1
-  movementSpeed: 2
-  jumpForce: 200
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  scoreText: {fileID: 0}
-  playerNumber: 2
-  jumpButton: Jump_P2
-  horizontalCtrl: Horizontal_P2
-  fireButton: Fire_P2
-  crouchButton: Vertical_P2
-  cannonSound: {fileID: 8300000, guid: 51441d4982a24409b8732c39435d0f6d, type: 3}
 --- !u!212 &212982257301957916
 SpriteRenderer:
   m_ObjectHideFlags: 1

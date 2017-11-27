@@ -29,7 +29,6 @@ public class MatchManager : MonoBehaviour {
 	public static int min = 0, sec = 0;
 	public static string secStr = "";
 
-	// Use this for initialization
 	void Start () {
 		// Set music volume and save the first selected field from the event system
 		selectedField = eventSystem.firstSelectedGameObject;
@@ -49,16 +48,8 @@ public class MatchManager : MonoBehaviour {
 
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		if (eventSystem.currentSelectedGameObject != selectedField) {
-			if (eventSystem.currentSelectedGameObject == null) {
-				eventSystem.SetSelectedGameObject(selectedField);
-			} else {
-				selectedField = eventSystem.currentSelectedGameObject;
-			}
-		}
-
+		// Initial 5 second countdown
 		if (isCountdown) {
 			countdownTime.text = (5 - (int) Time.timeSinceLevelLoad).ToString();
 			if (Time.timeSinceLevelLoad > 5.0)
@@ -93,7 +84,17 @@ public class MatchManager : MonoBehaviour {
 			panel.SetActive (!isActive);
 			eventSystem.SetSelectedGameObject(pauseField);
 		}
-		
+	}
+
+	void FixedUpdate () {
+		// Prevents "no button selected" issue
+		if (eventSystem.currentSelectedGameObject != selectedField) {
+			if (eventSystem.currentSelectedGameObject == null) {
+				eventSystem.SetSelectedGameObject(selectedField);
+			} else {
+				selectedField = eventSystem.currentSelectedGameObject;
+			}
+		}
 	}
 
 	public static bool GetIsActive() {

@@ -17,11 +17,9 @@ public class MapToggle : MonoBehaviour {
 			if(value) mapImage.sprite = mapS;
 		});
 
-
 		toggle2.onValueChanged.AddListener ((value) => {
 			if(value) mapImage.sprite = mapM;
 		});
-
 
 		toggle3.onValueChanged.AddListener ((value) => {
 			if(value) mapImage.sprite = mapL;
@@ -33,10 +31,4 @@ public class MapToggle : MonoBehaviour {
 
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-			
-	}
-
 }

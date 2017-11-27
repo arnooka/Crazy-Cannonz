@@ -33,7 +33,7 @@ public class PostMatch : MonoBehaviour {
 		Score4.text = 0.ToString();
 
 		mainMenuBtn.onClick.AddListener (() => {
-			//print("return");
+			// Change current music to menu music and load "MainMenu"
 			SoundManager.getInstance().getMusicSource().Stop();
 			SoundManager.getInstance().getMusicSource().loop = true;
 			SoundManager.getInstance().setInMenu(true);
@@ -42,6 +42,7 @@ public class PostMatch : MonoBehaviour {
 			SceneManager.LoadScene ("MainMenu");
 		});
 
+		// Set score text panels with player scores
 		Score1.text = MatchManager.GetPlayerScore(1).ToString();
 		Score2.text = MatchManager.GetPlayerScore(2).ToString();
 		Score3.text = MatchManager.GetPlayerScore(3).ToString();
@@ -53,8 +54,8 @@ public class PostMatch : MonoBehaviour {
 
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
+		// Prevents "no button selected" issue
 		if (eventSystem.currentSelectedGameObject != selectedField) {
 			if (eventSystem.currentSelectedGameObject == null) {
 				eventSystem.SetSelectedGameObject(selectedField);

@@ -27,6 +27,7 @@ public class Spawner : MonoBehaviour {
 	void SpawnCrate() {
 		CancelInvoke ();
 
+		// Get random crate spawn location
 		currentLocation = Random.Range(0, spawnLocations.Length);
 		while (lastLocation == currentLocation) {
 			currentLocation = Random.Range(0, spawnLocations.Length);
@@ -35,8 +36,8 @@ public class Spawner : MonoBehaviour {
 
 		SpawnLocation location = spawnLocations[currentLocation].GetComponent<SpawnLocation>();
 
+		// Spawn crate if no crate in current location
 		if (!location.GetBool()) {
-			
 			if (crateType >= whatToSpawn.Length) {
 				crateType = 0;
 			}

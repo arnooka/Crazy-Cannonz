@@ -29,8 +29,6 @@ public class SliderScript : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
 
 	public void OnPointerDown(PointerEventData eventData) {
 		//Debug.Log ("slider clicked");
-		source.volume = slideFX.value;
-		//source.Play ();
 	}
 
 	public void OnPointerUp(PointerEventData eventData) {

@@ -1,12 +1,24 @@
-## Welcome to GitHub Pages
+## Crazy Cannonz
 
-You can use the [editor on GitHub](https://github.com/nookavish/CSCE-361/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+### Introduction
+	
+	TODO
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Gameplay
 
-### Markdown
+	TODO
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Contributors 
+
+- Joseph Field III ([jjfield3](https://github.com/jjfield3))
+- Grant Harrison ([grant-gitcode](https://github.com/grant-gitcode))
+- Jared Nightingale ([jjnight444](https://github.com/jnight444))
+- Avinash Nooka ([nookavish](https://github.com/nookavish))
+    
+### Download
+
+Download the standalone game [here](https://help.github.com/categories/github-pages-basics/).
+
 
 ```markdown
 Syntax highlighted code block
@@ -27,11 +39,3 @@ Syntax highlighted code block
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/nookavish/CSCE-361/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.

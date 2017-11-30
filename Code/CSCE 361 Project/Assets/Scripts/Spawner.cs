@@ -15,28 +15,28 @@ public class Spawner : MonoBehaviour {
 	private int crateType = 0;
 
 	[SerializeField]
-	private int maxTime;
+	private int maxTime = 5;
 	[SerializeField]
-	private int minTime;
-
+	private int minTime = 2;
 
 	void Start() {
-		Invoke("SpawnCrate", 3);
+		int time = Random.Range(minTime, maxTime);
+		Invoke("SpawnCrate", time);
 	}
 		
 	void SpawnCrate() {
 		CancelInvoke ();
 
+		// Get random crate spawn location
 		currentLocation = Random.Range(0, spawnLocations.Length);
 		while (lastLocation == currentLocation) {
 			currentLocation = Random.Range(0, spawnLocations.Length);
 		}
 		lastLocation = currentLocation;
-
 		SpawnLocation location = spawnLocations[currentLocation].GetComponent<SpawnLocation>();
 
+		// Spawn crate if no crate in current location
 		if (!location.GetBool()) {
-			
 			if (crateType >= whatToSpawn.Length) {
 				crateType = 0;
 			}
@@ -45,6 +45,7 @@ public class Spawner : MonoBehaviour {
 			location.SetBool(true);
 			crateType++;
 		}
+
 		Invoke ("SpawnCrate", Random.Range (minTime, maxTime));
 	}
 

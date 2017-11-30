@@ -71,8 +71,8 @@ public class MenuScript : MonoBehaviour {
 
 		// Button for starting a match
 		matchStartBtn.onClick.AddListener(() => {
-			//save time value in match settings
-			MatchManager.setMatchTime(matchTimerSlider.value * 60.0f);
+			// Save time value in match settings
+			MatchManager.SetMatchTime(matchTimerSlider.value * 60.0f);
 
 			// Stop the menu music and tell the sound manager
 			// that we're no longer at the menu
@@ -87,12 +87,12 @@ public class MenuScript : MonoBehaviour {
 		});
 
 		musicSlider.onValueChanged.AddListener(delegate {
-			//set music volume for sound manager and save
+			// Set music volume for sound manager and save
 			SoundManager.getInstance().getMusicSource().volume = musicSlider.value;
 		});
 
 		soundFXSlider.onValueChanged.AddListener(delegate {
-			//set sound effects volume for sound manager and save
+			// Set sound effects volume for sound manager and save
 			SoundManager.getInstance().getEFXSource().volume = soundFXSlider.value;
 		});
 
@@ -107,6 +107,7 @@ public class MenuScript : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		// Prevents "no button selected" issue
 		if (eventSystem.currentSelectedGameObject != selectedField) {
 			if (eventSystem.currentSelectedGameObject == null) {
 				eventSystem.SetSelectedGameObject(selectedField);

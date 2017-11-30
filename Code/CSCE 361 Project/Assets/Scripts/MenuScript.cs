@@ -16,8 +16,8 @@ public class MenuScript : MonoBehaviour {
 	[SerializeField]
 	private Slider musicSlider, soundFXSlider;
 	[SerializeField]
-	private GameObject mainMenu, optionsMenu, matchMenu;
-	
+	private GameObject mainMenu, optionsMenu, matchMenu, mapToggles;
+
 	[SerializeField]
 	private EventSystem eventSystem;
 	private GameObject selectedField;
@@ -83,7 +83,8 @@ public class MenuScript : MonoBehaviour {
 			matchMenu.SetActive(false);
 
 			// Load the level scene
-			SceneManager.LoadScene("Arena Mid");
+			string map = MapToggle.GetMapName();
+			SceneManager.LoadScene(map);
 		});
 
 		musicSlider.onValueChanged.AddListener(delegate {

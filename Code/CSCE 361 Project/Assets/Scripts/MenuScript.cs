@@ -16,7 +16,7 @@ public class MenuScript : MonoBehaviour {
 	[SerializeField]
 	private Slider musicSlider, soundFXSlider;
 	[SerializeField]
-	private GameObject mainMenu, optionsMenu, matchMenu, mapToggles;
+	private GameObject mainMenu, optionsMenu, matchMenu;
 
 	[SerializeField]
 	private EventSystem eventSystem;

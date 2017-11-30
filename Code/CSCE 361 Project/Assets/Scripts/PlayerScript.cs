@@ -36,39 +36,50 @@ public class PlayerScript : MonoBehaviour {
 	[SerializeField]
 	private Transform[] spawnLocation, groundPoints;
 
-	private int score, lastLocation = -1;
-	private bool hasProjectile, facingRight, grounded, crouch, jump;
+	private int score, lastLocation = -1, respawnDelay = 2;
+	private bool hasProjectile, facingRight, grounded, crouch, jump, respawning, pause;
+
+	private Vector2 playerVelocity = Vector2.zero;
 
 	// Use this for initialization
 	void Start () {
 		facingRight = true;
 		hasProjectile = false;
+		respawning = false;
+		pause = false;
 		projectile = null;
 		score = 0;
 		crazyCannon = GetComponent<Rigidbody2D>();
 		cannonAnimator = GetComponent<Animator>();
-
 	}
 
 	void Update () {
 		// Set player score based on player number
-		MatchManager.setPlayerScore(playerNumber, score);
+		MatchManager.SetPlayerScore(playerNumber, score);
 		
 		scoreText.text = "P" + playerNumber.ToString() + ": " + score.ToString();
-		if (MatchManager.getIsActive() && !MatchManager.getIsCountdown()) {
+		
+		// Check if game is paused or is in the initial countdown
+		if (MatchManager.GetIsActive() && !MatchManager.GetIsCountdown()) {
+			// Allow player movement
+			if (pause) {
+				this.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+				crazyCannon.velocity = playerVelocity;
+				pause = false;
+			}
 			float Horizontal = Input.GetAxisRaw(horizontalCtrl);
-
 			grounded = IsGrounded();
 			PlayerInput();
 			Movement(Horizontal);
 			Flip(Horizontal);
 		} else {
-			Vector2 scale = crazyCannon.velocity;
-			scale.x = 0.0f;
-			crazyCannon.velocity = scale;
-			cannonAnimator.SetBool("Jump", false);
-			cannonAnimator.SetBool("Crouch", false);
-			cannonAnimator.SetFloat("Speed", 0.0f);
+			// Prevent/pause player movement
+			if (!pause) {
+				playerVelocity = crazyCannon.velocity;
+				this.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+				pause = true;
+			}
+			crazyCannon.velocity = Vector2.zero;
 		}
 	}
 
@@ -80,27 +91,7 @@ public class PlayerScript : MonoBehaviour {
 		
 		// Collided with projectile that another player fired
 		if (col.gameObject.tag.Contains("Projectile") && col.gameObject != projectile) {
-			if (score != 0) {
-				score--;
-			}
-			gameObject.SetActive (false);
-			
-			// TODO: implement respawn delay  
-			//float respawnDelay = 0;
-			//while(respawnDelay < 10) {
-			//	respawnDelay += Time.fixedDeltaTime;
-			//	Debug.Log(respawnDelay);
-			//}
-
-			int location = Random.Range (0, spawnLocation.Length);
-			while (location == lastLocation) {
-				location = Random.Range(0, spawnLocation.Length);
-			}
-			lastLocation = location;
-			
-			gameObject.SetActive (true);
-			gameObject.transform.position = spawnLocation[location].position;
-
+			StartCoroutine(Respawn());
 		}
 	}
 
@@ -140,7 +131,7 @@ public class PlayerScript : MonoBehaviour {
 
 		// Fire Input (F Key or X Button on Xbox Controllers)
 		if (Input.GetButtonDown(fireButton)) {
-			if (hasProjectile) {
+			if (hasProjectile && !respawning) {
 				projectile = Instantiate(projectile, forward.transform.position, Quaternion.identity);
 				
 				Vector2 shift = forward.transform.position;
@@ -148,14 +139,13 @@ public class PlayerScript : MonoBehaviour {
 					shift.y += 0.05f;
 					projectile.transform.position = shift;
 					SoundManager.getInstance().playClip(cannonSound, 1f);
-				} else if(projectile.gameObject.name.Contains("Mid Cannon Ball")) {
-					
+
+				} else if (projectile.gameObject.name.Contains("Mid Cannon Ball")) {
 					SoundManager.getInstance().playClip(cannonSound, 2f);
-					
-				} else if(projectile.gameObject.name.Contains("Small Cannon Ball")) {
-					
+
+				} else if (projectile.gameObject.name.Contains("Small Cannon Ball")) {
 					SoundManager.getInstance().playClip(cannonSound, 3f);
-				
+
 				}
 				
 				projectile.GetComponent<Projectile>().SetWhoFired(this.gameObject);
@@ -168,14 +158,13 @@ public class PlayerScript : MonoBehaviour {
 	private void Flip (float Horizontal) {
 		if (Horizontal > 0 && !facingRight || Horizontal < 0 && facingRight) {
 			facingRight = !facingRight;
-			
 			Vector2 scale = transform.localScale;
-			
 			scale.x *= -1;
 			transform.localScale = scale;
 		}
 	}
 
+	// Checks if player is touching the ground
 	private bool IsGrounded () {
 		if (crazyCannon.velocity.y <= 0) {
 			foreach (Transform Point in groundPoints) {
@@ -190,6 +179,35 @@ public class PlayerScript : MonoBehaviour {
 			}
 		}
 		return false;
+	}
+
+	// Player respawn coroutine
+	IEnumerator Respawn() {
+		if (score != 0) {
+			score--;
+		}
+		EnableGameobject(false);
+		respawning = true;
+		
+		// Wait for "respawnDelay" seconds then respawn character
+		yield return new WaitForSeconds(respawnDelay);
+
+		int location = Random.Range(0, spawnLocation.Length);
+		while (location == lastLocation) {
+			location = Random.Range(0, spawnLocation.Length);
+		}
+		lastLocation = location;
+
+		respawning = false;
+		EnableGameobject(true);
+		gameObject.transform.position = spawnLocation[location].position;
+	}
+
+	// Selfmade gameobject enable and disable function
+	private void EnableGameobject(bool condition){
+		this.gameObject.GetComponent<PolygonCollider2D>().enabled = condition;
+		this.gameObject.GetComponent<SpriteRenderer>().enabled = condition;
+		this.gameObject.GetComponent<Rigidbody2D>().isKinematic = !condition;
 	}
 
 	public void SetProjectile (GameObject prefab) {

@@ -26,11 +26,6 @@ public class Projectile : MonoBehaviour {
 		Vector2 vel = new Vector2(dir * speed, 0);
 		projectile.velocity = vel;
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-		
-	}
 
 	void OnCollisionEnter2D(Collision2D col) {
 		// Ignore collisions with player who fired projectile and crates
@@ -39,7 +34,7 @@ public class Projectile : MonoBehaviour {
 		} else {
 			// Instantiate particle effect
 			explosionEffect = Instantiate(explosionEffect, transform.position, transform.rotation);
-			adjustEffectScale();
+			AdjustEffectScale();
 			if (col.gameObject.tag.Contains("Player")) {
 				whoFired.GetComponent<PlayerScript>().AddScore(pointValue);
 			}
@@ -47,24 +42,23 @@ public class Projectile : MonoBehaviour {
 		}
 	}
 
-	private void adjustEffectScale() {
+	// Particle effect scaling
+	private void AdjustEffectScale() {
 		Vector2 scale = explosionEffect.transform.localScale;
 		float time = 1;
 
 		if (explosionEffect.transform.name.Contains("BigExplosion")) {
 			scale.x /= 100f;
 			scale.y /= 100f;
-			time = 1;
 		} else if (explosionEffect.transform.name.Contains("SmallExplosion")) {
 			scale.x /= 10f;
 			scale.y /= 10f;
-			time = 1;
 		} else if (explosionEffect.transform.name.Contains("BulletImpactMetal")) {
 			scale.x /= 20f;
 			scale.y /= 20f;
-			time = 1;
 		}
-		//find type of cannon ball and adjust pitch accordingly
+
+		// Find type of cannon ball and adjust pitch accordingly
 		if(name.Contains("Large")) {
 			SoundManager.getInstance().playClip(projectileCollisionClip, 2);
 		} else if(name.Contains("Mid")) {
@@ -72,6 +66,8 @@ public class Projectile : MonoBehaviour {
 		} else if(name.Contains("Small")) {
 			SoundManager.getInstance().playClip(projectileCollisionClip, 4);
 		}
+
+		// Update effect scale and destroy particle effect gameobject after "time" seconds
 		explosionEffect.transform.localScale = scale;
 		Destroy(explosionEffect, time);
 	}

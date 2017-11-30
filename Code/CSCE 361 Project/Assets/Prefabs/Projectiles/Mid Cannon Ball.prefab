@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 212574317656481682}
   - component: {fileID: 60425723256785852}
   - component: {fileID: 114956259917394066}
+  - component: {fileID: 114305367855740282}
   m_Layer: 0
   m_Name: Mid Cannon Ball
   m_TagString: Projectile
@@ -95,6 +96,38 @@ PolygonCollider2D:
       - {x: 0.044999998, y: -0.025047064}
       - {x: 0.044999998, y: 0.02604723}
       - {x: 0.026294103, y: 0.044584315}
+--- !u!114 &114305367855740282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1866571938232692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 223
+    i1: 38
+    i2: 223
+    i3: 24
+    i4: 187
+    i5: 137
+    i6: 159
+    i7: 4
+    i8: 25
+    i9: 102
+    i10: 132
+    i11: 235
+    i12: 22
+    i13: 162
+    i14: 89
+    i15: 131
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114956259917394066
 MonoBehaviour:
   m_ObjectHideFlags: 1

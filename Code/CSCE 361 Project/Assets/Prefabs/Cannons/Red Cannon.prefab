@@ -184,12 +184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 2
   forward: {fileID: 1688865975648302}
-<<<<<<< HEAD
   waterEffect: {fileID: 1000011085071264, guid: 96730f8640590934eacb6f860058e7f9,
     type: 2}
-=======
-  waterEffect: {fileID: 0}
->>>>>>> 9da0d1ed655516035fea078a8d90de55f96ee86d
   groundRadius: 0.1
   movementSpeed: 2
   jumpForce: 200

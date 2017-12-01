@@ -5,6 +5,8 @@ using UnityEngine.Networking;
 using UnityEngine.Networking.Types;
 using UnityEngine.Networking.Match;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 
 namespace Prototype.NetworkLobby
@@ -65,6 +67,7 @@ namespace Prototype.NetworkLobby
             DontDestroyOnLoad(gameObject);
 
             SetServerInfo("Offline", "None");
+
         }
 
         public override void OnLobbyClientSceneChanged(NetworkConnection conn)

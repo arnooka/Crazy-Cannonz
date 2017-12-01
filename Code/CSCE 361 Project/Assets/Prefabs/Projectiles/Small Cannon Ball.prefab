@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 212607372433410738}
   - component: {fileID: 60871698107158490}
   - component: {fileID: 114328075433802878}
+  - component: {fileID: 114549550027234944}
   m_Layer: 0
   m_Name: Small Cannon Ball
   m_TagString: Projectile
@@ -108,6 +109,38 @@ MonoBehaviour:
   pointValue: 1
   projectileCollisionClip: {fileID: 8300000, guid: 51441d4982a24409b8732c39435d0f6d,
     type: 3}
+--- !u!114 &114549550027234944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1624057491146882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 17
+    i1: 209
+    i2: 151
+    i3: 77
+    i4: 84
+    i5: 248
+    i6: 122
+    i7: 68
+    i8: 154
+    i9: 198
+    i10: 224
+    i11: 102
+    i12: 124
+    i13: 36
+    i14: 130
+    i15: 175
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!212 &212607372433410738
 SpriteRenderer:
   m_ObjectHideFlags: 1

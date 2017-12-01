@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
 public class MatchManager : MonoBehaviour {
 
@@ -23,6 +24,8 @@ public class MatchManager : MonoBehaviour {
 	[SerializeField]
 	private GameObject pauseField;
 	private GameObject selectedField;
+
+	public GameObject player1, player2, player3, player4;
 
 	//public static int score1, score2, score3, score4;
 
@@ -45,6 +48,13 @@ public class MatchManager : MonoBehaviour {
 			SceneManager.LoadScene ("PostMatch");
 			eventSystem.SetSelectedGameObject(pauseField);
 		});
+
+
+		
+		player1.SetActive (MapToggle.getPlayerStatus(1));
+		player2.SetActive (MapToggle.getPlayerStatus (2));
+		player3.SetActive (MapToggle.getPlayerStatus (3));
+		player4.SetActive (MapToggle.getPlayerStatus (4));
 
 	}
 	

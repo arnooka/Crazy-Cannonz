@@ -13,6 +13,7 @@ public class MapToggle : MonoBehaviour {
 	[SerializeField]
 	private Sprite mapS, mapM, mapL;
 
+	[SerializeField]
 	private Text joined1, joined2, joined3, joined4;
 	private static bool isOneJoined = false, isTwoJoined = false, isThreeJoined = false, isFourJoined = false;
 
@@ -59,9 +60,10 @@ public class MapToggle : MonoBehaviour {
 	void Update() {
 
 		if (Input.GetKeyUp (KeyCode.Space)) isOneJoined = !isOneJoined;
-		if (Input.GetKeyUp (KeyCode.Joystick1Button7)) isTwoJoined = !isTwoJoined;
-		if (Input.GetKeyUp (KeyCode.Joystick2Button7)) isThreeJoined = !isThreeJoined;
-		if (Input.GetKeyUp (KeyCode.Joystick3Button7)) isFourJoined = !isFourJoined;
+		if (Input.GetKeyUp (KeyCode.Joystick1Button7)) isOneJoined = !isOneJoined;
+		if (Input.GetKeyUp (KeyCode.Joystick2Button7)) isTwoJoined = !isTwoJoined;
+		if (Input.GetKeyUp (KeyCode.Joystick3Button7)) isThreeJoined = !isThreeJoined;
+		if (Input.GetKeyUp (KeyCode.Joystick4Button7)) isFourJoined = !isFourJoined;
 
 		if (isOneJoined)
 			joined1.text = "Joined";

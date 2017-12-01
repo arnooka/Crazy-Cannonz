@@ -22,6 +22,9 @@ public class MapToggle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		//Set the default map name to the small map, since it is checked by default.
+		mapName = mapS.name;
+
 		toggle1.onValueChanged.AddListener ((value) => {
 			if (value) {
 				mapImage.sprite = mapS;

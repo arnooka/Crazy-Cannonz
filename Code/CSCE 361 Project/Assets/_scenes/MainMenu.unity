@@ -499,7 +499,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 87639000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 231.07901, y: -208.73941, z: 0}
+  m_LocalPosition: {x: 231.73697, y: -208.73941, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 518806329}
@@ -1304,7 +1304,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 333514232}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -363.09094, y: -218.00183, z: 0}
+  m_LocalPosition: {x: -362.43298, y: -218.00183, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2093629813}
@@ -2000,7 +2000,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 517151326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 430.39902, y: -200.10031, z: 0}
+  m_LocalPosition: {x: 431.05698, y: -200.10031, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 749504143}
@@ -3763,7 +3763,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 925329600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.500946, y: -218.00183, z: 0}
+  m_LocalPosition: {x: -32.842987, y: -218.00183, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1273945887}
@@ -4883,7 +4883,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1292658264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.013427734, y: -0.7098694, z: 0}
+  m_LocalPosition: {x: 0.015197754, y: -0.7098694, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 102078331}
@@ -4981,7 +4981,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1298742535}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.499023, y: 384.94855, z: 0}
+  m_LocalPosition: {x: 22.156982, y: 384.94855, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1710843972}
@@ -6420,6 +6420,7 @@ MonoBehaviour:
   mainMenuField: {fileID: 333514232}
   matchField: {fileID: 1375951170}
   optionsField: {fileID: 972096029}
+  networkingField: {fileID: 0}
 --- !u!114 &1779190305
 MonoBehaviour:
   m_ObjectHideFlags: 0

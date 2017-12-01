@@ -14,7 +14,7 @@ public class MapToggle : MonoBehaviour {
 	private Sprite mapS, mapM, mapL;
 
 	private Text joined1, joined2, joined3, joined4;
-	private bool isOneJoined = false, isTwoJoined = false, isThreeJoined = false, isFourJoined = false;
+	private static bool isOneJoined = false, isTwoJoined = false, isThreeJoined = false, isFourJoined = false;
 
 	private static string mapName;
 

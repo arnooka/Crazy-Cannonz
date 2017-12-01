@@ -21,5 +21,13 @@ EditorBuildSettings:
     path: Assets/_scenes/Arena Small.unity
     guid: 9cd334c1a7e2d194f9a863bc270f8f87
   - enabled: 1
+<<<<<<< HEAD
+<<<<<<< HEAD
+    path: Assets/Prefabs/MultiplayerLobby.unity
+=======
     path: Assets/_scenes/MultiplayerLobby.unity
+>>>>>>> d2875df774a37544a41195b1e6ba25ddc382941e
+=======
+    path: Assets/_scenes/MultiplayerLobby.unity
+>>>>>>> d2875df774a37544a41195b1e6ba25ddc382941e
     guid: 2c2929d9dae991148936c23867ce9f0d

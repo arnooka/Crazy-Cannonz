@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour {
 	private int playerNumber = 1;
 	[SerializeField]
 	private GameObject forward;
+	[SerializeField]
+	private GameObject waterEffect;
 	
 	[SerializeField]
 	private float groundRadius, movementSpeed, jumpForce;
@@ -95,6 +97,17 @@ public class PlayerScript : MonoBehaviour {
 		if (col.gameObject.tag.Contains("Projectile") && col.gameObject != projectile) {
 			StartCoroutine(Respawn());
 		}
+
+		if (col.gameObject.tag.Contains ("Floor")) {
+			StartCoroutine (Respawn ());
+		}
+
+		if (col.gameObject.tag.Contains ("Water")) {
+			waterEffect = Instantiate (waterEffect, transform.position, transform.rotation);
+			//AdjustEffectScale ();
+			StartCoroutine (Respawn ());
+		}
+
 	}
 
 	private void Movement (float Horizontal) {

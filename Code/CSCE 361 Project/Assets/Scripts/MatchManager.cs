@@ -51,7 +51,7 @@ public class MatchManager : MonoBehaviour {
 
 
 		
-		player1.SetActive (MapToggle.getPlayerStatus(1));
+		player1.SetActive (MapToggle.getPlayerStatus (1));
 		player2.SetActive (MapToggle.getPlayerStatus (2));
 		player3.SetActive (MapToggle.getPlayerStatus (3));
 		player4.SetActive (MapToggle.getPlayerStatus (4));

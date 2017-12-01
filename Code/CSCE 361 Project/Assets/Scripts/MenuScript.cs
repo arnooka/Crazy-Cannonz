@@ -29,7 +29,7 @@ public class MenuScript : MonoBehaviour {
 	void Start () {
 		// Save the first selected field from the event system
 		selectedField = eventSystem.firstSelectedGameObject;
-		
+
 		// Get an instance of the sound manager, tell it that
 		// we're in a menu, and play menu music
 		SoundManager.getInstance().setInMenu(true);

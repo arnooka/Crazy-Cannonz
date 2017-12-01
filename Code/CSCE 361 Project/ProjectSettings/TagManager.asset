@@ -16,6 +16,7 @@ TagManager:
   - Player 4
   - Fire
   - Floor
+  - Water
   layers:
   - Default
   - TransparentFX

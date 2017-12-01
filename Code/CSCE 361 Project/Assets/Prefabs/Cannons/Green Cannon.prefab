@@ -54,7 +54,6 @@ GameObject:
   - component: {fileID: 95229008496382322}
   - component: {fileID: 114156259299846206}
   - component: {fileID: 60673246220145842}
-  - component: {fileID: 114867248149392444}
   m_Layer: 0
   m_Name: Green Cannon
   m_TagString: Player 3
@@ -94,8 +93,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1883275151953608}
+<<<<<<< HEAD
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.641, y: -0.409, z: 0}
+=======
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.98, y: 0.81, z: -0.8146794}
+  m_LocalPosition: {x: -2.294, y: 0.621, z: -0.8146794}
+>>>>>>> 9da0d1ed655516035fea078a8d90de55f96ee86d
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4623225307975596}
@@ -185,6 +189,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 3
   forward: {fileID: 1351981039649734}
+<<<<<<< HEAD
+  waterEffect: {fileID: 1000011085071264, guid: 96730f8640590934eacb6f860058e7f9,
+    type: 2}
+=======
+  waterEffect: {fileID: 0}
+>>>>>>> 9da0d1ed655516035fea078a8d90de55f96ee86d
   groundRadius: 0.1
   movementSpeed: 2
   jumpForce: 200
@@ -204,38 +214,6 @@ MonoBehaviour:
   - {fileID: 0}
   groundPoints:
   - {fileID: 4623225307975596}
---- !u!114 &114867248149392444
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1883275151953608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 171
-    i1: 56
-    i2: 61
-    i3: 248
-    i4: 182
-    i5: 115
-    i6: 10
-    i7: 132
-    i8: 219
-    i9: 60
-    i10: 207
-    i11: 174
-    i12: 108
-    i13: 152
-    i14: 226
-    i15: 251
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!212 &212652915902228178
 SpriteRenderer:
   m_ObjectHideFlags: 1

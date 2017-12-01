@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 95272761814042404}
   - component: {fileID: 114393421817258584}
   - component: {fileID: 60219592652530776}
-  - component: {fileID: 114266226779772804}
   m_Layer: 0
   m_Name: Red Cannon
   m_TagString: Player 2
@@ -81,8 +80,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325592347726456}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.75, y: -0.83, z: -0.8146794}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.67, y: 0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4004708806162038}
@@ -172,38 +171,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114266226779772804
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325592347726456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 240
-    i1: 189
-    i2: 50
-    i3: 46
-    i4: 179
-    i5: 87
-    i6: 96
-    i7: 196
-    i8: 203
-    i9: 111
-    i10: 167
-    i11: 251
-    i12: 62
-    i13: 100
-    i14: 76
-    i15: 95
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!114 &114393421817258584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,6 +184,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 2
   forward: {fileID: 1688865975648302}
+<<<<<<< HEAD
+  waterEffect: {fileID: 1000011085071264, guid: 96730f8640590934eacb6f860058e7f9,
+    type: 2}
+=======
+  waterEffect: {fileID: 0}
+>>>>>>> 9da0d1ed655516035fea078a8d90de55f96ee86d
   groundRadius: 0.1
   movementSpeed: 2
   jumpForce: 200

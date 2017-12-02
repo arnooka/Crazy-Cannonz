@@ -49,7 +49,7 @@ public class PostMatch : MonoBehaviour {
 		Score4.text = MatchManager.GetPlayerScore(4).ToString();
 
 		rematchBtn.onClick.AddListener (() => {
-			SceneManager.LoadScene ("Arena Mid");
+            SceneManager.LoadScene (MapToggle.GetMapName());
 		});
 
 	}

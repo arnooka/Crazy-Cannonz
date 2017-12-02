@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4350268119402126}
   - component: {fileID: 114881659249892580}
   m_Layer: 0
-  m_Name: Crate Spawner
+  m_Name: Crate Spawner (Network)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

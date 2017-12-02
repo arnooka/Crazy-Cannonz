@@ -6,166 +6,165 @@ using UnityEngine.Networking.Types;
 using UnityEngine.Networking.Match;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
+
 
 
 namespace Prototype.NetworkLobby
 {
-	public class LobbyManager : NetworkLobbyManager
-	{
-		public Dictionary<int, int> currentPlayers;
+    public class LobbyManager : NetworkLobbyManager 
+    {
+        static short MsgKicked = MsgType.Highest + 1;
 
-		static short MsgKicked = MsgType.Highest + 1;
-
-		static public LobbyManager s_Singleton;
+        static public LobbyManager s_Singleton;
 
 
-		[Header("Unity UI Lobby")]
-		[Tooltip("Time in second between all players ready & match start")]
-		public float prematchCountdown = 5.0f;
+        [Header("Unity UI Lobby")]
+        [Tooltip("Time in second between all players ready & match start")]
+        public float prematchCountdown = 5.0f;
 
-		[Space]
-		[Header("UI Reference")]
-		public LobbyTopPanel topPanel;
+        [Space]
+        [Header("UI Reference")]
+        public LobbyTopPanel topPanel;
 
-		public RectTransform mainMenuPanel;
-		public RectTransform lobbyPanel;
+        public RectTransform mainMenuPanel;
+        public RectTransform lobbyPanel;
 
-		public LobbyInfoPanel infoPanel;
-		public LobbyCountdownPanel countdownPanel;
-		public GameObject addPlayerButton;
+        public LobbyInfoPanel infoPanel;
+        public LobbyCountdownPanel countdownPanel;
+        public GameObject addPlayerButton;
 
-		protected RectTransform currentPanel;
+        protected RectTransform currentPanel;
 
-		public Button backButton;
+        public Button backButton;
 
-		public Text statusInfo;
-		public Text hostInfo;
+        public Text statusInfo;
+        public Text hostInfo;
 
-		//Client numPlayers from NetworkManager is always 0, so we count (throught connect/destroy in LobbyPlayer) the number
-		//of players, so that even client know how many player there is.
-		[HideInInspector]
-		public int _playerNumber = 0;
+        //Client numPlayers from NetworkManager is always 0, so we count (throught connect/destroy in LobbyPlayer) the number
+        //of players, so that even client know how many player there is.
+        [HideInInspector]
+        public int _playerNumber = 0;
 
-		//used to disconnect a client properly when exiting the matchmaker
-		[HideInInspector]
-		public bool _isMatchmaking = false;
+        //used to disconnect a client properly when exiting the matchmaker
+        [HideInInspector]
+        public bool _isMatchmaking = false;
 
-		protected bool _disconnectServer = false;
+        protected bool _disconnectServer = false;
+        
+        protected ulong _currentMatchID;
 
-		protected ulong _currentMatchID;
+        protected LobbyHook _lobbyHooks;
 
-		protected LobbyHook _lobbyHooks;
+        void Start()
+        {
+            s_Singleton = this;
+            _lobbyHooks = GetComponent<Prototype.NetworkLobby.LobbyHook>();
+            currentPanel = mainMenuPanel;
 
-		void Start()
-		{
-			currentPlayers = new Dictionary<int, int>();
+            backButton.gameObject.SetActive(false);
+            GetComponent<Canvas>().enabled = true;
 
-			s_Singleton = this;
-			_lobbyHooks = GetComponent<Prototype.NetworkLobby.LobbyHook>();
-			currentPanel = mainMenuPanel;
+            DontDestroyOnLoad(gameObject);
 
-			backButton.gameObject.SetActive(false);
-			GetComponent<Canvas>().enabled = true;
+            SetServerInfo("Offline", "None");
 
-			DontDestroyOnLoad(gameObject);
+        }
 
-			SetServerInfo("Offline", "None");
-		}
+        public override void OnLobbyClientSceneChanged(NetworkConnection conn)
+        {
+            if (SceneManager.GetSceneAt(0).name == lobbyScene)
+            {
+                if (topPanel.isInGame)
+                {
+                    ChangeTo(lobbyPanel);
+                    if (_isMatchmaking)
+                    {
+                        if (conn.playerControllers[0].unetView.isServer)
+                        {
+                            backDelegate = StopHostClbk;
+                        }
+                        else
+                        {
+                            backDelegate = StopClientClbk;
+                        }
+                    }
+                    else
+                    {
+                        if (conn.playerControllers[0].unetView.isClient)
+                        {
+                            backDelegate = StopHostClbk;
+                        }
+                        else
+                        {
+                            backDelegate = StopClientClbk;
+                        }
+                    }
+                }
+                else
+                {
+                    ChangeTo(mainMenuPanel);
+                }
 
-		public override void OnLobbyClientSceneChanged(NetworkConnection conn)
-		{
-			if (SceneManager.GetSceneAt(0).name == lobbyScene)
-			{
-				if (topPanel.isInGame)
-				{
-					ChangeTo(lobbyPanel);
-					if (_isMatchmaking)
-					{
-						if (conn.playerControllers[0].unetView.isServer)
-						{
-							backDelegate = StopHostClbk;
-						}
-						else
-						{
-							backDelegate = StopClientClbk;
-						}
-					}
-					else
-					{
-						if (conn.playerControllers[0].unetView.isClient)
-						{
-							backDelegate = StopHostClbk;
-						}
-						else
-						{
-							backDelegate = StopClientClbk;
-						}
-					}
-				}
-				else
-				{
-					ChangeTo(mainMenuPanel);
-				}
+                topPanel.ToggleVisibility(true);
+                topPanel.isInGame = false;
+            }
+            else
+            {
+                ChangeTo(null);
 
-				topPanel.ToggleVisibility(true);
-				topPanel.isInGame = false;
-			}
-			else
-			{
-				ChangeTo(null);
+                Destroy(GameObject.Find("MainMenuUI(Clone)"));
 
-				Destroy(GameObject.Find("MainMenuUI(Clone)"));
+                //backDelegate = StopGameClbk;
+                topPanel.isInGame = true;
+                topPanel.ToggleVisibility(false);
+            }
+        }
 
-				//backDelegate = StopGameClbk;
-				topPanel.isInGame = true;
-				topPanel.ToggleVisibility(false);
-			}
-		}
+        public void ChangeTo(RectTransform newPanel)
+        {
+            if (currentPanel != null)
+            {
+                currentPanel.gameObject.SetActive(false);
+            }
 
-		public void ChangeTo(RectTransform newPanel)
-		{
-			if (currentPanel != null)
-			{
-				currentPanel.gameObject.SetActive(false);
-			}
+            if (newPanel != null)
+            {
+                newPanel.gameObject.SetActive(true);
+            }
 
-			if (newPanel != null)
-			{
-				newPanel.gameObject.SetActive(true);
-			}
+            currentPanel = newPanel;
 
-			currentPanel = newPanel;
+            if (currentPanel != mainMenuPanel)
+            {
+                backButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                backButton.gameObject.SetActive(false);
+                SetServerInfo("Offline", "None");
+                _isMatchmaking = false;
+            }
+        }
 
-			if (currentPanel != mainMenuPanel)
-			{
-				backButton.gameObject.SetActive(true);
-			}
-			else
-			{
-				backButton.gameObject.SetActive(false);
-				SetServerInfo("Offline", "None");
-				_isMatchmaking = false;
-			}
-		}
+        public void DisplayIsConnecting()
+        {
+            var _this = this;
+            infoPanel.Display("Connecting...", "Cancel", () => { _this.backDelegate(); });
+        }
 
-		public void DisplayIsConnecting()
-		{
-			var _this = this;
-			infoPanel.Display("Connecting...", "Cancel", () => { _this.backDelegate(); });
-		}
-
-		public void SetServerInfo(string status, string host)
-		{
-			statusInfo.text = status;
-			hostInfo.text = host;
-		}
+        public void SetServerInfo(string status, string host)
+        {
+            statusInfo.text = status;
+            hostInfo.text = host;
+        }
 
 
-		public delegate void BackButtonDelegate();
-		public BackButtonDelegate backDelegate;
-		public void GoBackButton()
-		{
-			backDelegate();
+        public delegate void BackButtonDelegate();
+        public BackButtonDelegate backDelegate;
+        public void GoBackButton()
+        {
+            backDelegate();
 			topPanel.isInGame = false;
 		}
 

@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour {
 	private int playerNumber = 1;
 	[SerializeField]
 	private GameObject forward;
+	[SerializeField]
+	private GameObject waterEffect;
 	
 	[SerializeField]
 	private float groundRadius, movementSpeed, jumpForce;
@@ -43,6 +45,7 @@ public class PlayerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		facingRight = true;
 		hasProjectile = false;
 		respawning = false;
@@ -51,6 +54,7 @@ public class PlayerScript : MonoBehaviour {
 		score = 0;
 		crazyCannon = GetComponent<Rigidbody2D>();
 		cannonAnimator = GetComponent<Animator>();
+
 	}
 
 	void Update () {
@@ -93,6 +97,17 @@ public class PlayerScript : MonoBehaviour {
 		if (col.gameObject.tag.Contains("Projectile") && col.gameObject != projectile) {
 			StartCoroutine(Respawn());
 		}
+
+		if (col.gameObject.tag.Contains ("Floor")) {
+			StartCoroutine (Respawn ());
+		}
+
+		if (col.gameObject.tag.Contains ("Water")) {
+			GameObject waterEffectClone = Instantiate (waterEffect, transform.position, transform.rotation);
+			Destroy (waterEffectClone, 2);
+			StartCoroutine (Respawn ());
+		}
+
 	}
 
 	private void Movement (float Horizontal) {

@@ -13,10 +13,17 @@ public class MapToggle : MonoBehaviour {
 	[SerializeField]
 	private Sprite mapS, mapM, mapL;
 
+	[SerializeField]
+	private Text joined1, joined2, joined3, joined4;
+	private static bool isOneJoined = false, isTwoJoined = false, isThreeJoined = false, isFourJoined = false;
+
 	private static string mapName;
 
 	// Use this for initialization
 	void Start () {
+
+		//Set the default map name to the small map, since it is checked by default.
+		mapName = mapS.name;
 
 		toggle1.onValueChanged.AddListener ((value) => {
 			if (value) {
@@ -53,7 +60,52 @@ public class MapToggle : MonoBehaviour {
 		});
 	}
 
+	void Update() {
+
+		if (Input.GetKeyUp (KeyCode.Space)) isOneJoined = !isOneJoined;
+        if (Input.GetButtonUp ("Start_P1")) isOneJoined = !isOneJoined;
+        if (Input.GetButtonUp ("Start_P2")) isTwoJoined = !isTwoJoined;
+        if (Input.GetButtonUp ("Start_P3")) isThreeJoined = !isThreeJoined;
+        if (Input.GetButtonUp ("Start_P4")) isFourJoined = !isFourJoined;
+
+		if (isOneJoined)
+			joined1.text = "Joined";
+		else
+			joined1.text = "Not Joined";
+		if (isTwoJoined)
+			joined2.text = "Joined";
+		else
+			joined2.text = "Not Joined";
+		if (isThreeJoined)
+			joined3.text = "Joined";
+		else
+			joined3.text = "Not Joined";
+		if (isFourJoined)
+			joined4.text = "Joined";
+		else
+			joined4.text = "Not Joined";
+
+	}
+
 	public static string GetMapName() {
 		return mapName;
 	}
+
+	public static bool getPlayerStatus(int n) {
+		switch(n) {
+		case 1:
+			return isOneJoined;
+		case 2: 
+			return isTwoJoined;
+		case 3: 
+			return isThreeJoined;
+		case 4:
+			return isFourJoined;
+		default:
+			return false;
+		}
+	}
 }
+
+
+	

@@ -23,13 +23,13 @@ public class MenuScript : MonoBehaviour {
 	private GameObject selectedField;
 	
 	[SerializeField]
-	private GameObject mainMenuField, matchField, optionsField;
+	private GameObject mainMenuField, matchField, optionsField, networkingField;
 
 	// Use this for initialization
 	void Start () {
 		// Save the first selected field from the event system
 		selectedField = eventSystem.firstSelectedGameObject;
-		
+
 		// Get an instance of the sound manager, tell it that
 		// we're in a menu, and play menu music
 		SoundManager.getInstance().setInMenu(true);
@@ -64,9 +64,19 @@ public class MenuScript : MonoBehaviour {
 		});
 
 		// Button for entering online match menu
-		onlineMatchBtn.onClick.AddListener(() =>{
+		onlineMatchBtn.onClick.AddListener(() => {
 			Debug.Log("Entering Online Menu");
+			SceneManager.LoadScene("MultiplayerLobby");
+			//mainMenu.SetActive(false);
+			//eventSystem.SetSelectedGameObject(networkingField);
 		});
+
+		//Button for returning from Networking menu\
+		//networkingBackBtn.onClick.AddListener (() => {
+			//mainMenu.SetActive (true);
+			//networkingMenu.SetActive (false);
+			//eventSystem.SetSelectedGameObject (mainMenuField);
+		//});
 
 
 		// Button for starting a match

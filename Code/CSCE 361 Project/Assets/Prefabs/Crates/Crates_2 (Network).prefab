@@ -22,8 +22,9 @@ GameObject:
   - component: {fileID: 212406088727935754}
   - component: {fileID: 61295323072683624}
   - component: {fileID: 114498005828588828}
+  - component: {fileID: 114436220716399192}
   m_Layer: 0
-  m_Name: Crates_2
+  m_Name: Crates_2 (Network)
   m_TagString: Crate_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,6 +68,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.11, y: 0.08}
   m_EdgeRadius: 0
+--- !u!114 &114436220716399192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1360172937958970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 147
+    i1: 112
+    i2: 126
+    i3: 230
+    i4: 151
+    i5: 23
+    i6: 30
+    i7: 228
+    i8: 232
+    i9: 142
+    i10: 187
+    i11: 48
+    i12: 93
+    i13: 216
+    i14: 85
+    i15: 253
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114498005828588828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.03
   frequency: 2
-  projectile: {fileID: 1624057491146882, guid: 11d1974d54f87a449ac6e0667c2482af, type: 2}
+  projectile: {fileID: 1624057491146882, guid: 0fe9178d5f824e342932b78dfce18cb7, type: 2}
 --- !u!212 &212406088727935754
 SpriteRenderer:
   m_ObjectHideFlags: 1

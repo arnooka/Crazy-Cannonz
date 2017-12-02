@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 82415161258122676}
   - component: {fileID: 114333438064655094}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: SoundManager (Network)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,4 +221,3 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 10941956802a242c5a43961f4b56f2da, type: 3}
   - {fileID: 8300000, guid: eded0547e628d427e8ab692c01f1173f, type: 3}
   - {fileID: 8300000, guid: 7a7d7e584c7b547fca9f3b33e55c666d, type: 3}
-  inMenu: 0

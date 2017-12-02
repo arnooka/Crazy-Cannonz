@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 212242365420518040}
   - component: {fileID: 60213742571091150}
   - component: {fileID: 114053898265224748}
+  - component: {fileID: 114804701071889156}
   m_Layer: 0
   m_Name: Large Cannon Ball
   m_TagString: Projectile
@@ -116,6 +117,38 @@ MonoBehaviour:
   pointValue: 3
   projectileCollisionClip: {fileID: 8300000, guid: 51441d4982a24409b8732c39435d0f6d,
     type: 3}
+--- !u!114 &114804701071889156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822794668799196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 193
+    i1: 133
+    i2: 6
+    i3: 196
+    i4: 231
+    i5: 45
+    i6: 179
+    i7: 100
+    i8: 201
+    i9: 169
+    i10: 110
+    i11: 66
+    i12: 37
+    i13: 49
+    i14: 67
+    i15: 18
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!212 &212242365420518040
 SpriteRenderer:
   m_ObjectHideFlags: 1

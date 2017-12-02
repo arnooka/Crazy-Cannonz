@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 95272761814042404}
   - component: {fileID: 114393421817258584}
   - component: {fileID: 60219592652530776}
-  - component: {fileID: 114266226779772804}
   m_Layer: 0
   m_Name: Red Cannon
   m_TagString: Player 2
@@ -172,38 +171,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114266226779772804
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325592347726456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 240
-    i1: 189
-    i2: 50
-    i3: 46
-    i4: 179
-    i5: 87
-    i6: 96
-    i7: 196
-    i8: 203
-    i9: 111
-    i10: 167
-    i11: 251
-    i12: 62
-    i13: 100
-    i14: 76
-    i15: 95
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!114 &114393421817258584
 MonoBehaviour:
   m_ObjectHideFlags: 1

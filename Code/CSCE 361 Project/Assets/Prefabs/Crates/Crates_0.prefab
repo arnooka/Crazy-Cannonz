@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212604039889298354}
   - component: {fileID: 61906137469792956}
   - component: {fileID: 114248743410575096}
-  - component: {fileID: 114434946291101080}
   m_Layer: 0
   m_Name: Crates_0
   m_TagString: Crate_0
@@ -82,38 +81,6 @@ MonoBehaviour:
   amplitude: 0.03
   frequency: 2
   projectile: {fileID: 1822794668799196, guid: c18506c4e72db364c9a96e4225314312, type: 2}
---- !u!114 &114434946291101080
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1446475003855596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 244
-    i1: 86
-    i2: 84
-    i3: 218
-    i4: 87
-    i5: 76
-    i6: 166
-    i7: 52
-    i8: 9
-    i9: 85
-    i10: 236
-    i11: 69
-    i12: 105
-    i13: 175
-    i14: 164
-    i15: 237
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!212 &212604039889298354
 SpriteRenderer:
   m_ObjectHideFlags: 1

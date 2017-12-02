@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 95229008496382322}
   - component: {fileID: 114156259299846206}
   - component: {fileID: 60673246220145842}
+  - component: {fileID: 114391805674460378}
   m_Layer: 0
   m_Name: Green Cannon (Network)
   m_TagString: Player 3
@@ -205,6 +206,38 @@ MonoBehaviour:
   - {fileID: 0}
   groundPoints:
   - {fileID: 4623225307975596}
+--- !u!114 &114391805674460378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1883275151953608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 170
+    i1: 107
+    i2: 4
+    i3: 141
+    i4: 76
+    i5: 25
+    i6: 151
+    i7: 4
+    i8: 106
+    i9: 169
+    i10: 124
+    i11: 49
+    i12: 134
+    i13: 144
+    i14: 139
+    i15: 28
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!212 &212652915902228178
 SpriteRenderer:
   m_ObjectHideFlags: 1

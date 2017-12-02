@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 95392215605941348}
   - component: {fileID: 114737020857925154}
   - component: {fileID: 60208516547457244}
+  - component: {fileID: 114932223537117104}
   m_Layer: 0
   m_Name: Orange Cannon (Network)
   m_TagString: Player 4
@@ -205,6 +206,38 @@ MonoBehaviour:
   - {fileID: 0}
   groundPoints:
   - {fileID: 4857857456727194}
+--- !u!114 &114932223537117104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1773617766177662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 9
+    i1: 194
+    i2: 121
+    i3: 56
+    i4: 0
+    i5: 220
+    i6: 105
+    i7: 196
+    i8: 201
+    i9: 241
+    i10: 135
+    i11: 119
+    i12: 89
+    i13: 155
+    i14: 175
+    i15: 179
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!212 &212218534848007110
 SpriteRenderer:
   m_ObjectHideFlags: 1

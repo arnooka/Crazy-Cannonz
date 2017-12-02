@@ -103,7 +103,8 @@ public class PlayerScript : MonoBehaviour {
 		}
 
 		if (col.gameObject.tag.Contains ("Water")) {
-			waterEffect = Instantiate (waterEffect, transform.position, transform.rotation);
+			GameObject waterEffectClone = Instantiate (waterEffect, transform.position, transform.rotation);
+			Destroy (waterEffectClone, 2);
 			StartCoroutine (Respawn ());
 		}
 

@@ -103,7 +103,7 @@ namespace Prototype.NetworkLobby
 
 		void SetupLocalPlayer()
 		{
-			SetPlayerPrefab(nameInput.name);
+			SetPlayerPrefab(nameInput.text);
 
 			nameInput.interactable = false;
 			remoteIcone.gameObject.SetActive(false);

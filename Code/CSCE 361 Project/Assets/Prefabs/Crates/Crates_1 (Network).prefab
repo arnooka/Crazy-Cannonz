@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.03
   frequency: 2
-  projectile: {fileID: 1866571938232692, guid: df26df18bb899f04196684eb16a25983, type: 2}
+  projectile: {fileID: 1866571938232692, guid: 0a92478d152388649a723870e50b2a0c, type: 2}
 --- !u!114 &114662130323446564
 MonoBehaviour:
   m_ObjectHideFlags: 1

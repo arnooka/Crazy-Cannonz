@@ -65,19 +65,9 @@ public class MenuScript : MonoBehaviour {
 
 		// Button for entering online match menu
 		onlineMatchBtn.onClick.AddListener(() => {
-			Debug.Log("Entering Online Menu");
+			//Debug.Log("Entering Online Menu");
 			SceneManager.LoadScene("MultiplayerLobby");
-			//mainMenu.SetActive(false);
-			//eventSystem.SetSelectedGameObject(networkingField);
 		});
-
-		//Button for returning from Networking menu\
-		//networkingBackBtn.onClick.AddListener (() => {
-			//mainMenu.SetActive (true);
-			//networkingMenu.SetActive (false);
-			//eventSystem.SetSelectedGameObject (mainMenuField);
-		//});
-
 
 		// Button for starting a match
 		matchStartBtn.onClick.AddListener(() => {

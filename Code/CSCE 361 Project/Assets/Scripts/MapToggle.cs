@@ -28,6 +28,7 @@ public class MapToggle : MonoBehaviour {
 		toggle1.onValueChanged.AddListener ((value) => {
 			if (value) {
 				mapImage.sprite = mapS;
+                mapImage.rectTransform.sizeDelta = new Vector2(510.1873f, 135.89f);
 				mapName = mapS.name;
 			}
 		});
@@ -35,6 +36,7 @@ public class MapToggle : MonoBehaviour {
 		toggle2.onValueChanged.AddListener ((value) => {
 			if (value) {
 				mapImage.sprite = mapM;
+                mapImage.rectTransform.sizeDelta = new Vector2(510.1873f, 135.89f);
 				mapName = mapM.name;
 			}
 		});
@@ -42,6 +44,7 @@ public class MapToggle : MonoBehaviour {
 		toggle3.onValueChanged.AddListener ((value) => {
 			if (value) {
 				mapImage.sprite = mapL;
+                mapImage.rectTransform.sizeDelta = new Vector2(510.1873f, 135.89f);
 				mapName = mapL.name;
 			}
 		});

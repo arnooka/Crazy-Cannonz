@@ -14,9 +14,9 @@ Crazy Cannonz is a 2D platformer that involves moving "cannoneers" around a map 
 ### Download
 
 Download the standalone game for:
-- [Mac](https://www.dropbox.com/s/suep44ay8ckixi1/Crazy%20Cannonz.app.zip?dl=0).
-- [PC]().
-- [Linux]().
+- [Mac](https://www.dropbox.com/s/suep44ay8ckixi1/Crazy%20Cannonz.app.zip?dl=0)
+- [PC]()
+- [Linux]()
 
 
 ```markdown

@@ -2302,9 +2302,12 @@ MonoBehaviour:
   toggle3: {fileID: 423635379}
   toggle4: {fileID: 443109621}
   mapImage: {fileID: 376905396}
-  mapS: {fileID: 21300000, guid: 90e2735859ea54cc2aef756af73efe13, type: 3}
-  mapM: {fileID: 21300000, guid: bf58563ed57614a3ea3b4512474a99a2, type: 3}
-  mapL: {fileID: 21300000, guid: 9b776f3c294014457aa9938561af029b, type: 3}
+  mapS: {fileID: 21300000, guid: 31a1331783fa41343bca345d0a440f08, type: 3}
+  mapM: {fileID: 21300000, guid: e1d75fc32842a8240820c4ff101d870a, type: 3}
+  mapL: {fileID: 21300000, guid: 69957526c1d341d4f87964967413fd64, type: 3}
+  mapSIcon: {fileID: 21300000, guid: 90e2735859ea54cc2aef756af73efe13, type: 3}
+  mapMIcon: {fileID: 21300000, guid: bf58563ed57614a3ea3b4512474a99a2, type: 3}
+  mapLIcon: {fileID: 21300000, guid: 9b776f3c294014457aa9938561af029b, type: 3}
   joined1: {fileID: 1513388237}
   joined2: {fileID: 1380263524}
   joined3: {fileID: 586871566}

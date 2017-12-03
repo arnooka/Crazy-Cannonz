@@ -23,8 +23,10 @@ GameObject:
   - component: {fileID: 212982257301957916}
   - component: {fileID: 95272761814042404}
   - component: {fileID: 114393421817258584}
+  - component: {fileID: 114614220132049466}
   - component: {fileID: 60219592652530776}
   - component: {fileID: 114419900707434084}
+  - component: {fileID: 114254617710670584}
   m_Layer: 0
   m_Name: Red Cannon (Network)
   m_TagString: Player 2
@@ -172,13 +174,34 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114393421817258584
+--- !u!114 &114254617710670584
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325592347726456}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 2
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 3
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 15
+  m_InterpolateMovement: 1
+--- !u!114 &114393421817258584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325592347726456}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f49e068f5bee14c5eacc15bd864a08fc, type: 3}
   m_Name: 
@@ -237,7 +260,41 @@ MonoBehaviour:
     i14: 236
     i15: 204
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &114614220132049466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325592347726456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e2b62829ac8d546a71d28097f223ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 1
+  forward: {fileID: 1688865975648302}
+  waterEffect: {fileID: 1000011085071264, guid: 96730f8640590934eacb6f860058e7f9,
+    type: 2}
+  groundRadius: 0.1
+  movementSpeed: 2
+  jumpForce: 200
+  scoreText: {fileID: 0}
+  cannonSound: {fileID: 8300000, guid: 51441d4982a24409b8732c39435d0f6d, type: 3}
+  jumpButton: Jump_P1
+  horizontalCtrl: Horizontal_P1
+  fireButton: Fire_P1
+  crouchButton: Vertical_P1
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  spawnLocation:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  groundPoints:
+  - {fileID: 4004708806162038}
 --- !u!212 &212982257301957916
 SpriteRenderer:
   m_ObjectHideFlags: 1

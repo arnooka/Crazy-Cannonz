@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61295323072683624}
   - component: {fileID: 114498005828588828}
   - component: {fileID: 114588534693335012}
+  - component: {fileID: 114601366181006698}
   m_Layer: 0
   m_Name: Crates_2 (Network)
   m_TagString: Crate_2
@@ -114,6 +115,27 @@ MonoBehaviour:
     i15: 24
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &114601366181006698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1360172937958970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 0
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 15
+  m_InterpolateMovement: 1
 --- !u!212 &212406088727935754
 SpriteRenderer:
   m_ObjectHideFlags: 1

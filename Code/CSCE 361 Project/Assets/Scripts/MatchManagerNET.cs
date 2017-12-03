@@ -15,7 +15,7 @@ public class MatchManagerNET : NetworkBehaviour {
 	[SerializeField]
 	private Button leaveMatch;
 
-	private static float matchTime = 10.0f, timeRemaining = 0.0f, pauseMenuOffsetTime = 5.0f;
+	private static float matchTime = 600.0f, timeRemaining = 0.0f, pauseMenuOffsetTime = 5.0f;
 	private static bool isActive = true, isCountdown = true;
 	private static List<int> scores;
 

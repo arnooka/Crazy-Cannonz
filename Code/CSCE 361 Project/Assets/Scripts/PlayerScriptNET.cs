@@ -61,8 +61,7 @@ public class PlayerScriptNET : NetworkBehaviour {
 		cannonAnimator = GetComponent<Animator>();
 
 	}
-
-	[ServerCallback]
+		
 	void Update () {
 		if (!isLocalPlayer)
 			return;

@@ -68,12 +68,12 @@ public class PlayerScriptNET : NetworkBehaviour {
 			return;
 
 		// Set player score based on player number
-		//MatchManager.SetPlayerScore(playerNumber, score);
+		//MatchManagerNET.SetPlayerScore(playerNumber, score);
 		
 		//scoreText.text = "P" + playerNumber.ToString() + ": " + score.ToString();
 		
 		// Check if game is paused or is in the initial countdown
-		if (MatchManager.GetIsActive() && !MatchManager.GetIsCountdown()) {
+		if (MatchManagerNET.GetIsActive() && !MatchManagerNET.GetIsCountdown()) {
 			// Allow player movement
 			if (pause) {
 				this.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;

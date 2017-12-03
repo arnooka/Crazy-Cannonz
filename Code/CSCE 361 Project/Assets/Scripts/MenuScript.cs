@@ -33,7 +33,9 @@ public class MenuScript : MonoBehaviour {
 		// Get an instance of the sound manager, tell it that
 		// we're in a menu, and play menu music
 		SoundManager.getInstance().setInMenu(true);
-		SoundManager.getInstance().getMusicSource().Play();
+        if (!SoundManager.getInstance().getMusicSource().isPlaying) {
+            SoundManager.getInstance().getMusicSource().Play();
+        }
 
 		// Button for returning from match menu
 		matchBackBtn.onClick.AddListener(() => {

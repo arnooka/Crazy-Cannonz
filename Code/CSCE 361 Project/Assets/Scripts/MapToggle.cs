@@ -11,7 +11,7 @@ public class MapToggle : MonoBehaviour {
 	[SerializeField]
 	private Image mapImage;
 	[SerializeField]
-	private Sprite mapS, mapM, mapL;
+	private Sprite mapS, mapM, mapL, mapSIcon, mapMIcon, mapLIcon;
 
 	[SerializeField]
 	private Text joined1, joined2, joined3, joined4;
@@ -27,24 +27,21 @@ public class MapToggle : MonoBehaviour {
 
 		toggle1.onValueChanged.AddListener ((value) => {
 			if (value) {
-				mapImage.sprite = mapS;
-                mapImage.rectTransform.sizeDelta = new Vector2(510.1873f, 135.89f);
+				mapImage.sprite = mapSIcon;
 				mapName = mapS.name;
 			}
 		});
 
 		toggle2.onValueChanged.AddListener ((value) => {
 			if (value) {
-				mapImage.sprite = mapM;
-                mapImage.rectTransform.sizeDelta = new Vector2(510.1873f, 135.89f);
+				mapImage.sprite = mapMIcon;
 				mapName = mapM.name;
 			}
 		});
 
 		toggle3.onValueChanged.AddListener ((value) => {
 			if (value) {
-				mapImage.sprite = mapL;
-                mapImage.rectTransform.sizeDelta = new Vector2(510.1873f, 135.89f);
+				mapImage.sprite = mapLIcon;
 				mapName = mapL.name;
 			}
 		});

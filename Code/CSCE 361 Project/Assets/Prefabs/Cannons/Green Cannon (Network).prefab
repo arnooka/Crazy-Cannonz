@@ -53,8 +53,10 @@ GameObject:
   - component: {fileID: 212652915902228178}
   - component: {fileID: 95229008496382322}
   - component: {fileID: 114156259299846206}
+  - component: {fileID: 114633224628782610}
   - component: {fileID: 60673246220145842}
   - component: {fileID: 114391805674460378}
+  - component: {fileID: 114384146391899464}
   m_Layer: 0
   m_Name: Green Cannon (Network)
   m_TagString: Player 3
@@ -178,7 +180,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1883275151953608}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f49e068f5bee14c5eacc15bd864a08fc, type: 3}
   m_Name: 
@@ -206,6 +208,27 @@ MonoBehaviour:
   - {fileID: 0}
   groundPoints:
   - {fileID: 4623225307975596}
+--- !u!114 &114384146391899464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1883275151953608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 2
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 3
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 15
+  m_InterpolateMovement: 1
 --- !u!114 &114391805674460378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,7 +260,41 @@ MonoBehaviour:
     i14: 139
     i15: 28
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &114633224628782610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1883275151953608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e2b62829ac8d546a71d28097f223ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 1
+  forward: {fileID: 1351981039649734}
+  waterEffect: {fileID: 1000011085071264, guid: 96730f8640590934eacb6f860058e7f9,
+    type: 2}
+  groundRadius: 0.1
+  movementSpeed: 2
+  jumpForce: 200
+  scoreText: {fileID: 0}
+  cannonSound: {fileID: 8300000, guid: 51441d4982a24409b8732c39435d0f6d, type: 3}
+  jumpButton: Jump_P1
+  horizontalCtrl: Horizontal_P1
+  fireButton: Fire_P1
+  crouchButton: Vertical_P1
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  spawnLocation:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  groundPoints:
+  - {fileID: 4623225307975596}
 --- !u!212 &212652915902228178
 SpriteRenderer:
   m_ObjectHideFlags: 1

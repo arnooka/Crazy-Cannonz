@@ -66,6 +66,7 @@ public class MenuScript : MonoBehaviour {
 		// Button for entering online match menu
 		onlineMatchBtn.onClick.AddListener(() => {
 			//Debug.Log("Entering Online Menu");
+			MatchManager.SetMatchTime(600.0f);
 			SceneManager.LoadScene("MultiplayerLobby");
 		});
 

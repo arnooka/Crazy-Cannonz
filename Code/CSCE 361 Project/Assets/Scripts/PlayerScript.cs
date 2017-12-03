@@ -45,7 +45,6 @@ public class PlayerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 		facingRight = true;
 		hasProjectile = false;
 		respawning = false;
@@ -54,7 +53,6 @@ public class PlayerScript : MonoBehaviour {
 		score = 0;
 		crazyCannon = GetComponent<Rigidbody2D>();
 		cannonAnimator = GetComponent<Animator>();
-
 	}
 
 	void Update () {

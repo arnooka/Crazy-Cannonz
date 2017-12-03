@@ -48,9 +48,7 @@ public class MatchManager : MonoBehaviour {
 			SceneManager.LoadScene ("PostMatch");
 			eventSystem.SetSelectedGameObject(pauseField);
 		});
-
-
-		
+	
 		player1.SetActive (MapToggle.getPlayerStatus (1));
 		player2.SetActive (MapToggle.getPlayerStatus (2));
 		player3.SetActive (MapToggle.getPlayerStatus (3));

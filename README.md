@@ -9,7 +9,7 @@ Crazy Cannonz is a 2D platformer that involves moving "cannoneers" around a map 
 - Joseph Field III ([jjfield3](https://github.com/jjfield3))
 - Grant Harrison ([grant-gitcode](https://github.com/grant-gitcode))
 - Jared Nightingale ([jjnight444](https://github.com/jnight444))
-- Avinash Nooka ([nookavish](https://github.com/nookavish))
+- Avinash Nooka ([arnooka](https://github.com/arnooka))
 
 ### Download
 
